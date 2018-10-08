@@ -1,6 +1,6 @@
 # Online Book Store
-<br/><b style="color:red">Welcome to Online Book Store</b>
-<b>NOTE:- The files are kept under gh-pages Branch!</b><br/>
+<br/><b style="color:red">Welcome to Online Book Store</b><br/>
+<b>NOTE:-</b> The files are kept under gh-pages Branch!<br/>
 <br/>This is a sample made under small sub-project for the online book store.<br/>
 Under this project we have provided the facilities to search for books available in the book store ,anyone can get the details of the book and its price. <br/>
 The users are also provided a profile any anyone can register login and access the onlinebookstore from anywhere. The user will not be allowed to access the website if he logs out from the store<br/>
