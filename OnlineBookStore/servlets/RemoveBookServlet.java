@@ -11,7 +11,7 @@ public class RemoveBookServlet extends GenericServlet {
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
 		res.setContentType("text/html");
-		String bkid = req.getParameter("book_code");
+		String bkid = req.getParameter("barcode");
 		try {
 			Connection con = DBConnection.getCon();
 			PreparedStatement ps = con.prepareStatement(
