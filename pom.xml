@@ -25,11 +25,21 @@
     </plugins>
   </build>
   <dependencies>
+  	
   	<dependency>
   		<groupId>org.postgresql</groupId>
   		<artifactId>postgresql</artifactId>
   		<version>42.2.8</version>
   	</dependency>
+  	
+  	
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.45</version>
+	</dependency>
+  	
+  
   	<dependency>
   		<groupId>javax.servlet</groupId>
   		<artifactId>javax.servlet-api</artifactId>
