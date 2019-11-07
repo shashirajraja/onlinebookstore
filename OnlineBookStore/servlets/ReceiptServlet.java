@@ -23,7 +23,7 @@ public class ReceiptServlet extends GenericServlet {
 					"<div class=\"tab\">\r\n" + "		<table>\r\n" + "			<tr>\r\n" + "				\r\n"
 							+ "				<th>Book Code</th>\r\n" + "				<th>Book Name</th>\r\n"
 							+ "				<th>Book Author</th>\r\n" + "				<th>Book Price</th>\r\n"
-							+ "				<th>Quantity</th><br/>\r\n" + "			</tr>");
+							+ "				<th>Quantity</th><br/>\r\n" + "				<th>Amount</th><br/>\r\n" + "			</tr>");
 			double total = 0.0;
 			while (rs.next()) {
 				int bPrice = rs.getInt(IBookConstants.COLUMN_PRICE);
@@ -49,14 +49,17 @@ public class ReceiptServlet extends GenericServlet {
 						pw.println("<td>" + bName + "</td>");
 						pw.println("<td>" + bAuthor + "</td>");
 						pw.println("<td>" + bPrice + "</td>");
-						pw.println("<td>" + quantity + "</td></tr>");
-						total = total + bPrice * quantity;
+						pw.println("<td>" + quantity + "</td>");
+						int amount = bPrice * quantity;
+						total = total + amount;
+						pw.println("<td>" + amount + "</td></tr>");
 						bQty = bQty - quantity;
+						System.out.println(bQty);
 						PreparedStatement ps1 = con.prepareStatement("update " + IBookConstants.TABLE_BOOK + " set "
 								+ IBookConstants.COLUMN_QUANTITY + "=? where " + IBookConstants.COLUMN_BARCODE + "=?");
 						ps1.setInt(1, bQty);
 						ps1.setString(2, bCode);
-						ps1.executeQuery();
+						ps1.executeUpdate();
 					}
 				} catch (Exception e) {
 				}
