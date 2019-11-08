@@ -25,3 +25,5 @@ insert into users values('User','Password','First','User','My Home','42502216225
 insert into users values('Admin','Admin','Mr.','Admin','Haldia WB','9584552224521','admin@gmail.com',1);
 
 insert into users values('shashi','shashi','Shashi','Raj','Bihar','1236547089','shashi@gmail.com',2);
+
+commit;
