@@ -38,6 +38,8 @@
 
 3. Database used
 - Sql/MySql
+- Make userName attribute as primary key.
+  
 
 ### Database Creation:
 
