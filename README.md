@@ -53,7 +53,7 @@ Note:- This is a Sample Project, So we have used only Generic Servlet and not ta
 
 STEP 1: Open MySQL Command Prompt or MySQL Workbench
 
-STEP 2: Login to the root user as : ```mysql -u <username> -p <password>```
+STEP 2: Login to the administrator user as : ```mysql -u <username> -p``` (Enter Password if asked)
 
 STEP 3 :Copy paste the following MySql Commands:
 ```MySQL
@@ -63,7 +63,8 @@ use onlinebookstore;
 
 create table books(barcode varchar(100) primary key, name varchar(100), author varchar(100), price int, quantity int);
 
-create table users(username varchar(100) primary key,password varchar(100), firstname varchar(100),lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int);
+create table users(username varchar(100) primary key,password varchar(100), firstname varchar(100),
+    lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int);
 
 insert into books values('10101','Programming in C','James k Wick',500,5);
 insert into books values('10102','Learn Java','Scott Mayers',150,13);
@@ -83,7 +84,7 @@ Step 0: Open Eclipse Enterprise Edition. [Install, if not already installed.]
 
 Step 1: Click On File > Import > Git > Projects From Git > Clone Uri  > Paste The Repository Url as: ```https://github.com/shashirajraja/onlinebookstore.git```> Select J2EE Branch > Next > Next > Finish
 
-Step 2: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove and Update Any Libraries if having Red Mark > Finish.
+Step 2: Go inside ```OnlineBookStore > constants > IDatabase.java``` and update the value of USER_NAME and PASSWORD according to your installed mysql admin user credentials
 
 Step 3: [Only If Tomcat Server is not configured in Eclipse] : Right Click On Project > Run As > Run On Server > Select Tomcat V8.0 > (Select Tomcat V8.0 Installation Location If Asked) Next > Add onlinebookstore > Finish
 
