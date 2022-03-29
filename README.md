@@ -104,4 +104,4 @@ Step 8: Default Username And Password For User Is "shashi" And "shashi"
 
 <bold>Thanks a lot</bold><br/>
                                                                                                         Project Leader<br/>
-                                                                                                         <b>Shashi Raj</b>
+                                                                                                         <b>JP</b>
