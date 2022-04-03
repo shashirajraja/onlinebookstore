@@ -23,7 +23,7 @@ public class UserRegisterServlet extends GenericServlet {
 		try {
 			Connection con = DBConnection.getCon();
 			PreparedStatement ps = con
-					.prepareStatement("insert into " + IUserContants.TABLE_USERS + "  values(?,?,?,?,?,?,?)");
+					.prepareStatement("insert into " + IUserContants.TABLE_USERS + "  values(?,?,?,?,?,?,?,?)");
 			ps.setString(1, uName);
 			ps.setString(2, pWord);
 			ps.setString(3, fName);
@@ -31,7 +31,7 @@ public class UserRegisterServlet extends GenericServlet {
 			ps.setString(5, addr);
 			ps.setString(6, phNo);
 			ps.setString(7, mailId);
-			//ps.setInt(8, 2);
+			ps.setInt(8, 2);
 			int k = ps.executeUpdate();
 			if (k == 1) {
 				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
