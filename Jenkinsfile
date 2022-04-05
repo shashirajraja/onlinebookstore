@@ -25,8 +25,31 @@ sudo service tomcat9 start
     }
 
     stage('Testing') {
-      steps {
-        echo 'Tsting Stage'
+      parallel {
+        stage('Testing') {
+          steps {
+            echo 'Tsting Stage'
+          }
+        }
+
+        stage('Windows') {
+          steps {
+            echo 'Windows_tesing'
+          }
+        }
+
+        stage('Linux_testing') {
+          steps {
+            echo 'testing in Linux'
+          }
+        }
+
+        stage('Mac_OS_Testing') {
+          steps {
+            echo 'Testing In MAC OS'
+          }
+        }
+
       }
     }
 
