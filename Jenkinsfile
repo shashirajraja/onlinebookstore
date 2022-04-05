@@ -24,5 +24,11 @@ sudo service tomcat9 start
       }
     }
 
+    stage('Testing') {
+      steps {
+        echo 'Tsting Stage'
+      }
+    }
+
   }
 }
