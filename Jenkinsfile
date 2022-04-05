@@ -35,18 +35,21 @@ sudo service tomcat9 start
         stage('Windows') {
           steps {
             echo 'Windows_tesing'
+            sleep 10
           }
         }
 
         stage('Linux_testing') {
           steps {
             echo 'testing in Linux'
+            sleep 15
           }
         }
 
         stage('Mac_OS_Testing') {
           steps {
             echo 'Testing In MAC OS'
+            sleep 20
           }
         }
 
