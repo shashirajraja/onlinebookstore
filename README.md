@@ -1,10 +1,6 @@
 # OnlineBookStore Website Using Java 
 ### Online Book Store
-###FIRST BUILD
-###kubernetes
-##TESTING
-##LETS DO
-#pritam
+
 <span style="color:blue">**This Website is built for following purpose:-**</span>
 - For Selling books online
 - Maintaining books selling history
