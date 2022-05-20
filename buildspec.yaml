@@ -3,9 +3,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto8
+      java: openjdk8
     commands:
-        - apt install maven -y
+        - apt update -y
   build:
     commands:
         - mvn clean package
