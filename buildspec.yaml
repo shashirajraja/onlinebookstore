@@ -14,5 +14,5 @@ phases:
 artifacts:
   files:
         - 'output/*.war'
-        - appspec.yml
+        - appspec.yaml
         - scripts/*
