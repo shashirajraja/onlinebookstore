@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /target/onlinebookstore.war
+  - source: /output/books.war
     destination: /opt/tomcat8/webapps
 hooks:
   BeforeInstall:
