@@ -1,12 +1,11 @@
 version: 0.0
 os: linux
 files:
-  - source: /target/*.war
+  - source: /target/onlinebookstore.war
     destination: /opt/tomcat8/webapps
 hooks:
-  ApplicationStart:
+  BeforeInstall:
     - location: scripts/start_server.sh
-    - location: scripts/create_test_db.sh
       timeout: 300
       runas: root
   ApplicationStop:
