@@ -8,10 +8,11 @@ phases:
         - yum install -y maven
   build:
     commands:
-        - mvn clean install
-        - mv target/*.war target/onlinebookstore.war
+        - mvn clean package
+        - mkdir output
+        - cp target/*.war output/books.war
 artifacts:
   files:
-        - 'target/onlinebookstore.war'
+        - 'output/*.war'
         - appspec.yml
         - scripts/*
