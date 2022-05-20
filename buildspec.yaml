@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+    commands:
+        - yum install -y maven
+  build:
+    commands:
+        - mvn clean install
+        - mv target/*.war target/onlinebookstore.war
+artifacts:
+  files:
+        - 'target/onlinebookstore.war'
+        - appspec.yml
+        - scripts/*
