@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       java: corretto8
     commands:
-        - yum install -y maven
+        - apt install -y maven
   build:
     commands:
         - mvn clean package
