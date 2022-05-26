@@ -3,7 +3,7 @@ pipeline {
         stages {  
        	    stage("git_checkout") {  
            	    steps {  
-              	    echo "cloning repository" 
+              	    echo "cloning failed" 
               	    echo "repo cloned successfully"  
               	    }  
          	    } 
