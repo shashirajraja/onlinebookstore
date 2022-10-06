@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+    commands:
+        - apt update -y
+  build:
+    commands:
+        - mvn clean package
+        - mkdir output
+        - cp target/*.war output/books.war
+artifacts:
+  files:
+        - 'output/*.war'
+        - appspec.yaml
+        - scripts/*
