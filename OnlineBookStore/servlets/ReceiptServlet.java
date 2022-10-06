@@ -18,7 +18,7 @@ public class ReceiptServlet extends GenericServlet {
 			int i = 0;
 			RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
 			rd.include(req, res);
-			pw.println("<div class=\"tab\">You Successfully Paid for Following Books</div>");
+			pw.println("<div class=\"tab\">Your order status is as below</div>");
 			pw.println(
 					"<div class=\"tab\">\r\n" + "		<table>\r\n" + "			<tr>\r\n" + "				\r\n"
 							+ "				<th>Book Code</th>\r\n" + "				<th>Book Name</th>\r\n"
@@ -40,7 +40,7 @@ public class ReceiptServlet extends GenericServlet {
 					String getChecked = req.getParameter(check1);
 					if (bQty < quantity) {
 						pw.println(
-								"</table><div class=\"tab\">Please Select the Qty less than Available Books Quantity</div>");
+								"</table><div class=\"tab\" style='color:red;'>Please Select the Qty less than Available Books Quantity</div>");
 						break;
 					}
 
