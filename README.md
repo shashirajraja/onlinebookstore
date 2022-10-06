@@ -27,7 +27,7 @@
 
 ### Technologies used:-
 1. Front-End Development:
-- Html.
+- Html 5.
 - Css.
 - Javascript.
 - <a href="https://shashirajraja.github.io/onlinebookstore/WebContent/index.html" target="_blank">Click Here for Front End View</a>
