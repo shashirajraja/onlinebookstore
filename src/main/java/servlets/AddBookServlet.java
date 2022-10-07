@@ -10,25 +10,26 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import constants.IOnlineBookStoreConstants;
-import sql.IBookConstants;
+import config.DBConnection;
+import constants.BookStoreConstants;
+import constants.db.BooksDBConstants;
 
 public class AddBookServlet extends GenericServlet{
 	public void service(ServletRequest req,ServletResponse res) throws IOException,ServletException
 	{
 		PrintWriter pw = res.getWriter();
 		
-		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+		res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 		
-		String bCode = req.getParameter(IBookConstants.COLUMN_BARCODE);
-		String bName = req.getParameter(IBookConstants.COLUMN_NAME);
-		String bAuthor = req.getParameter(IBookConstants.COLUMN_AUTHOR);
-		int bPrice =Integer.parseInt(req.getParameter(IBookConstants.COLUMN_PRICE));
-		int bQty = Integer.parseInt(req.getParameter(IBookConstants.COLUMN_QUANTITY));
+		String bCode = req.getParameter(BooksDBConstants.COLUMN_BARCODE);
+		String bName = req.getParameter(BooksDBConstants.COLUMN_NAME);
+		String bAuthor = req.getParameter(BooksDBConstants.COLUMN_AUTHOR);
+		int bPrice =Integer.parseInt(req.getParameter(BooksDBConstants.COLUMN_PRICE));
+		int bQty = Integer.parseInt(req.getParameter(BooksDBConstants.COLUMN_QUANTITY));
 		
 		try {
 			Connection con = DBConnection.getCon();
-			PreparedStatement ps = con.prepareStatement("insert into " + IBookConstants.TABLE_BOOK + "  values(?,?,?,?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into " + BooksDBConstants.TABLE_BOOK + "  values(?,?,?,?,?)");
 			ps.setString(1, bCode);
 			ps.setString(2, bName);
 			ps.setString(3, bAuthor);

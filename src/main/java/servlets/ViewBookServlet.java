@@ -3,8 +3,9 @@ import java.io.*;
 import java.sql.*;
 import javax.servlet.*;
 
-import constants.IOnlineBookStoreConstants;
-import sql.IBookConstants;
+import config.DBConnection;
+import constants.BookStoreConstants;
+import constants.db.BooksDBConstants;
 
 public class ViewBookServlet extends GenericServlet{
 	public void service(ServletRequest req,ServletResponse res) throws IOException,ServletException
@@ -13,7 +14,7 @@ public class ViewBookServlet extends GenericServlet{
 		res.setContentType("text/html");
 		try {
 			Connection con = DBConnection.getCon();
-			PreparedStatement ps = con.prepareStatement("Select * from " + IBookConstants.TABLE_BOOK);
+			PreparedStatement ps = con.prepareStatement("Select * from " + BooksDBConstants.TABLE_BOOK);
 			ResultSet rs = ps.executeQuery();
 			RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
 			rd.include(req, res);

@@ -3,7 +3,8 @@ package servlets;
 import java.sql.*;
 import javax.servlet.*;
 
-import sql.IBookConstants;
+import config.DBConnection;
+import constants.db.BooksDBConstants;
 
 import java.io.*;
 
@@ -15,7 +16,7 @@ public class RemoveBookServlet extends GenericServlet {
 		try {
 			Connection con = DBConnection.getCon();
 			PreparedStatement ps = con.prepareStatement(
-					"delete from " + IBookConstants.TABLE_BOOK + "  where " + IBookConstants.COLUMN_BARCODE + "=?");
+					"delete from " + BooksDBConstants.TABLE_BOOK + "  where " + BooksDBConstants.COLUMN_BARCODE + "=?");
 			ps.setString(1, bkid);
 			int k = ps.executeUpdate();
 			if (k == 1) {

@@ -1,6 +1,6 @@
-package sql;
+package constants.db;
 
-public interface IBookConstants {
+public interface BooksDBConstants {
 	
     public static String TABLE_BOOK = "books";
 	
