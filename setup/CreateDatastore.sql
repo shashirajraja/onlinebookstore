@@ -1,8 +1,8 @@
-CREATE DATABASE onlinebookstore;
+CREATE DATABASE if not exists onlinebookstore;
 
 \c onlinebookstore
 
-CREATE TABLE books 
+CREATE TABLE if not exists books 
   ( 
      barcode   VARCHAR(100) PRIMARY KEY, 
      name      TEXT NOT NULL, 
@@ -11,7 +11,7 @@ CREATE TABLE books
      quantity  REAL
   ); 
   
-  CREATE TABLE users
+  CREATE TABLE if not exists users
   ( 
      username  VARCHAR(100) PRIMARY KEY, 
      password  VARCHAR(100) NOT NULL, 
