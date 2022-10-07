@@ -1,7 +1,9 @@
 # <a href="https://shashirajraja.github.io/onlinebookstore/WebContent/index.html" target="_blank"> OnlineBookStore </a> Website Using Java 
+### About
+This is online Bookstore system project where user can buy books online, view available books, select books to buy and their quantity. And can get payment receipt after payment. This is also used by administrator who maintain books selling history, add new books, remove books and increase or decrease books amount. 
 ![onlinebookstore](https://user-images.githubusercontent.com/34605595/137615096-8447d32d-bddc-4f13-a8ed-3c0f4dd5e04e.png)
 
-#### To View First Front Page Design of this website <a href="https://shashirajraja.github.io/onlinebookstore/WebContent/index.html" target="_blank">Click Here</a><br>
+#### To View live of this website <a href="https://j2eebookstore.herokuapp.com/" target="_blank">Click Here</a><br>
 <span style="color:blue">**This Website is built for following purpose:-**</span>
 - For Selling books online.
 - Maintaining books selling history.
@@ -30,7 +32,7 @@
 - Html 5.
 - Css.
 - Javascript.
-- <a href="https://shashirajraja.github.io/onlinebookstore/WebContent/index.html" target="_blank">Click Here for Front End View</a>
+- <a href="https://j2eebookstore.herokuapp.com" target="_blank">Click Here for Front End View</a>
 
 2. Back-End Development
 - Java [JDK 8+]
