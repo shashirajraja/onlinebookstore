@@ -1,6 +1,6 @@
-package sql;
+package constants.db;
 
-public interface IUserContants {
+public interface UsersDBConstants {
 
 	public static String TABLE_USERS = "users";
 	

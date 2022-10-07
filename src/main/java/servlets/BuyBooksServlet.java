@@ -3,18 +3,19 @@ import java.io.*;
 import java.sql.*;
 import javax.servlet.*;
 
-import constants.IOnlineBookStoreConstants;
-import sql.IBookConstants;
-import sql.IUserContants;
+import config.DBConnection;
+import constants.BookStoreConstants;
+import constants.db.BooksDBConstants;
+import constants.db.UsersDBConstants;
 public class BuyBooksServlet extends GenericServlet{
 	public void service(ServletRequest req,ServletResponse res) throws IOException,ServletException
 	{
 		PrintWriter pw = res.getWriter();
-		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+		res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 		try {
 			Connection con = DBConnection.getCon();
 			//ArrayList<Books> al = new ArrayList<Books>();
-			PreparedStatement ps = con.prepareStatement("Select * from " + IBookConstants.TABLE_BOOK);
+			PreparedStatement ps = con.prepareStatement("Select * from " + BooksDBConstants.TABLE_BOOK);
 			ResultSet rs = ps.executeQuery();
 			RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
 			rd.include(req, res);

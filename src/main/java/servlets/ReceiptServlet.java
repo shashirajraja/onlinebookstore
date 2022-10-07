@@ -4,16 +4,17 @@ import java.sql.*;
 import java.io.*;
 import javax.servlet.*;
 
-import constants.IOnlineBookStoreConstants;
-import sql.IBookConstants;
+import config.DBConnection;
+import constants.BookStoreConstants;
+import constants.db.BooksDBConstants;
 
 public class ReceiptServlet extends GenericServlet {
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
-		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+		res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 		try {
 			Connection con = DBConnection.getCon();
-			PreparedStatement ps = con.prepareStatement("select * from " + IBookConstants.TABLE_BOOK);
+			PreparedStatement ps = con.prepareStatement("select * from " + BooksDBConstants.TABLE_BOOK);
 			ResultSet rs = ps.executeQuery();
 			int i = 0;
 			RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
@@ -26,11 +27,11 @@ public class ReceiptServlet extends GenericServlet {
 							+ "				<th>Quantity</th><br/>\r\n" + "				<th>Amount</th><br/>\r\n" + "			</tr>");
 			double total = 0.0;
 			while (rs.next()) {
-				int bPrice = rs.getInt(IBookConstants.COLUMN_PRICE);
-				String bCode = rs.getString(IBookConstants.COLUMN_BARCODE);
-				String bName = rs.getString(IBookConstants.COLUMN_NAME);
-				String bAuthor = rs.getString(IBookConstants.COLUMN_AUTHOR);
-				int bQty = rs.getInt(IBookConstants.COLUMN_QUANTITY);
+				int bPrice = rs.getInt(BooksDBConstants.COLUMN_PRICE);
+				String bCode = rs.getString(BooksDBConstants.COLUMN_BARCODE);
+				String bName = rs.getString(BooksDBConstants.COLUMN_NAME);
+				String bAuthor = rs.getString(BooksDBConstants.COLUMN_AUTHOR);
+				int bQty = rs.getInt(BooksDBConstants.COLUMN_QUANTITY);
 				i = i + 1;
 
 				String qt = "qty" + Integer.toString(i);
@@ -55,8 +56,8 @@ public class ReceiptServlet extends GenericServlet {
 						pw.println("<td>" + amount + "</td></tr>");
 						bQty = bQty - quantity;
 						System.out.println(bQty);
-						PreparedStatement ps1 = con.prepareStatement("update " + IBookConstants.TABLE_BOOK + " set "
-								+ IBookConstants.COLUMN_QUANTITY + "=? where " + IBookConstants.COLUMN_BARCODE + "=?");
+						PreparedStatement ps1 = con.prepareStatement("update " + BooksDBConstants.TABLE_BOOK + " set "
+								+ BooksDBConstants.COLUMN_QUANTITY + "=? where " + BooksDBConstants.COLUMN_BARCODE + "=?");
 						ps1.setInt(1, bQty);
 						ps1.setString(2, bCode);
 						ps1.executeUpdate();

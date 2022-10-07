@@ -4,8 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
-import constants.IOnlineBookStoreConstants;
-import sql.IUserContants;
+import config.DBConnection;
+import constants.BookStoreConstants;
+import constants.db.UsersDBConstants;
 
 import java.io.*;
 import java.sql.*;
@@ -13,14 +14,14 @@ import java.sql.*;
 public class AdminLoginServlet extends GenericServlet {
 	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
-		res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
-		String uName = req.getParameter(IUserContants.COLUMN_USERNAME);
-		String pWord = req.getParameter(IUserContants.COLUMN_PASSWORD);
+		res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+		String uName = req.getParameter(UsersDBConstants.COLUMN_USERNAME);
+		String pWord = req.getParameter(UsersDBConstants.COLUMN_PASSWORD);
 		try {
 			Connection con = DBConnection.getCon();
-			PreparedStatement ps = con.prepareStatement("SELECT * FROM " + IUserContants.TABLE_USERS + " WHERE  "
-					+ IUserContants.COLUMN_USERNAME + "=? AND " + IUserContants.COLUMN_PASSWORD + "=? AND "
-					+ IUserContants.COLUMN_USERTYPE + "=1");
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM " + UsersDBConstants.TABLE_USERS + " WHERE  "
+					+ UsersDBConstants.COLUMN_USERNAME + "=? AND " + UsersDBConstants.COLUMN_PASSWORD + "=? AND "
+					+ UsersDBConstants.COLUMN_USERTYPE + "=1");
 			ps.setString(1, uName);
 			ps.setString(2, pWord);
 			ResultSet rs = ps.executeQuery();
