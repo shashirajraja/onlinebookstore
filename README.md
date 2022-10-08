@@ -1,8 +1,8 @@
 # <a href="https://theonlinebookstore.herokuapp.com" target="_blank"> OnlineBookStore </a> 
-- Java web developement project
+- Java Web developement project
 - See Live website demo at: [https://theonlinebookstore.herokuapp.com](https://theonlinebookstore.herokuapp.com)
 ### About
-This is online Bookstore system project where user can buy books online, view available books, select books to buy and their quantity. And can get payment receipt after payment. This is also used by administrator who maintain books selling history, add new books, remove books and increase or decrease books amount. 
+This is online Bookstore system portal where user can purchase books online, view available books,select books to buy and their quantity and can get payment receipt after successful payment. This is also used by administrator who maintain books selling history, add new books, remove books and increase or decrease books amount. 
 ![onlinebookstore](https://user-images.githubusercontent.com/34605595/137615096-8447d32d-bddc-4f13-a8ed-3c0f4dd5e04e.png)
 
 #### To View live demo of this website visit <a href="https://theonlinebookstore.herokuapp.com/" target="_blank">https://theonlinebookstore.herokuapp.com</a><br>
@@ -63,13 +63,13 @@ STEP 2: Login to the administrator user as : ```mysql -u <username> -p``` (Enter
 
 STEP 3 :Copy paste the following MySql Commands:
 ```MySQL
-create database if not exists onlinebookstore;
+Create database if not exists onlinebookstore;
 
 use onlinebookstore;
 
-create table if not exists books(barcode varchar(100) primary key, name varchar(100), author varchar(100), price int, quantity int);
+Create table if not exists books(barcode varchar(100) primary key, name varchar(100), author varchar(100), price int, quantity int);
 
-create table if not exists users(username varchar(100) primary key,password varchar(100), firstname varchar(100),
+Create table if not exists users(username varchar(100) primary key,password varchar(100), firstname varchar(100),
     lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int);
 
 insert into books values('10101','Programming in C','James k Wick',500,5);
@@ -103,7 +103,7 @@ Step 6: Check Running The Site At  <a href="http://localhost:8083/onlinebookstor
 
 Step 7: Default Username And Password For Admin Is "Admin" And "Admin"
 
-Step 8: Default Username And Password For User Is "shashi" And "shashi"
+Step 8: Default Username And Password For User Is "Shashi" And "Shashi"
 
 
 #### "Suggestions and project Improvements are Invited!"
