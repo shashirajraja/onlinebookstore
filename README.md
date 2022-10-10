@@ -1,6 +1,8 @@
 # <a href="https://theonlinebookstore.herokuapp.com" target="_blank"> OnlineBookStore </a> 
 - Java web developement project
 - See Live website demo at: [https://theonlinebookstore.herokuapp.com](https://theonlinebookstore.herokuapp.com)
+- User Login Credentials: (shashi/shashi)
+- Admin Login Credentials: (Admin/Admin)
 ### About
 This is online Bookstore system project where user can buy books online, view available books, select books to buy and their quantity. And can get payment receipt after payment. This is also used by administrator who maintain books selling history, add new books, remove books and increase or decrease books amount. 
 ![onlinebookstore](https://user-images.githubusercontent.com/34605595/137615096-8447d32d-bddc-4f13-a8ed-3c0f4dd5e04e.png)
