@@ -6,17 +6,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-import java.util.ResourceBundle;
 
 public class DBConnection {
-
-	ResourceBundle bundle = ResourceBundle.getBundle("properties/application");
 
 	private static Connection con;
 
 	private DBConnection() {
-	};
-
+	}
+	
 	static {
 
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
