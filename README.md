@@ -92,7 +92,7 @@ Step 0: Open Eclipse Enterprise Edition. [Install, if not already installed.]
 
 Step 1: Click On File > Import > Git > Projects From Git > Clone Uri  > Paste The Repository Url as: ```https://github.com/shashirajraja/onlinebookstore.git```> Select J2EE Branch > Next > Next > Finish
 
-Step 2.a: Go inside ```src/main/java > config > DatabaseConfig.java``` and update the value of database details as per your usage, like DB_USER_NAME and DB_PASSWORD according to your installed mysql/postgresql admin user credentials
+Step 2.a: Go inside ```src/main/resources > application.properties``` and update the value of database details as per your usage, like db.driver, db.host, db.username and db.password according to your installed mysql/postgresql admin user credentials
 Step 2.b: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove and Update Any Libraries if having Red Mark > Finish.
 
 Step 3: [Only If Tomcat Server is not configured in Eclipse] : Right Click On Project > Run As > Run On Server > Select Tomcat V8.0 > (Select Tomcat V8.0 Installation Location If Asked) Next > Add onlinebookstore > Finish
