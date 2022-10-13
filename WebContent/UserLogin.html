@@ -4,7 +4,6 @@
 <title>Book Store</title>
 <style>
 /* COMPACT CAPTCHA YELLOW */
-
 .capbox {
 	background: #ccc2a7;
 	background: linear-gradient(to right, #ccc2a7, #8f8874);
@@ -16,18 +15,19 @@
 	display: inline-block;
 	padding: 5px 8px 5px 8px;
 	border-radius: 4px 4px 4px 4px;
-	}
+}
 
 .capbox-inner {
 	font: bold 12px arial, sans-serif;
 	color: #000000;
-	background:rgba(255,255,255,0.30); /* SEMI TRANSPARENT BACKGROUND */
+	background: rgba(255, 255, 255, 0.30);
+	/* SEMI TRANSPARENT BACKGROUND */
 	margin: 0px auto 0px auto;
 	padding: 3px 8px 5px 10px;
 	border-radius: 4px;
 	display: inline-block;
 	vertical-align: middle;
-	}
+}
 
 #CaptchaDiv {
 	color: #000000;
@@ -41,13 +41,13 @@
 	padding: 3px 14px 3px 8px;
 	margin-right: 4px;
 	border-radius: 4px;
-	}
+}
 
 #CaptchaInput {
 	border: black 2px solid;
 	margin: 3px 0px 1px 0px;
 	width: 105px;
-	}
+}
 
 * {
 	box-sizing: border-box;
@@ -127,9 +127,12 @@ a:link {
 	color: brown;
 }
 </style>
-<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180"
+	href="./favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="./favicons/favicon-16x16.png">
 <link rel="manifest" href="./favicons/site.webmanifest">
 </head>
 <body>
@@ -162,16 +165,19 @@ a:link {
 
 		<tr>
 			<td>
-				<form action="userlog" method="post">
-					Username: <input type="text" name="username"><br />
-					<br /> Password: <input type="password" name="password"><br />
+				<form action="userlog" method="post" onsubmit="checkform()"
+					id="theform">
+					Username: <input type="text" name="username"><br /> <br />
+					Password: <input type="password" name="password"><br />
+					<br />
 					<div class="capbox">
 						<div id="CaptchaDiv">46749</div>
 						<div class="capbox-inner">
-						<input type="hidden" id="txtCaptcha" value="46749">
-						<input type="text" name="CaptchaInput" id="CaptchaInput" size="15"><br>
+							<input type="hidden" id="txtCaptcha" value="46749"> <input
+								type="text" name="CaptchaInput" id="CaptchaInput" size="15" placeholder="Enter Captcha"><br>
 						</div>
-						</div>
+					</div>
+					<br />
 					<br /> <input type="submit" value=" LOGIN AS USER ">
 				</form>
 			</td>
@@ -180,51 +186,53 @@ a:link {
 	</table>
 
 	<script type="text/javascript">
-
 		// Captcha Script
-		
-		function checkform(theform){
-		var why = "";
-		
-		if(theform.CaptchaInput.value == ""){
-		why += "- Please Enter CAPTCHA Code.\n";
+
+		function checkform() {
+			var theform = document.getElementById("theform");
+			var why = "";
+
+			if (theform.CaptchaInput.value == "") {
+				why += "- Please Enter CAPTCHA Code.\n";
+			}
+			if (theform.CaptchaInput.value != "") {
+				if (ValidCaptcha(theform.CaptchaInput.value) == false) {
+					why += "- The CAPTCHA Code Does Not Match.\n";
+				}
+			}
+			if (why != "") {
+				alert(why);
+				event.preventDefault();
+				return false;
+			}
+			return true;
 		}
-		if(theform.CaptchaInput.value != ""){
-		if(ValidCaptcha(theform.CaptchaInput.value) == false){
-		why += "- The CAPTCHA Code Does Not Match.\n";
-		}
-		}
-		if(why != ""){
-		alert(why);
-		return false;
-		}
-		}
-		
-		var a = Math.ceil(Math.random() * 9)+ '';
-		var b = Math.ceil(Math.random() * 9)+ '';
-		var c = Math.ceil(Math.random() * 9)+ '';
-		var d = Math.ceil(Math.random() * 9)+ '';
-		var e = Math.ceil(Math.random() * 9)+ '';
-		
+
+		var a = Math.ceil(Math.random() * 9) + '';
+		var b = Math.ceil(Math.random() * 9) + '';
+		var c = Math.ceil(Math.random() * 9) + '';
+		var d = Math.ceil(Math.random() * 9) + '';
+		var e = Math.ceil(Math.random() * 9) + '';
+
 		var code = a + b + c + d + e;
 		document.getElementById("txtCaptcha").value = code;
 		document.getElementById("CaptchaDiv").innerHTML = code;
-		
+
 		// Validate input against the generated number
-		function ValidCaptcha(){
-		var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-		var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
-		if (str1 == str2){
-		return true;
-		}else{
-		return false;
+		function ValidCaptcha() {
+			var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+			var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+			if (str1 == str2) {
+				return true;
+			} else {
+				return false;
+			}
 		}
-		}
-		
+
 		// Remove the spaces from the entered and generated code
-		function removeSpaces(string){
-		return string.split(' ').join('');
+		function removeSpaces(string) {
+			return string.split(' ').join('');
 		}
-		</script>
+	</script>
 </body>
 </html>
