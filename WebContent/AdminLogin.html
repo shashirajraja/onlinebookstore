@@ -163,7 +163,8 @@ a:link {
 
 		<tr>
 			<td>
-				<form action="adminlog" method="post">
+				<form action="adminlog" method="post" onsubmit="checkform()"
+				id="theform">
 					Username: <input type="text" name="username"><br />
 					<br /> Password: <input type="password" name="password"><br />
 					<div class="capbox">
@@ -172,7 +173,7 @@ a:link {
 						<input type="hidden" id="txtCaptcha" value="46749">
 						<input type="text" name="CaptchaInput" id="CaptchaInput" size="15"><br>
 						</div>
-						</div>
+					</div>
 					<br /> <input type="submit" value=" Login as an Admin  "
 						text-align="center">
 				</form>
@@ -189,16 +190,16 @@ a:link {
 		var why = "";
 		
 		if(theform.CaptchaInput.value == ""){
-		why += "- Please Enter CAPTCHA Code.\n";
+			why += "- Please Enter CAPTCHA Code.\n";
 		}
 		if(theform.CaptchaInput.value != ""){
-		if(ValidCaptcha(theform.CaptchaInput.value) == false){
-		why += "- The CAPTCHA Code Does Not Match.\n";
-		}
+			if(ValidCaptcha(theform.CaptchaInput.value) == false){
+				why += "- The CAPTCHA Code Does Not Match.\n";
+			}
 		}
 		if(why != ""){
-		alert(why);
-		return false;
+			alert(why);
+			return false;
 		}
 		}
 		
@@ -217,15 +218,15 @@ a:link {
 		var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
 		var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
 		if (str1 == str2){
-		return true;
+			return true;
 		}else{
-		return false;
+			return false;
 		}
 		}
 		
 		// Remove the spaces from the entered and generated code
 		function removeSpaces(string){
-		return string.split(' ').join('');
+			return string.split(' ').join('');
 		}
 		</script>
 </body>
