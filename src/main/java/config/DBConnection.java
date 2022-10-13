@@ -1,11 +1,9 @@
 package config;
 
-import java.io.IOException;
-import java.io.InputStream;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class DBConnection {
 
@@ -16,26 +14,19 @@ public class DBConnection {
 	
 	static {
 
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		InputStream input = classLoader.getResourceAsStream("application.properties");
-		Properties prop = new Properties();
-		try {
-			prop.load(input);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 		try {
 
-			Class.forName(prop.getProperty("db.driver"));
+			Class.forName(DatabaseConfig.DRIVER_NAME);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		try {
-			con = DriverManager.getConnection(prop.getProperty("db.host"), prop.getProperty("db.username"),
-					prop.getProperty("db.password"));
-
+			
+		    con = DriverManager.getConnection(DatabaseConfig.CONNECTION_STRING, DatabaseConfig.DB_USER_NAME,
+                    DatabaseConfig.DB_PASSWORD);
 		} catch (SQLException e) {
 
 			e.printStackTrace();
