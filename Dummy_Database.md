@@ -9,15 +9,15 @@ create table if not exists books(barcode varchar(100) primary key, name varchar(
 
 create table if not exists users(username varchar(100) primary key,password varchar(100), firstname varchar(100),lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int);
 
-insert into if not exists books values('10101','Programming in C','James k Wick',500,5);
+insert into books values('10101','Programming in C','James k Wick',500,5);
 
-insert into if not exists books values('10102','Learn Java','Scott Mayers',150,13);
+insert into books values('10102','Learn Java','Scott Mayers',150,13);
 
-insert into if not exists books values('10103','Database Knowledge','Charles Pettzoid',124,360);
+insert into books values('10103','Database Knowledge','Charles Pettzoid',124,360);
 
-insert into if not exists books values('10104','Let us c++','Steve Macclen',90,111);
+insert into books values('10104','Let us c++','Steve Macclen',90,111);
 
-insert into if not exists books values('10105','Success Key','Shashi Raj',5000,15);
+insert into books values('10105','Success Key','Shashi Raj',5000,15);
 
 insert into users values('User','Password','First','User','My Home','42502216225','User@gmail.com',2);
 
