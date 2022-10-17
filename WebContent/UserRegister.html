@@ -60,7 +60,19 @@ a:link {
 	float: left;
 	clear: both;
 }
-
+.finalacceptance{
+position: relative;
+left: 25px;
+}
+.register{
+border-radius: 20px; ;
+ background-color: #d9b899;
+ text-align: center;
+ position: relative;
+ left: 30px;
+ padding-top: 10px;
+ padding-bottom: 10px;
+}
 .yel {
 	color: yellow;
 }
@@ -152,8 +164,9 @@ a:link {
 					Address : <input type="text" name="address"><br /> <br />
 					Phone No : <input type="text" name="phone"><br /> <br />
 					Email Id : <input type="text" name="mailid"><br /> <br />
-					<input class="UserRegistration" type="submit"
-						value=" I AGREE FOR ALL TERMS & CONDITIONS ! REGISTER ME ">
+          <input type="checkbox" class="register">
+					<label for="acceptance" class="finalacceptance">I ACCEPT ALL TERMS & CONDITIONS</label><br>
+					<input class="UserRegistration" type="submit" value="REGISTER ME ">
 				</form>
 			</td>
 
