@@ -9,8 +9,8 @@
 <link rel="manifest" href="./favicons/site.webmanifest">
 <link rel="stylesheet" href="Style.css">
 </head>
-<body>
-	<div id="topmid">
+<body onload="funload()">
+		<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
 	
@@ -53,6 +53,13 @@
 		</tr>
 	</table>
 	</div>
+
+	<script>
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
 
 </body>
 </html>

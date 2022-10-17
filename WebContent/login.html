@@ -24,29 +24,40 @@
     <link rel="stylesheet" href="Style.css" />
   </head>
 
-  <body>
+  <body onload="funload()">
     <div id="topmid">
       <h1>Welcome to Online Book Store</h1>
     </div>
 
-
     <div class="main_contend">
-
       <div class="home_wrap">
-      <ul >
-        <li class="home"><a href="index.html">Home</a></li>
-        <li class="home"><a href="viewbook">Available Books</a></li>
-        <li class="home"><a href="UserRegister.html">Register</a></li>
-      </ul>    </div>
-       <div class="login_tab">
-        <ul >
-          <li class=" tab brown hd " bgcolor="black">Login or Signup Below</li>
-          <li class="tab" border="0px solid black"><a href="AdminLogin.html">Login As Admin</a></li>
-          <li class="tab " border="0px solid black"><a href="UserLogin.html">Login As<span> User</span></a></li>
-          <li class="tab green"><a href="UserRegister.html">New user ! Register Here</a></li>
-
-        </ul> 
-       </div>
+        <ul>
+          <li class="home"><a href="index.html">Home</a></li>
+          <li class="home"><a href="viewbook">Available Books</a></li>
+          <li class="home"><a href="UserRegister.html">Register</a></li>
+        </ul>
       </div>
+      <div class="login_tab">
+        <ul>
+          <li class="tab brown hd" bgcolor="black">Login or Signup Below</li>
+          <li class="tab" border="0px solid black">
+            <a href="AdminLogin.html">Login As Admin</a>
+          </li>
+          <li class="tab" border="0px solid black">
+            <a href="UserLogin.html">Login As<span> User</span></a>
+          </li>
+          <li class="tab green">
+            <a href="UserRegister.html">New user ! Register Here</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      var tmp = document.getElementById("loding");
+      function funload() {
+        loding.style.display = "none";
+      }
+    </script>
   </body>
 </html>

@@ -1,31 +1,48 @@
 <html>
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Book Store</title>
-	
-	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
-	<link rel="manifest" href="./favicons/site.webmanifest">
-	<link rel="stylesheet" href="Style.css">
-	
-</head>
-<body>
-	<div id="topmid">
-		<h1>Welcome to Online Book Store</h1>
-	</div>
-	<div class="home">
-		<a href="">Home</a>
-	</div>
-	
-	<div class="home">
-		<a href="viewbook">Available Books</a>
-	</div>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Book Store</title>
 
-	
-	<div class="home">
-		<a href="index.html">Logout</a>
-	</div>
-	
-</body>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicons/site.webmanifest" />
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body onload="funload()">
+    <div id="topmid">
+      <h1>Welcome to Online Book Store</h1>
+    </div>
+    <div class="home">
+      <a href="">Home</a>
+    </div>
+
+    <div class="home">
+      <a href="viewbook">Available Books</a>
+    </div>
+
+    <div class="home">
+      <a href="index.html">Logout</a>
+    </div>
+  </body>
+  <script>
+    var tmp = document.getElementById("loding");
+    function funload() {
+      loding.style.display = "none";
+    }
+  </script>
 </html>

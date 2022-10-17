@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="Style.css" />
   </head>
-  <body>
+  <body onload="funload()">
     <div id="topmid">
       <h1>Welcome to Online Book Store</h1>
     </div>
@@ -27,5 +27,11 @@
         <input type="submit" value="Remove Book" />
       </form>
     </div>
+    <script>
+      var tmp = document.getElementById("loding");
+      function funload() {
+        loding.style.display = "none";
+      }
+    </script>
   </body>
 </html>

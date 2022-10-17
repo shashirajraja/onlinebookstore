@@ -10,47 +10,54 @@
 <link rel="stylesheet" href="Style.css">
 </head>
 
-<body>
-	<div id="topmid">
+<body onload="funload()">	<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
 
-	<div class="home">
-		<a href="index.html">Home</a>
-	</div>
 
-	<div class="home">
-		<a href="viewbook">Available Books</a>
-	</div>
+	<div class="main_contend">
+
+		<div class="home_wrap">
+		<ul >
+		  <li class="home"><a href="index.html">Home</a></li>
+		  <li class="home"><a href="viewbook">Available Books</a></li>
+		  <li class="home"><a href="UserLogin.html">Login as User</a></li>
+		  <li class="home"><a href="UserRegister.html">Register</a></li>
+		</ul>    </div>
 	
-	<div class="home">
-		<a href="UserLogin.html">Login as User</a>
+	
+		<table  border="0px">
+	
+			<tr>
+				<td>
+				<p class=" tab brown hd">ADMIN LOGIN </p><br/>
+
+
+					<form  action="adminlog" method="post"  >
+					        <label>	Username: <input type="text" name="username"></label><br />
+						<br /> <label> Password: <input type="password" name="password"></label><br />
+						<br /> <label><input type="submit" value=" Login as an Admin  "
+							text-align="center"></label>
+					</form>
+				</td>
+	
+			</tr>
+		</table>
+		 </div>
+		</div>
+
+
+
+	
+
+	
 	</div>
-	<div class="home">
-		<a href="UserRegister.html">Register</a>
-	</div>
-
-	<table class="tab brown hd">
-		<tr>
-			<td>ADMIN LOGIN</td>
-		</tr>
-	</table>
-
-	<table class="tab" border="0px">
-
-		<tr>
-			<td>
-				<form action="adminlog" method="post">
-					Username: <input type="text" name="username"><br />
-					<br /> Password: <input type="password" name="password"><br />
-					<br /> <input type="submit" value=" Login as an Admin  "
-						text-align="center">
-				</form>
-			</td>
-
-		</tr>
-	</table>
-	</div>
+	<script>
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
 
 </body>
 </html>
