@@ -126,11 +126,11 @@
 		<tr>
 			<td>
 				<form action="addbook" method="post">
-					Book Code : <input type="text" name="barcode"><br/><br/>
-					Book Name : <input type="text" name="name"><br/><br/>
-					BookAuthor: <input type="text" name="author"><br/><br/>
-					Book Price: <input type="text" name="price"><br/><br/>
-					Book Qnty : <input type="text" name="quantity"><br/><br/>
+					<label for="bookCode">Book Code : </label><input type="text" name="barcode" id="bookCode" placeholder="Enter Book Code"><br/><br/>
+					<label for="bookName">Book Name : </label> <input type="text" name="name" id="bookName" placeholder="Enter Book's name"><br/><br/>
+					<label for="bookAuthor">Book Author : </label><input type="text" name="author" id="bookAuthor" placeholder="Enter Author's Name"><br/><br/>
+					<label for="bookPrice">Book Price : </label><input type="number" name="price" placeholder="Enter the Price"><br/><br/>
+					<label for="bookQuantity">Book Qnty : </label><input type="number" name="quantity" id="bookQuantity" placeholder="Enter the quantity"><br/><br/>
 					<input class="AddBooks" type="submit" value=" Add These Books ">
 				</form>
 			</td>
