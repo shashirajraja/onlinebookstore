@@ -1,5 +1,5 @@
 # <a href="https://theonlinebookstore.herokuapp.com" target="_blank"> OnlineBookStore </a> 
-- Java web developement project
+- A Java Web Developement Project
 - Check out the Live website demo: [https://theonlinebookstore.herokuapp.com](https://theonlinebookstore.herokuapp.com)
 - User Login Credentials: (shashi/shashi)
 - Admin Login Credentials: (Admin/Admin)
