@@ -4,7 +4,7 @@
 - User Login Credentials: (shashi/shashi)
 - Admin Login Credentials: (Admin/Admin)
 ### About
-A userfriendly Online Bookstore System project where users can login or register, view the available books, select books along with their quantity, and buy them. Users can also get payment receipt after sucessful payment. The proejct can also be used by the administrator, who can add new books, remove books, increase and decrease the quantity of books, change the price of the books as well as maintain the selling history of books.
+A userfriendly Online Bookstore System project where users can login or register, view the available books, select books along with their quantity, and buy them. Users can also get payment receipt after sucessful payment. The project can also be used by the administrator, who can add new books, remove books, increase and decrease the quantity of books, change the price of the books as well as maintain the selling history of books.
 
 ![onlinebookstore](https://user-images.githubusercontent.com/34605595/137615096-8447d32d-bddc-4f13-a8ed-3c0f4dd5e04e.png)
 
