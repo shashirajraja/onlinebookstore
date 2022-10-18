@@ -22,7 +22,7 @@ A userfriendly Online Bookstore System project where users can login or register
 3. Database:
 - MySql
 
-### =============== Software And Tools Required ===============
+### ================ Software And Tools Required ================
 - Eclipse [Enterprise Edition]
 - Java [JDK 8+]
 - Tomcat v8.0+
