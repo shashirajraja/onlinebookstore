@@ -5,10 +5,13 @@
 <style>
 * {
 	box-sizing: border-box;
+	border-radius: 40px;
 }
 
 body {
 	background-image: url("Photo.jpg");
+	background-size: cover;
+
 }
 
 #topmid {
@@ -21,14 +24,21 @@ body {
 	font-style: oblique;
 	font-size: 38px;
 }
+a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #388eff;
+    transition: 0.3s ease;
+}
 
 a:hover {
-	color: red;
+	color:rgb(128, 26, 0);
 }
 
 a:link {
 	color: green;
-	text-decoration: none;
+	text-decoration:dotted;
 }
 
 .tab {
@@ -40,25 +50,38 @@ a:link {
 	font-weight: bold;
 	font-style: normal;
 	text-align: center;
-	font-size: 22px;
+	font-size: 35px;
 	margin-bottom: 10px;
-	padding: 10px;
+	padding: 2px;
 }
 
 .home {
+	background-image: url(img/button.png);
 	border: 1px black solid;
-	background-color: #ccffcc;
-	margin-left: 1%;
+	background-color: #ffe641d1;
+	background-repeat: no-repeat;
+	margin-left: 5%;
 	width: 200px;
-	color: blue;
+	color: #fff;
 	font-weight: bold;
-	font-style: italic;
+	border-radius: 20px;
 	text-align: center;
-	font-size: 25px;
+	font-size: 35px;
 	margin-bottom: 10px;
-	padding: 10px;
+	padding: 14px 25px 14px 25px;
 	float: left;
 	clear: both;
+	cursor: pointer;
+}
+
+button {
+    background-image: url(img/button.png);
+    background-color: transparent;
+    color: #088178;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .yel {
@@ -99,7 +122,7 @@ a:link {
 	</div>
 
 	<div class="home">
-		<a href="viewbook">Available Books</a>
+		<a href="ViewBooks.html">Available Books</a>
 	</div>
 
 	<div class="home">
@@ -113,7 +136,7 @@ a:link {
 	<table class="tab" border="0px solid black">
 
 		<tr>
-			<td><a href="viewbook">Happy Learning!!<br>Welcome to our book
+			<td><a href="ViewBook.html">Happy Learning!!<br>Welcome to our book
 					store!</a></td>
 		</tr>
 	</table>
