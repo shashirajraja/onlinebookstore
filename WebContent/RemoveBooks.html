@@ -70,6 +70,29 @@
 	.brown{
 		color:brown;
 	}
+	.RemoveBook{
+	height:25px;
+	border-radius: 50px;
+	background-color: #ccffcc;
+	color:#078707;
+	font-weight: bold;
+	cursor:pointer;
+	transition: 0.3s;
+	border-color: #078707;
+	border-style:solid;
+	border-width: 1px;
+	
+}
+.RemoveBook:hover{
+	height:25px;
+	border-radius: 50px;
+	background-color: white;
+	color: #078707;
+	font-weight: bold;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #078707;
+}
 	</style>
 </head>
 <body>
@@ -90,8 +113,9 @@
 	
 	<div class="tab">
 	<form action="remove" method="post">
-		Book Code: <input type="text" name="barcode">
-			<input type="submit" value="Remove Book">
+		<label for="bookCode">Book Code : </label>
+		<input type="text" name="barcode" placeholder="Enter Book Code" id="bookCode">
+			<input class="RemoveBook" type="submit" value="Remove Book">
 	</form>
 	</div>
 	

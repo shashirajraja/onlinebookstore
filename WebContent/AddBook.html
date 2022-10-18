@@ -70,6 +70,29 @@
 	.brown{
 		color:brown;
 	}
+	.AddBooks{
+	height:35px;
+	border-radius: 50px;
+	background-color: #ccffcc;
+	color:#078707;
+	font-weight: bold;
+	cursor:pointer;
+	transition: 0.3s;
+	border-color: #078707;
+	border-style:solid;
+	border-width: 1px;
+	
+}
+.AddBooks:hover{
+	height:35px;
+	border-radius: 50px;
+	background-color: white;
+	color: #078707;
+	font-weight: bold;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #078707;
+}
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
@@ -103,12 +126,12 @@
 		<tr>
 			<td>
 				<form action="addbook" method="post">
-					Book Code : <input type="text" name="barcode"><br/><br/>
-					Book Name : <input type="text" name="name"><br/><br/>
-					BookAuthor: <input type="text" name="author"><br/><br/>
-					Book Price: <input type="text" name="price"><br/><br/>
-					Book Qnty : <input type="text" name="quantity"><br/><br/>
-					<input type="submit" value=" Add These Books ">
+					<label for="bookCode">Book Code : </label><input type="text" name="barcode" id="bookCode" placeholder="Enter Book Code"><br/><br/>
+					<label for="bookName">Book Name : </label> <input type="text" name="name" id="bookName" placeholder="Enter Book's name"><br/><br/>
+					<label for="bookAuthor">Book Author : </label><input type="text" name="author" id="bookAuthor" placeholder="Enter Author's Name"><br/><br/>
+					<label for="bookPrice">Book Price : </label><input type="number" name="price" placeholder="Enter the Price"><br/><br/>
+					<label for="bookQuantity">Book Qnty : </label><input type="number" name="quantity" id="bookQuantity" placeholder="Enter the quantity"><br/><br/>
+					<input class="AddBooks" type="submit" value=" Add These Books ">
 				</form>
 			</td>
 		</tr>  
