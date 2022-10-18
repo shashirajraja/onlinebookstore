@@ -22,7 +22,7 @@ A userfriendly Online Bookstore System project where users can login or register
 3. Database:
 - MySql
 
-### ==== Software And Tools Required ====
+### ========== Software And Tools Required ==========
 - Eclipse [Enterprise Edition]
 - Java [JDK 8+]
 - Tomcat v8.0+
@@ -37,7 +37,7 @@ STEP 1: Open MySQL Command Prompt or MySQL Workbench
 
 STEP 2: Login to the administrator user as : ```mysql -u <username> -p``` (Enter Password if asked)
 
-STEP 3: Copy paste the following MySql Commands:
+STEP 3: Copy paste the following MySql Commands-
 ```MySQL
 create database if not exists onlinebookstore;
 
