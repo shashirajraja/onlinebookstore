@@ -18,7 +18,6 @@ A userfriendly Online Bookstore System project where users can login or register
 - Java
 - JDBC
 - Servlet
-- MySQL
 
 3. Database:
 - MySql
