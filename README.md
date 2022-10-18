@@ -29,8 +29,6 @@ A userfriendly Online Bookstore System project where users can login or register
 - Apache Maven
 - MySQL
 
-Note:- This is a Sample Project hence we have used only Generic Servlet and not taken care for Security.
-
 ### ================= Dummy Database Initialization =================
 
 STEP 1: Open MySQL Command Prompt or MySQL Workbench
@@ -81,6 +79,9 @@ Step 6: Check Running The Site At  <a href="http://localhost:8083/onlinebookstor
 Step 7: Default Username And Password For Admin Is "Admin" And "Admin"
 
 Step 8: Default Username And Password For User Is "shashi" And "shashi"
+
+
+Note:- This is a Sample Project hence we have used only Generic Servlet and not taken care for Security.
 
 
 #### "Suggestions and project improvement ideas are welcomed!"
