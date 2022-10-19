@@ -1,0 +1,1265 @@
+.csspage #minimizedPanels > div, .buttonka {
+	background-color: #1C6EA4;
+}
+.buttonkaLista li, .buttonkaLista a {
+	color: #1C6EA4;
+}
+.csspage #minimizedPanels > div:hover, .buttonka:hover, .buttonkaLista li:hover, .buttonkaLista a:hover {
+	background-color: #3478A3;
+}
+a.undockPanel:hover, a.dockPanel:hover {
+	background-color: #1C6EA4 !important;
+	border-color: #1C6EA4;
+}
+a.moveToTop:hover, a.minimizePanel:hover, a.panelHelp:hover {
+	background-color: #3478A3;
+	border-top: 2px solid #3478A3;
+	border-left: 1px solid #3478A3;
+	border-right: 1px solid #3478A3;
+	color: #FFF;
+}
+#pickerke {
+    display: block;
+    max-width: 320px;
+    margin: 0 auto;
+}
+#pickerke a {
+    display: block;
+    width: 26px;
+    height: 20px;
+    overflow: hidden;
+    text-indent: 999px;
+    float: left;
+	position: relative;
+	z-index: 8;
+}
+#pickerke a:hover {
+	outline: 2px dotted #000;
+	text-decoration: none;
+	z-index: 9;
+}
+.descriptionListing {
+    max-height: 160px;
+}
+.masonryPanel pre:hover {
+   background-color: rgba(21,83,124,0.09);
+}
+a.linkecske {
+    color: #1C6EA4;
+    font-weight: bold;
+    display: inline-block;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+a.linkecske:hover {
+	color: #3478A3;
+}
+.descriptionListing.noscroller {
+	max-height: 1000px;
+	overflow-y: hidden;
+}
+.descriptionListing > div > em {
+    width: auto;
+    padding-left: 5px;
+}
+.descriptionListing > div > span {
+	min-width: 120px;
+}
+textarea {
+	FONT-SIZE: 13PX;
+}
+.csspage input {
+	width: auto;
+}
+.generators {
+	padding-bottom: 30px;
+}
+h2 {
+	color: #1C6EA4;
+	font-size: 20px;
+	font-weight: bold;
+}
+#radiusWrap {
+    margin: auto;
+    max-width: 800px;
+}
+#radiusWrap > div {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+#radiusWrap > div#radiusCenter {
+	width: 60%;
+}
+#radiusPreview {
+    background-color: #1C6EA4;
+    text-align: center;
+    width: 96%;
+    margin: auto;
+    padding: 7px 0;
+}
+#radiusPreview textarea {
+	height: 65px;
+	width: 90%;
+	color: #444;
+	resize: none;
+	margin: 5px 0;
+}
+#gradientInputs input {
+	width: 100px;
+}
+#additionalGradientSettings {
+	clear: both;
+}
+#radiusWrap div input {
+    max-width: 70%;
+}
+#radiusTL {
+	margin-bottom: 0px;
+}
+#radiusTR {
+	margin-bottom: 53px;
+}
+#radiusTR, #radiusBR, #radiusBL {
+	background-color: #DDD;
+}
+a.usethis {
+	width: 40px;
+	height: 15px;
+	background: url("arrow.png") no-repeat transparent;
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	color: #fff;
+	padding: 0px 0 0 0;
+	cursor: pointer;
+}
+.pxpm input {
+	width: 65px;
+}
+#pxem12, #pxem22 {
+    margin-right: 20px;
+    font-weight: bold;
+    float: right;
+}
+.csspage .pxpm .settingRowInput {
+	padding: 0px 2% 0px;
+}
+.pxpm > .settingRow:nth-child(2) {
+	border-top: 1px solid #bbb;
+}
+#allRadiusTheSame {
+	height: 30px;
+	line-height: 20px;
+	margin-bottom: 23px;
+}
+#allRadiusTheSame label {
+    line-height: 20px;
+    font-size: 17px;
+}
+#buttonTextColor {
+	width: 55px;
+}
+.generators > div.visibleGenerator {
+	display: block !important;
+}
+#wrapButtonPreview {
+    clear: both;
+    padding: 20px 0 10px 0;
+    text-align: center;
+    min-height: 80px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#buttonPreview {
+    margin: auto;
+    display: inline-block;
+    cursor: pointer;
+}
+#buttonResult {
+	width: 99%;
+	font-size: 13px;
+	margin: auto;
+}
+#wrapGradientGenerator {
+	display: block;
+}
+#wrapGradientSettings {
+    width: 65%;
+    display: inline-block;
+	float: left;
+}
+#gradientProgressbar {
+    height: 20px;
+    border: 2px solid #55556D;
+    margin: 0 0 10px 0;
+	background: #ce5937;
+	background: -moz-linear-gradient(left, #ce5937 0%, #1c6ea4 50%, #c59237 100%);
+	background: -webkit-linear-gradient(left, #ce5937 0%,#1c6ea4 50%,#c59237 100%);
+	background: linear-gradient(to right, #ce5937 0%,#1c6ea4 50%,#c59237 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce5937', endColorstr='#c59237',GradientType=1 );
+}
+#gradientInputs {
+	display: block;
+}
+#gradientInputs input{
+	max-width: 80%;
+}
+#gradientInputs > div {
+    float: left;
+    width: 33.3%;
+}
+#gradientInputs > div:nth-child(2){
+	text-align: center;
+}
+#gradientInputs > div:nth-child(3){
+	text-align: right;
+}
+#wrapGradientPreview {
+    display: inline-block;
+    width: 33%;
+	float: left;
+	margin-left: 2%;
+}
+#gradientPreview {
+    min-width: 50px;
+    max-width: 99%;
+    min-height: 20px;
+    max-height: 400px;
+    border: 1px solid #bbb;
+    margin-bottom: 10px;
+    height: 150px;
+	background: transparent none repeat scroll 0% 0%
+}
+.resizable {
+    min-width: 20px;
+    max-width: 99%;
+    min-height: 20px;
+    max-height: 600px;
+}
+#wrapGradientResult {
+    padding: 10px;
+    background-color: #1C6EA4;
+    text-align: center;
+}
+#wrapGradientResult textarea {
+	max-width: 97%;
+	min-width: 97%;
+	height: 70px;
+}
+.gradientTextNote {
+    text-align: right;
+    display: inline-block;
+    float: right;
+    color: #ccc;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.gradientDirections {
+	width: 100%;
+}
+.gradientDirections > a {
+	display: inline-block;
+	border: 1px solid #999;
+	height: 18px;
+	width: 18px;
+	overflow: hidden;
+	cursor: pointer;
+	text-indent: 66px;
+}
+.gradientDirections > a:hover {
+    border: 1px solid #000;
+}
+.gradientDirections > a:nth-child(1){
+background: -moz-linear-gradient(left, #1c6ea4 25%, #FFFFFF 75%);
+background: -webkit-linear-gradient(left, #1c6ea4 25%,#FFFFFF 75%);
+background: linear-gradient(to right, #1c6ea4 25%,#FFFFFF 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#FFFFFF',GradientType=1 );
+}
+.gradientDirections > a:nth-child(2){
+background: -moz-linear-gradient(top, #1c6ea4 25%, #FFFFFF 75%);
+background: -webkit-linear-gradient(top, #1c6ea4 25%,#FFFFFF 75%);
+background: linear-gradient(to bottom, #1c6ea4 25%,#FFFFFF 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#FFFFFF',GradientType=0 );
+}
+.gradientDirections > a:nth-child(3){
+background: -moz-linear-gradient(-45deg, #1c6ea4 25%, #FFFFFF 75%);
+background: -webkit-linear-gradient(-45deg, #1c6ea4 25%,#FFFFFF 75%);
+background: linear-gradient(135deg, #1c6ea4 25%,#FFFFFF 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#FFFFFF',GradientType=1 );
+}
+.gradientDirections > a:nth-child(4){
+background: -moz-linear-gradient(45deg, #1c6ea4 25%, #FFFFFF 75%);
+background: -webkit-linear-gradient(45deg, #1c6ea4 25%,#FFFFFF 75%);
+background: linear-gradient(45deg, #1c6ea4 25%,#FFFFFF 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#FFFFFF',GradientType=1 );
+}
+.gradientDirections > a:nth-child(5){
+background: -moz-radial-gradient(center, ellipse cover, #1c6ea4 25%, #FFFFFF 75%);
+background: -webkit-radial-gradient(center, ellipse cover, #1c6ea4 25%,#FFFFFF 75%);
+background: radial-gradient(ellipse at center, #1c6ea4 25%,#FFFFFF 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#FFFFFF',GradientType=1 );
+}
+.gradientDirections > a:nth-child(1):hover, .gradientDirections > a:nth-child(1).gradientDirection {
+background: -moz-linear-gradient(left, #1c6ea4 25%, #000000 75%);
+background: -webkit-linear-gradient(left, #1c6ea4 25%,#000000 75%);
+background: linear-gradient(to right, #1c6ea4 25%,#000000 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#000000',GradientType=1 );
+}
+.gradientDirections > a:nth-child(2):hover, .gradientDirections > a:nth-child(2).gradientDirection{
+background: -moz-linear-gradient(top, #1c6ea4 25%, #000000 75%);
+background: -webkit-linear-gradient(top, #1c6ea4 25%,#000000 75%);
+background: linear-gradient(to bottom, #1c6ea4 25%,#000000 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#000000',GradientType=0 );
+}
+.gradientDirections > a:nth-child(3):hover, .gradientDirections > a:nth-child(3).gradientDirection{
+background: -moz-linear-gradient(-45deg, #1c6ea4 25%, #000000 75%);
+background: -webkit-linear-gradient(-45deg, #1c6ea4 25%,#000000 75%);
+background: linear-gradient(135deg, #1c6ea4 25%,#000000 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#000000',GradientType=1 );
+}
+.gradientDirections > a:nth-child(4):hover, .gradientDirections > a:nth-child(4).gradientDirection{
+background: -moz-linear-gradient(45deg, #1c6ea4 25%, #000000 75%);
+background: -webkit-linear-gradient(45deg, #1c6ea4 25%,#000000 75%);
+background: linear-gradient(45deg, #1c6ea4 25%,#000000 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#000000',GradientType=1 );
+}
+.gradientDirections > a:nth-child(5):hover, .gradientDirections > a:nth-child(5).gradientDirection{
+background: -moz-radial-gradient(center, ellipse cover, #1c6ea4 25%, #000000 75%);
+background: -webkit-radial-gradient(center, ellipse cover, #1c6ea4 25%,#000000 75%);
+background: radial-gradient(ellipse at center, #1c6ea4 25%,#000000 75%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c6ea4', endColorstr='#000000',GradientType=1 );
+}
+
+
+
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active {
+	color: #000;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+font-size: 15px;
+width: 35px;
+text-align: center;
+line-height: 20px;
+cursor: pointer;
+}
+.gradientSettingBlock label {
+	margin-top: 5px;
+}
+.gradientSettingBlock {
+	width: 47%;
+	display: block;
+	float: left;
+	padding: 20px 3% 3px 0;
+}
+.gradientMiddleContainer {
+	margin: 0 0 10px 0;
+}
+#gradientPercent {
+	cursor: pointer;
+}
+h4 {
+	background-color: rgba(28,110,164,0.1);
+	padding: 0 5px;
+}
+#boxmodel, #boxmodel div {
+	padding: 1px 10px 9px;
+	text-align: center;
+	color: #fff;
+	line-height: 18px;
+}
+#boxmodel {
+	background-color: #B4CFE1;
+}
+#boxmodel > div {
+	background-color: #3A81B0;
+}
+#boxmodel > div > div {
+	background-color: #82AFCD;
+}
+#boxmodel > div > div > div {
+	background-color: #FFF;
+	color: #444;
+}
+.hidden {
+	display: none;
+}
+.shadowPreviewWrap > label {
+	float: right;
+}
+.shadowResultWrap {
+    background-color: #1C6EA4;
+    padding: 10px;
+    clear: both;
+}
+#boxShadowResult {
+    width: 98%;
+    height: 35px;
+}
+#textShadowResult {
+    width: 98%;
+    height: 35px;
+    font-size: 13px;
+}
+.shadowWrap {
+	margin-bottom: 10px;
+}
+.shadowSettingsWrap {
+    display: block;
+    float: left;
+    width: 61%;
+}
+.shadowPreviewWrap {
+	display: block;
+	float: right;
+	width: 35%;
+	padding: 10px 2%;
+}
+#boxShadowPeview {
+	height: 70px;
+	width: 100px;
+	margin: 30px auto 0;
+	background-color: #1C6EA4;
+	color: #FFF;
+	text-align: center;
+	padding: 30px 0 0 0;
+}
+#boxShadowColor {
+	margin-bottom: 5px;
+	width: 55px;
+}
+#textShadowPeview {
+	height: 20px;
+	width: 100%;
+	margin: 5px auto 5px;
+	color: #333;
+	text-align: center;
+	padding: 10px 0 15px 0;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+#textShadowColor {
+	margin-bottom: 20px;
+	width: 55px;
+}
+#textShadowGallery {
+	clear: both;
+}
+#textShadowGallery > div {
+	cursor: pointer;
+	display: inline-block;
+	padding: 0px 3px 4px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 22px;
+	border-radius: 6px;
+	margin: 1px 3px 3px 1px;
+	border: 1px solid #888;
+	text-align: center;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#fontTextTransform > div {
+	margin-bottom: 5px;
+}
+#textShadowGallery > div:hover {
+	border: 2px solid #196393;
+    margin: 0px 2px 2px 0px;
+}
+#transformPeview {
+	background-color: #1C6EA4;
+	border-radius: 5px;
+	color: #EEEEEE;
+	display: block;
+	width: 140px;
+	height: 60px;
+	line-height: 60px;
+	margin: auto;
+	z-index: 99;
+	box-shadow: 0px 0px 15px 10px #FFF;
+	text-align: center;
+}
+.csspage .settingRowLabel {
+    float: left;
+    width: 20%;
+    padding: 5px 1%;
+    text-align: right;
+}
+.csspage .settingRowInput {
+    float: right;
+    width: 70%;
+    padding: 7px 2% 0px;
+}
+
+.transformSettingsWrap {
+	display: block;
+}
+.transformSettingsWrap .settingRowLabel {
+	width: 15%;
+}
+.transformSettingsWrap .settingRowInput {
+    width: 50%;
+    float: left;
+}
+.transformSettingsWrap .settingRowInput2 {
+	width: 29%;
+	float: left;
+}
+.settingRowInput2 input {
+	width: 40px;
+	margin-left: 2px;
+	display: inline-block;
+	text-align: left;
+}
+.transformResultWrap {
+    background-color: #1C6EA4;
+    padding: 10px;
+    clear: both;
+    text-align: center;
+}
+.transformPreviewWrap {
+    display: block;
+    padding: 45px 0;
+}
+#transformResult {
+    width: 95%;
+    font-size: 13px;
+}
+#transformSkewYInput {
+	margin-bottom: 25px;
+}
+#fontFamilySelector {
+    border: 1px solid #999;
+    position: absolute;
+    background-color: #FFF;
+    z-index: 99;
+    width: 250px;
+	display: none;
+    box-shadow: 0px 4px 9px 2px #ccc;
+}
+#fontFamilySelector > div {
+    cursor: pointer;
+    display: block;
+    padding: 1px 1px 3px;
+    border: 1px solid #FFF;
+    text-align: center;
+}
+#fontTextWeight > div, #fontTextDecoration > div, #fontTextStyle > div, #fontTextVariant > div, #fontTextTransform > div {
+    cursor: pointer;
+    display: block;
+    padding: 1px 7px 3px;
+    text-align: center;
+    border: 1px solid #ddd;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#fontFamilySelector > div:hover, #fontTextWeight > div:hover, #fontTextWeight > div.selectedTextDecoration, #fontTextDecoration > div:hover, #fontTextDecoration > div.selectedTextDecoration, #fontTextStyle > div:hover, #fontTextStyle > div.selectedTextDecoration, #fontTextVariant > div:hover, #fontTextVariant > div.selectedTextDecoration, #fontTextTransform > div:hover, #fontTextTransform > div.selectedTextDecoration {
+    background-color: #D0E4F5;
+}
+.FontGeneratorPreviewWrap {
+    display: block;
+    float: right;
+    width: 64%;
+    padding: 10px 2% 10px;
+}
+.FontGeneratorResultWrap {
+    background-color: #1C6EA4;
+    padding: 10px;
+    clear: both;
+    max-width: 500px;
+    margin: auto;
+}
+#fontGeneratorResult {
+    width: 98%;
+    height: 100px;
+    font-size: 13px;
+}
+#wrapFontFamilySelector {
+}
+#selectedFontFamily {
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    padding: 1px 5px;
+    margin-top: -4px;
+    cursor: pointer;
+    background: url("dropdown.png") no-repeat right center transparent;
+}
+#selectedFontFamily:hover {
+	background-color: #D0E4F5;
+}
+#fontGeneratorPreviewWrap > label {
+    float: right;
+}
+#fontGeneratorPeview {
+	text-align: center;
+	font-size: 22px;
+	margin: 0px 0 0px 0;
+	color: #000;
+	padding: 25px 11px 4px;
+	min-height: 75px;
+	line-height: normal;
+	min-height: 80px;
+}
+#fontGeneratorColor {
+	width: 55px;
+}
+
+
+
+.dividedControlsWrap {
+	margin-bottom: 10px;
+}
+.dividedControlsLeft {
+    display: block;
+    width: 100%;
+}
+.dividedControlsRight {
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+#backgroundPeview {
+    max-width: 90%;
+    border: 1px solid #999;
+    background-color: transparent;
+    min-width: 90%;
+    padding: 35px 5%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+	margin-bottom: 10px;
+    text-shadow: 0px 0px 6px #fff;
+}
+#backgroundPreviewWrap {
+    background: url("/images/checkerboardback.png") repeat top left transparent;
+    clear: both;
+}
+#backgroundImageNone {
+    color: #1C6EA4;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+}
+#backgroundImageUrl {
+	width: 100%;
+	padding: 1px 3px;
+}
+.backgroundResultWrap {
+    background-color: #1C6EA4;
+    padding: 5px 10px 10px;
+    clear: both;
+}
+#backgroundPositionSelect {
+    display: inline-block;
+    border: 1px solid #999;
+}
+#backgroundPositionSelect > div {
+	clear: both;
+}
+#backgroundPositionSelect > div > a {
+    display: block;
+    float: left;
+    border: 1px solid #999;
+    width: 18px;
+    height: 18px;
+    background: url("/images/backgroundDot.png") no-repeat transparent;
+    cursor: pointer;
+}
+input#colorPicker {
+	margin: 0 5px 5px 12px;
+}
+#backgroundPositionSelect > div > a:hover {
+	background-color: #D0E4F5 !important;
+}
+#backgroundColor {
+	width: 55px;
+	margin-right: 3px;
+}
+#backgroundResult {
+    width: 98%;
+	clear: both;
+    height: 80px;
+    font-size: 13px;
+}
+.wrapBackgroundOpacity, .wrapBorderOpacity {
+	width: 100px;
+	display: inline-block;
+}
+.wrapBackgroundOpacity {
+	padding: 5px 20px 5px 0;
+	vertical-align: middle;
+	margin: 0 0 5px 0;
+}
+.dividedControlsRight > label {
+	float: right;
+}
+#backgroundPositionSliders {
+    display: inline-block;
+    width: 150px;
+}
+#backgroundShiftRight {
+	margin-bottom: 10px;
+}
+#backgroundPositionSliders > table {
+	width: 100%;
+}
+#backgroundPositionSliders > table td:nth-child(1) {
+	width: 10%;
+}
+#backgroundRepeatSelect > a, #backgroundAttachmentSelect > a {
+    display: inline-block;
+    padding: 0px 3px;
+    border: 1px solid #999;
+    cursor: pointer;
+    color: #333;
+    border-radius: 5px;
+	margin-bottom: 2px;
+    margin-right: 8px;
+}
+#backgroundRepeatSelect > a:hover, a.selected, #backgroundAttachmentSelect > a:hover, #borderStyles > a:hover, #borderOrOutline > a:hover, #whichBorder > a:hover {
+	background-color: #D0E4F5 !important;
+}
+.backgroundResultWrap label {
+	color: #eee;
+	float: right;
+	display: inline-block
+}
+#borderStyles > a {
+	display: inline-block;
+	border: 4px solid #1C6EA4;
+	margin: 1px;
+	cursor: pointer;
+	overflow: hidden;
+	color: #333;
+	padding: 0 4px;
+	line-height: 22px;
+	height: 20px;
+	text-align: center;
+	background-color: #eee;
+}
+#borderColor {
+	width: 55px;
+	margin-right: 7px;
+}
+#borderPeview {
+	max-width: 100%;
+	height: 20px;
+	background-color: #eee;
+	text-align: center;
+	padding: 30px 20px;
+	margin: auto;
+}
+.borderResultWrap {
+    background-color: #1C6EA4;
+    padding: 5px 10px 10px;
+    clear: both;
+}
+.borderResultWrap label {
+    color: #eee;
+    float: right;
+    display: inline-block;
+}
+#borderResult {
+    width: 98%;
+    clear: both;
+    height: 45px;
+    font-size: 13px;
+}
+
+#borderOrOutline > a {
+    display: inline-block;
+    cursor: pointer;
+    color: #333;
+    border-radius: 5px;
+    padding: 2px 15px;
+    font-size: 15px;
+}
+#whichBorder > a {
+	display: inline-block;
+	margin: 0px 5px 5px 0;
+	cursor: pointer;
+	overflow: hidden;
+	color: #333;
+	padding: 0 8px;
+	line-height: 22px;
+	height: 20px;
+	text-align: center;
+	background-color: #eee;
+}
+.visibleBorderOnly, .visibleOutlineOnly {
+	height: 45px;
+}
+.visibleOutlineOnly {
+	display: none;
+}
+#borderPreviewWrap {
+	min-height: 100px;
+}
+
+#columnPeview {
+    display: block;
+    border: 1px solid #999;
+    padding: 10px 5px;
+}
+#columnPeview p {
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0 0 12px 0;
+}
+#columnPreviewWrap {
+	display: block;	
+}
+#columnColor {
+	width: 100px;
+	margin-right: 20px;
+}
+.wrapColumnColorOpacity {
+    display: inline-block;
+    width: 295px;
+}
+.columnResultWrap {
+    background-color: #1C6EA4;
+    padding: 20px 10px;
+    clear: both;
+}
+#columnResult {
+	height: 142px;
+    width: 98%;
+    clear: both;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+#colorToUse input, #colorToUse  textarea { 
+    padding: 11px 3%; 
+    border: none; 
+    outline: 0; 
+    font: normal 15px/100% Verdana, Tahoma, sans-serif; 
+    width: 90%; 
+    background: transparent; 
+
+    } 
+#colorToUse textarea {
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  line-height: 135%;
+  font-size: 11px;
+}
+.reklamWrap {
+	width: 100%;
+}
+#colorToUse input:hover, #colorToUse  textarea:hover, 
+#colorToUse input:focus, #colorToUse textarea:focus { 
+    border-color: #C9C9C9; 
+    } 
+
+.dividedControlsRight h3 {
+    display: block;
+    background-color: #999;
+    color: #FFF;
+    padding: 0px 15px;
+	clear: both;
+    margin-bottom: 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+#colorToUse .form label { 
+    margin-left: 10px; 
+    color: #999999; 
+    }
+#myColor {
+  width: 150px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 6px;
+}
+.list {
+    list-style: outside none none;
+    margin: 15px 2% 30px 0px;
+    padding: 0px;
+}
+#colorsearch {
+    height: 700px;
+    overflow-y: auto;
+}
+.list li a {
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    line-height: 18px;
+    padding: 3px 3px 0 3px;
+}
+.list li a:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
+.list li {
+	line-height: 11px;
+}
+.list span {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+}
+input.search {
+    border-radius: 5px;
+    padding: 2px 5%;
+    height: 23px;
+    width: 75%;
+}
+button.sort {
+    background-color: #3B5F80;
+    color: #FFF;
+    border: medium none;
+    height: 29px;
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: none;
+}
+.middle {
+    width: 100%;
+    max-width: 1150px;
+    margin: auto;
+	border-bottom: 2px solid #5E9CA0;
+    background-color: #fff;
+	color: #2B2301;
+    font-size: 17px;
+}
+.navigation {
+    width: 24%;
+    float: right;
+    padding: 20px 0px;
+    background-color: #ddd;
+    padding: 19px 0 10px 1%;
+}
+.mainArticle {
+    float: left;
+    padding: 17px 0 20px 2%;
+    width: 72%;
+    background-color: #FFF;
+}
+.magyarazat {
+	padding: 10px;
+}
+.magyarazat {
+  padding: 25px 5px 5px;
+  text-align: center;
+}
+.myColorContainer {
+  width: 215px;
+  height: 170px;
+  float: left;
+  margin: 0 3px 0 0;
+}
+.submit input { 
+    width: auto; 
+    padding: 9px 15px; 
+    background: #617798; 
+    border: 0; 
+    font-size: 14px; 
+    color: #FFFFFF; 
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    }
+#selectedbackgr {
+  width: 396px;
+  float: left;
+  text-align: left;
+  min-height: 155px;
+  font-size: 20px;
+  border: solid 1px #E5E5E5;
+  padding: 8px 7px 0 7px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 40px;
+  line-height: 30px;
+}
+.ui-widget-content {
+  border: 1px solid #555;
+}
+.selectedR, .selectedG, .selectedB, .selectedC, .selectedM, .selectedY, .selectedK {
+  width: 100%;
+  background-color: #ddd;
+  box-shadow: 1px 0px 10px #777 inset;
+  height: 30px;
+  border: 1px solid #999;
+  margin: 0 0 5px 0;
+}
+.articlecske {
+	min-height: 40px;
+	width: 100%;
+}
+.percentNote {
+  margin-top: -32px;
+  font-weight: bold;
+  margin-left: 10px;
+  height: 32px;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+.selectedRGB>div>div, .selectedCMYK>div>div {
+  height: 30px;
+  box-shadow: -1px -1px 5px #555 inset;
+}
+.selectedRGB, .selectedCMYK {
+	padding: 10px;
+}
+#rgbpercents, #cmykpercents {
+  background-color: #eee;
+}
+#selectedRpercent {	background-color: #F00;	}
+#selectedGpercent {	background-color: #0F0; }
+#selectedBpercent {	background-color: #00F;	}
+#selectedCpercent {	background-color: cyan;	}
+#selectedMpercent {	background-color: magenta;	}
+#selectedYpercent {	background-color: yellow;	}
+#selectedKpercent {	background-color: black;	}
+
+.ezaszin, .komplimentarisa {
+  float: left;
+  width: 42%;
+  padding: 10px 4% 11px;
+}
+#komplimentaris {
+	text-align: center;
+}
+#komplimentaris input {
+  width: 100px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+.explanation1, .explanation2  {
+  height: 30px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+.explanation2  {
+	font-weight: normal;
+}
+.explanation3 {
+  color: #444;
+  background-color: #ddd;
+  height: 26px;
+  font-size: 17px;
+}
+.explanation4 {
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.explanation5 {
+  height: 30px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #aaa;
+  color: #000;
+}
+.controlArea {
+    background-color: #F0F0F0;
+    padding: 20px 10px 15px;
+}
+.sliderControlok {
+    width: 100%;
+    max-width: 670px;
+    margin: auto;
+    border-radius: 8px;
+}
+.saveOrLink {
+	float: right;
+}
+.felsoSzekcio {
+	max-width: 700px;
+	width: 100%;
+	margin: auto;
+}
+#addToPalette, .colorLink {
+  cursor: pointer;
+  background-color: #888;
+  text-align: center;
+  padding: 0px 11px;
+  line-height: 20px;
+  margin: 6px;
+  display: block;
+  text-decoration: none !important;
+  font-size: 15px;
+  border-radius: 7px;
+  color: #fff;
+}
+#addToPalette:hover, .colorLink:hover {
+  box-shadow: 0px 0px 5px #888 inset;
+}
+.explanation1, .explanation2, .explanation3, .explanation4, .explanation5 {
+  padding: 5px 5%;
+  float: left;
+  width: 35%;
+  text-align: center;
+}
+.inputKontener {
+  float: left;
+  width: 53%;
+}
+#colorToUse > div {
+    clear: both;
+    padding-top: 10px;
+    height: 50px;
+}
+.savedPalette {
+    min-width: 75px;
+    float: left;
+    padding: 6px 5px 8px 16px;
+    margin: 0px 5px 3px 0px;
+    border: 1px solid #AAA;
+    display: block;
+    border-radius: 6px;
+}
+.savedPalette input {
+    padding: 3px;
+    border: 1px solid #E5E5E5;
+    outline: 0px none;
+    font: 12px/100% Verdana,Tahoma,sans-serif;
+    width: 65px;
+    margin: 20px auto auto;
+    background: #FFF none repeat scroll 0% 0%;
+    clear: both;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.aplikalo {
+    background-color: rgba(255,255,255,0.3);
+    border: 1px solid transparent;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    float: right;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    line-height: 12px;
+    font-size: 20px;
+}
+.aplikalo:hover {
+    background-color: rgba(255,255,255,0.8);
+}
+.uppercase {
+  text-transform: uppercase !important;
+}
+.clearboth2 {
+	clear: both;
+}
+.szinneve {
+  display: block;
+  margin: 0;
+  padding: 3px;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+}
+	
+	/*jQuery color slider*/
+#red, #green, #blue, #cyan, #yellow, #magenta, #key, #slideh, #slides, #slidev {
+  float: left;
+  clear: left;
+  width: 300px;
+  margin: 5px 15px 24px;
+}
+#cyan, #yellow, #magenta, #key {
+  margin: 5px 15px 14px;
+}
+#swatch>div, #swatch2>div, #swatch3>div {
+  width: 120px;
+  float: left;
+  border: 1px solid #ccc;
+  padding: 11px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  border-radius: 5px 5px 5px 5px;
+}
+#swatch input, #swatch2 input, #swatch3 input {
+  width: 80%;
+  margin: 50px 10% 8px;
+  text-align: center;
+  font-weight: bold;
+}
+ .sliderek {
+	float: left;
+ }
+.sliderMarks {
+    float: left;
+    line-height: 20px;
+    width: 90px;
+    font-size: 15px;
+    color: #555;
+    text-align: right;
+}
+.sliderMarks div {
+    margin: 4px 0 25px;
+}
+.mark3 div {
+    margin: 4px 0 15px;
+}
+#red .ui-slider-range { background: red; }
+#green .ui-slider-range { background: green; }
+#blue .ui-slider-range { background: blue; }
+#cyan .ui-slider-range { background: cyan; }
+#yellow .ui-slider-range { background: yellow; }
+#magenta .ui-slider-range { background: magenta; }
+#key .ui-slider-range { background: #000000; }
+.ui-slider-handle {
+  border-color: #444 !important;
+  border-width: 2px !important;
+}
+footer div {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
