@@ -1,63 +1,142 @@
 <html>
-  <head>
-    <meta charset="ISO-8859-1" />
-    <title>Book Store</title>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Store</title>
+<style>
+* {
+	box-sizing: border-box;
+}
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./favicons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="./favicons/site.webmanifest" />
-    <link rel="stylesheet" href="Style.css" />
-  </head>
+body {
+	background-image: url("Photo.jpg");
+}
 
-  <body onload="funload()">
-    <div id="topmid">
-      <h1>Welcome to Online Book Store</h1>
-    </div>
+#topmid {
+	border: 0px solid black;
+	color: #FFFFFF;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 0px;
+	padding-left: 30%;
+	font-style: oblique;
+	font-size: 38px;
+}
 
-    <div class="main_contend">
-      <div class="home_wrap">
-        <ul>
-          <li class="home"><a href="index.html">Home</a></li>
-          <li class="home"><a href="viewbook">Available Books</a></li>
-          <li class="home"><a href="UserRegister.html">Register</a></li>
-        </ul>
-      </div>
-      <div class="login_tab">
-        <ul>
-          <li class="tab brown hd" bgcolor="black">Login or Signup Below</li>
-          <li class="tab" border="0px solid black">
-            <a href="AdminLogin.html">Login As Admin</a>
-          </li>
-          <li class="tab" border="0px solid black">
-            <a href="UserLogin.html">Login As<span> User</span></a>
-          </li>
-          <li class="tab green">
-            <a href="UserRegister.html">New user ! Register Here</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+a:hover {
+	color: red;
+}
 
-    <script>
-      var tmp = document.getElementById("loding");
-      function funload() {
-        loding.style.display = "none";
-      }
-    </script>
-  </body>
+a:link {
+	color: green;
+	text-decoration: none;
+}
+
+.tab {
+	border: 1px black solid;
+	background-color: #FFE5CC;
+	margin-left: 48%;
+	width: 450px;
+	color: green;
+	font-weight: bold;
+	font-style: normal;
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.home {
+	border: 1px black solid;
+	background-color: #ccffcc;
+	margin-left: 1%;
+	width: 200px;
+	color: blue;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 10px;
+	padding: 10px;
+	float: left;
+	clear: both;
+}
+
+.yel {
+	color: yellow;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.hd {
+	font-size: 25px;
+}
+
+.brown {
+	color: brown;
+}
+</style>
+
+<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+<link rel="manifest" href="./favicons/site.webmanifest">
+</head>
+
+<body onload="funload()">
+		<div id="topmid">
+		<h1>Welcome to Online Book Store</h1>
+	</div>
+
+	<div class="home">
+		<a href="index.html">Home</a>
+	</div>
+
+	<div class="home">
+		<a href="viewbook">Available Books</a>
+	</div>
+	
+	<div class="home">
+		<a href="UserRegister.html">Register</a>
+	</div>
+
+	<table class="tab brown hd" bgcolor="black">
+		<tr>
+			<td>Login or Signup Below</td>
+		</tr>
+	</table>
+
+	<table class="tab" border="0px solid black">
+
+		<tr>
+			<td><a href="AdminLogin.html">Login As Admin</a></td>
+		</tr>
+	</table>
+	<table class="tab" border="0px solid black">
+
+		<tr>
+			<td><a href="UserLogin.html"> Login As<span> User</span>
+			</a></td>
+		</tr>
+	</table>
+	<table class="tab green">
+		<tr>
+			<td><a href="UserRegister.html">New user ! Register Here</a></td>
+		</tr>
+	</table>
+
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
+</body>
 </html>

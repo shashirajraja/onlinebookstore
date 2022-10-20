@@ -1,37 +1,131 @@
 <html>
-  <head>
-    <meta charset="ISO-8859-1" />
-    <title>Book Store</title>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Book Store</title>
+	<style>
+	*{
+		box-sizing: border-box;
+	}	
+	body
+	{
+		background-image: url("Photo.jpg");
+	}
+	#topmid{
+		border:0px solid black;
+		color:#FFFFFF;
+		text-align: center;
+		font-weight: bold;
+		margin-top: 0px;
+		padding-left: 30%;
+		font-style: oblique;
+		font-size:38px;
+	}
+	a:hover{
+		color:red;
+	}
+	a:link{
+		color: green;
+		text-decoration: none;
+	}
+	.tab{
+		border:1px black solid;
+		background-color: #FFE5CC;
+		margin-left: 48%;
+		width:450px;
+		color:green;
+		font-weight: bold;
+		font-style:normal;
+		text-align:center;
+		font-size: 22px;
+		margin-bottom:10px;
+		padding:10px;
+	}
+	.home{
+		border:1px black solid;
+		background-color: #ccffcc;
+		margin-left: 1%;
+		width:200px;
+		color:blue;
+		font-weight: bold;
+		font-style:italic;
+		text-align:center;
+		font-size: 25px;
+		margin-bottom:10px;
+		padding:10px;
+		float:left;
+		clear:both;
+	}
+	.yel{
+	color:yellow;
+	}
+	.red{
+		color:red;
+	}
+	.green{
+		color:green;
+	}
+	.hd{
+		font-size:25px;
+	}
+	.brown{
+		color:brown;
+	}
+	.RemoveBook{
+	height:25px;
+	border-radius: 50px;
+	background-color: #ccffcc;
+	color:#078707;
+	font-weight: bold;
+	cursor:pointer;
+	transition: 0.3s;
+	border-color: #078707;
+	border-style:solid;
+	border-width: 1px;
+	
+}
+.RemoveBook:hover{
+	height:25px;
+	border-radius: 50px;
+	background-color: white;
+	color: #078707;
+	font-weight: bold;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #078707;
+}
+	</style>
+</head>
+<body onload="funload()">
+		<div id="topmid">
+		<h1>Welcome to Online Book Store</h1>
+	</div>
+	<div class="home">
+		<a href="adminlog">Home</a>
+	</div>
+	
+	<div class="home">
+		<a href="viewbook">Available Books</a>
+	</div>
 
-    <link rel="stylesheet" href="Style.css" />
-  </head>
-  <body onload="funload()">
-    <div id="topmid">
-      <h1>Welcome to Online Book Store</h1>
-    </div>
-    <div class="home">
-      <a href="AdminLogin.html">Home</a>
-    </div>
-
-    <div class="home">
-      <a href="ViewBooks.html">Available Books</a>
-    </div>
-
-    <div class="home">
-      <a href="index.html">Logout</a>
-    </div>
-
-    <div class="tab">
-      <form action="remove" method="post">
-        Book Code: <input type="text" name="barcode" />
-        <input type="submit" value="Remove Book" />
-      </form>
-    </div>
-    <script>
-      var tmp = document.getElementById("loding");
-      function funload() {
-        loding.style.display = "none";
-      }
-    </script>
-  </body>
+	<div class="home">
+		<a href="index.html">Logout</a>
+	</div>
+	
+	<div class="tab">
+	<form action="remove" method="post">
+		<label for="bookCode">Book Code : </label>
+		<input type="text" name="barcode" placeholder="Enter Book Code" id="bookCode">
+			<input class="RemoveBook" type="submit" value="Remove Book">
+	</form>
+	</div>
+	
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
+</body>
 </html>

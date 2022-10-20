@@ -1,167 +1,202 @@
 <html>
-  <head>
-    <meta charset="ISO-8859-1" />
-    <title>Book Store</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
 
-      body {
-        background-image: url("Photo.jpg");
-      }
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Book Store</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
 
-      #topmid {
-        border: 0px solid black;
-        color: #ffffff;
-        text-align: center;
-        font-weight: bold;
-        margin-top: 0px;
-        padding-left: 30%;
-        font-style: oblique;
-        font-size: 38px;
-      }
+		body {
+			background-image: url("Photo.jpg");
+		}
 
-      a:hover {
-        color: red;
-      }
+		#topmid {
+			border: 0px solid black;
+			color: #FFFFFF;
+			text-align: center;
+			font-weight: bold;
+			margin-top: 0px;
+			padding-left: 30%;
+			font-style: oblique;
+			font-size: 38px;
+		}
 
-      a:link {
-        color: green;
-        text-decoration: none;
-      }
+		a:hover {
+			color: red;
+		}
 
-      .tab {
-        border: 1px black solid;
-        background-color: #ffe5cc;
-        margin-left: 48%;
-        width: 450px;
-        color: green;
-        font-weight: bold;
-        font-style: normal;
-        text-align: center;
-        font-size: 22px;
-        margin-bottom: 10px;
-        padding: 10px;
-      }
+		a:link {
+			color: green;
+			text-decoration: none;
+		}
 
-      .home {
-        border: 1px black solid;
-        background-color: #ccffcc;
-        margin-left: 1%;
-        width: 200px;
-        color: blue;
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
-        font-size: 25px;
-        margin-bottom: 23px;
-        padding: 10px;
-        float: left;
-        clear: both;
-      }
+		.tab {
+			border: 1px black solid;
+			background-color: #FFE5CC;
+			margin-left: 48%;
+			width: 450px;
+			color: green;
+			font-weight: bold;
+			font-style: normal;
+			text-align: center;
+			font-size: 22px;
+			margin-bottom: 10px;
+			padding: 10px;
+		}
 
-      .yel {
-        color: yellow;
-      }
+		.home {
+			border: 1px black solid;
+			background-color: #ccffcc;
+			margin-left: 1%;
+			width: 200px;
+			color: blue;
+			font-weight: bold;
+			font-style: italic;
+			text-align: center;
+			font-size: 25px;
+			margin-bottom: 10px;
+			padding: 10px;
+			float: left;
+			clear: both;
+		}
 
-      .red {
-        color: red;
-      }
+		.finalacceptance {
+			position: relative;
+			left: 25px;
+		}
 
-      .green {
-        color: green;
-      }
+		.register {
+			border-radius: 20px;
+			;
+			background-color: #d9b899;
+			text-align: center;
+			position: relative;
+			left: 30px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
 
-      .hd {
-        font-size: 25px;
-      }
+		.yel {
+			color: yellow;
+		}
 
-      .brown {
-        color: brown;
-      }
+		.red {
+			color: red;
+		}
 
-      .blue {
-        color: blue;
-      }
-    </style>
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./favicons/favicon-16x16.png"
-    />
-    <link rel="manifest" href="./favicons/site.webmanifest" />
-  </head>
+		.green {
+			color: green;
+		}
 
-  <body onload="funload()">
-    <div id="topmid">
-      <h1>Welcome to Online Book Store</h1>
-    </div>
-    <div class="home">
-      <a href="UserLogin.html">Home</a>
-    </div>
+		.hd {
+			font-size: 25px;
+		}
 
-    <div class="home">
-      <a href="ViewBooks.html">Available Books</a>
-    </div>
+		.brown {
+			color: brown;
+		}
 
-    <div class="home">
-      <a href="login.html">Login</a>
-    </div>
+		.blue {
+			color: blue;
+		}
 
-    <div class="home">
-      <a href="UserRegister.html">Register</a>
-    </div>
+		.UserRegistration {
+			height: 35px;
+			border-radius: 50px;
+			background-color: #ccffcc;
+			color: #078707;
+			font-weight: bold;
+			cursor: pointer;
+			transition: 0.3s;
+			border-color: #078707;
+			border-style: solid;
+			border-width: 1px;
 
-    <table class="tab brown hd">
-      <tr>
-        <td>Register Here</td>
-      </tr>
-    </table>
+		}
 
-    <table class="tab" border="0px">
-      <tr>
-        <td>
-          <form action="userreg" method="post">
-            Username : <input type="text" name="username" /><br />
-            <br />
-            Password : <input type="password" name="password" /><br />
-            <br />
-            FirstName: <input type="text" name="firstname" /><br />
-            <br />
-            Last Name: <input type="text" name="lastname" /><br />
-            <br />
-            Address : <input type="text" name="address" /><br />
-            <br />
-            Phone No : <input type="text" name="phone" /><br />
-            <br />
-            Email Id : <input type="text" name="mailid" /><br />
-            <br />
-            <input
-              type="submit"
-              value=" I AGREE FOR ALL TERMS & CONDITIONS ! REGISTER ME "
-            />
-          </form>
-        </td>
-      </tr>
-    </table>
+		.UserRegistration:hover {
+			height: 35px;
+			border-radius: 50px;
+			background-color: white;
+			color: #078707;
+			font-weight: bold;
+			border-style: solid;
+			border-width: 1px;
+			border-color: #078707;
+		}
+	</style>
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+	<link rel="manifest" href="./favicons/site.webmanifest">
+</head>
+
+<body onload="funload()">
+		<div id="topmid">
+		<h1>Welcome to Online Book Store</h1>
+	</div>
+	<div class="home">
+		<a href="userlog">Home</a>
+	</div>
+
+	<div class="home">
+		<a href="ViewBooks.html">Available Books</a>
+	</div>
+
+	<div class="home">
+		<a href="login.html">Login</a>
+	</div>
+
+	<div class="home">
+		<a href="UserRegister.html">Register</a>
+	</div>
+
+	<table class="tab brown hd">
+		<tr>
+			<td>Register Here</td>
+		</tr>
+	</table>
+
+	<table class="tab" border="0px">
+
+		<tr>
+			<td>
+				<form action="userreg" method="post">
+					<label for="userName">Username : </label>
+					<input type="text" name="username" id="userName" placeholder="Enter your Username" required><br /> <br />
+					<label for="passWord">Password :&nbsp; </label><input type="password" name="password" id="passWord"
+						placeholder="Enter Password" required><br /> <br />
+					<label for="firstName">First Name : </label><input type="text" name="firstname" id="firstName"
+						placeholder="Enter your First Name" required><br /> <br />
+					<label for="lastName">Last Name : </label><input type="text" name="lastname" id="lastName"
+						placeholder="Enter your Last Name" required><br /> <br />
+					<label for="address">Address : </label><input type="text" name="address" id="address"
+						placeholder="Enter your Address" required><br /> <br />
+					<label for="phno">Phone No : </label><input type="text" name="phone" id="phno"
+						placeholder="Enter your Phone Number" required><br /> <br />
+					<label for="Email">Email : </label><input type="text" name="mailid" id="Email" placeholder="Enter your Email"><br /> <br />
+					<input type="checkbox" class="register" required>
+					<label for="acceptance" class="finalacceptance">I ACCEPT ALL TERMS & CONDITIONS</label><br>
+					<input class="UserRegistration" type="submit" value="REGISTER ME ">
+				</form>
+			</td>
+
+		</tr>
+	</table>
+
+
 	<script>
+		// Preloder script
 		var tmp = document.getElementById("loding");
 		function funload() {
 		  loding.style.display = "none";
 		}
 	  </script>
-  </body>
+  
+
+
+</body>
+
 </html>

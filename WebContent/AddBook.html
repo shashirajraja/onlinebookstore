@@ -2,24 +2,114 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Book Store</title>
+	<style>
+	*{
+		box-sizing: border-box;
+	}	
+	body
+	{
+		background-image: url("Photo.jpg");
+	}
+	#topmid{
+		border:0px solid black;
+		color:#FFFFFF;
+		text-align: center;
+		font-weight: bold;
+		margin-top: 0px;
+		padding-left: 30%;
+		font-style: oblique;
+		font-size:38px;
+	}
+	a:hover{
+		color:red;
+	}
+	a:link{
+		color: green;
+		text-decoration: none;
+	}
+	.tab{
+		border:1px black solid;
+		background-color: #FFE5CC;
+		margin-left: 48%;
+		width:450px;
+		color:green;
+		font-weight: bold;
+		font-style:normal;
+		text-align:center;
+		font-size: 22px;
+		margin-bottom:10px;
+		padding:10px;
+	}
+	.home{
+		border:1px black solid;
+		background-color: #ccffcc;
+		margin-left: 1%;
+		width:200px;
+		color:blue;
+		font-weight: bold;
+		font-style:italic;
+		text-align:center;
+		font-size: 25px;
+		margin-bottom:10px;
+		padding:10px;
+		float:left;
+		clear:both;
+	}
+	.yel{
+	color:yellow;
+	}
+	.red{
+		color:red;
+	}
+	.green{
+		color:green;
+	}
+	.hd{
+		font-size:25px;
+	}
+	.brown{
+		color:brown;
+	}
+	.AddBooks{
+	height:35px;
+	border-radius: 50px;
+	background-color: #ccffcc;
+	color:#078707;
+	font-weight: bold;
+	cursor:pointer;
+	transition: 0.3s;
+	border-color: #078707;
+	border-style:solid;
+	border-width: 1px;
 	
+}
+.AddBooks:hover{
+	height:35px;
+	border-radius: 50px;
+	background-color: white;
+	color: #078707;
+	font-weight: bold;
+	border-style:solid;
+	border-width: 1px;
+	border-color: #078707;
+}
+</style>
 <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
 <link rel="manifest" href="./favicons/site.webmanifest">
-<link rel="stylesheet" href="Style.css">
 </head>
-<body onload="funload()">
-		<div id="topmid">
+<body onload="funload()">	
+	<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
 	
 	<div class="home">
-		<a href="AdminLogin.html">Home</a>
+		<a href="adminlog">Home</a>
 	</div>
 	
 	<div class="home">
-		<a href="ViewBooks.html">Available Books</a>
+		<a href="viewbook">Available Books</a>
 	</div>
 
 	<div class="home">
@@ -36,12 +126,12 @@
 		<tr>
 			<td>
 				<form action="addbook" method="post">
-					Book Code : <input type="text" name="barcode"><br/><br/>
-					Book Name : <input type="text" name="name"><br/><br/>
-					BookAuthor: <input type="text" name="author"><br/><br/>
-					Book Price: <input type="text" name="price"><br/><br/>
-					Book Qnty : <input type="text" name="quantity"><br/><br/>
-					<input type="submit" value=" Add These Books ">
+					<label for="bookCode">Book Code : </label><input type="text" name="barcode" id="bookCode" placeholder="Enter Book Code"><br/><br/>
+					<label for="bookName">Book Name : </label> <input type="text" name="name" id="bookName" placeholder="Enter Book's name"><br/><br/>
+					<label for="bookAuthor">Book Author : </label><input type="text" name="author" id="bookAuthor" placeholder="Enter Author's Name"><br/><br/>
+					<label for="bookPrice">Book Price : </label><input type="number" name="price" placeholder="Enter the Price"><br/><br/>
+					<label for="bookQuantity">Book Qnty : </label><input type="number" name="quantity" id="bookQuantity" placeholder="Enter the quantity"><br/><br/>
+					<input class="AddBooks" type="submit" value=" Add These Books ">
 				</form>
 			</td>
 		</tr>  
@@ -53,13 +143,15 @@
 		</tr>
 	</table>
 	</div>
-
+	
 	<script>
+		// Preloder script
 		var tmp = document.getElementById("loding");
 		function funload() {
 		  loding.style.display = "none";
 		}
 	  </script>
+  
 
 </body>
 </html>
