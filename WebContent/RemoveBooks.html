@@ -95,8 +95,8 @@
 }
 	</style>
 </head>
-<body>
-	<div id="topmid">
+<body onload="funload()">
+		<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
 	<div class="home">
@@ -119,5 +119,13 @@
 	</form>
 	</div>
 	
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
 </body>
 </html>

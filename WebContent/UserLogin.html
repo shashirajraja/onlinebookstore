@@ -157,8 +157,8 @@ a:link {
 	href="./favicons/favicon-16x16.png">
 <link rel="manifest" href="./favicons/site.webmanifest">
 </head>
-<body>
-	<div id="topmid">
+<body onload="funload()">
+		<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
 	<div class="home">
@@ -208,6 +208,16 @@ a:link {
 	</table>
 
 	<script type="text/javascript">
+
+
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  
+  
+
 		// Captcha Script
 
 		function checkform() {

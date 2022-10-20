@@ -88,8 +88,8 @@ a:link {
 <link rel="manifest" href="./favicons/site.webmanifest">
 </head>
 
-<body>
-	<div id="topmid">
+<body onload="funload()">
+		<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
 
@@ -130,5 +130,13 @@ a:link {
 		</tr>
 	</table>
 
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
 </body>
 </html>
