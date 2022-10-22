@@ -4,7 +4,7 @@
 - User Login Credentials: (shashi/shashi)
 - Admin Login Credentials: (Admin/Admin)
 ### About
-A userfriendly Online Bookstore System project where users can login or register, view the available books, select books along with their quantity, and buy them. Users can also get payment receipt after sucessful payment. The project can also be used by the administrator, who can add new books, remove books, increase and decrease the quantity of books, change the price of the books as well as maintain the selling history of books.
+A user-friendly Online Bookstore project in which users can log in or register, view the available books, select books along with their quantity, and buy them. Users can also get payment receipts after successful payment. The project can also be used by the administrator, who can add new books, remove books, increase and decrease the quantity of books, change the price of the books as well as maintain the selling history of books.
 
 ![onlinebookstore](https://user-images.githubusercontent.com/34605595/137615096-8447d32d-bddc-4f13-a8ed-3c0f4dd5e04e.png)
 
@@ -93,11 +93,11 @@ commit;
 
 Step 0: Open Eclipse Enterprise Edition. [Install, if not already installed.]
 
-Step 1: Click On File > Import > Git > Projects From Git > Clone Uri  > Paste The Repository Url as: ```https://github.com/shashirajraja/onlinebookstore.git```> Select J2EE Branch > Next > Next > Finish.
+Step 1: Click On File > Import > Git > Projects From Git > Clone Uri > Paste The Repository Url as: ```https://github.com/shashirajraja/onlinebookstore.git```> Select J2EE Branch > Next > Next > Finish.
 
-Step 2.a: Go inside ```src/main/resources > application.properties``` and update the value of database details as per your usage, like db.driver, db.host, db.username and db.password according to your installed mysql/postgresql admin user credentials.
+Step 2. a: Go inside ```src/main/resources > application.properties``` and update the value of database details as per your usage, like db.driver, db.host, db.username and db.password according to your installed mysql/postgresql admin user credentials.
 
-Step 2.b: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove and Update Any Libraries if having Red Mark > Finish.
+Step 2.b: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove and Update Any Libraries if Red Mark > Finish.
 
 Step 3: [Only If Tomcat Server is not configured in Eclipse] : Right Click On Project > Run As > Run On Server > Select Tomcat V8.0 > (Select Tomcat V8.0 Installation Location If Asked) Next > Add onlinebookstore > Finish.
 
@@ -109,10 +109,10 @@ Step 6: Check Running The Site At  <a href="http://localhost:8083/onlinebookstor
 
 Step 7: Default Username And Password For Admin Is "Admin" And "Admin"
 
-Step 8: Default Username And Password For User Is "shashi" And "shashi"
+Step 8: The default Username And Password For User Is "shashi" And "shashi"
 
 
-Note:- This is a Sample Project hence we have used only Generic Servlet and not taken care for Security.
+Note:- Considering that this is a Sample Project, we have used a Generic Servlet and left security out.
 
 
 #### "Suggestions and project improvement ideas are welcomed!"
