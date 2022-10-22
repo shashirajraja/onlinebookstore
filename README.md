@@ -8,6 +8,29 @@ A userfriendly Online Bookstore System project where users can login or register
 
 ![onlinebookstore](https://user-images.githubusercontent.com/34605595/137615096-8447d32d-bddc-4f13-a8ed-3c0f4dd5e04e.png)
 
+<span style="color:blue">**This Website is built for following purpose:-**</span>
+- For Selling books online.
+- Maintaining books selling history.
+- Adding and managing books.
+- User Friendly.
+- For Implementation of Generic Servlets in Java.
+- This is a Mini-project developed using Java, Jdbc, And Generic Servlets.
+
+<span style="color:blue">**Admin Have Following Access for this online store site:-**</span>
+- Add New Books.
+- View Books Available.
+- Remove Books.
+- Increase Books Amount.
+
+<span style="color:blue">**Users Have Following Access for this online store site:-**</span>
+- Create New Account or Register.
+- Login.
+- View Available Books.
+- Select Books to Buy.
+- Select Books Quantity.
+- Buy Books.
+- Get Payment Receipt.
+
 ### Technologies used:-
 1. Front-End Development:
 - Html 5.
@@ -15,7 +38,7 @@ A userfriendly Online Bookstore System project where users can login or register
 - Javascript.
 
 2. Back-End Development:
-- Java
+- Java [JDK 8+]
 - JDBC
 - Servlet
 
