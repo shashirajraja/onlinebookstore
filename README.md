@@ -111,6 +111,11 @@ Step 7: Default Username And Password For Admin Is "Admin" And "Admin"
 
 Step 8: The default Username And Password For User Is "shashi" And "shashi"
 
+## FAQ
+**Question:1** Unable to Connect to Database?
+
+**Answer:** Please check you have installed the mysql correctly and have updated the correct db details in application.properties file. Also you can try doing maven clean install and force update the project and restart.
+<hr>
 
 Note:- Considering that this is a Sample Project, we have used a Generic Servlet and left security out.
 
