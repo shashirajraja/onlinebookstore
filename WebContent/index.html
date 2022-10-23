@@ -80,6 +80,21 @@ a:link {
 .brown {
 	color: brown;
 }
+
+.footer{
+	position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(92, 76, 76);
+   color: white;
+   text-align: center;
+}
+
+.logo{
+	margin-right: 800px ;
+}
+
 </style>
 
 <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
@@ -90,6 +105,9 @@ a:link {
 </head>
 
 <body onload="funload()">
+	<div class="logo">
+		<a href="#"><img src="obs_logo.jpg" width="100px" height="100px" > </a>
+	</div>
 		<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
@@ -117,6 +135,11 @@ a:link {
 					store!</a></td>
 		</tr>
 	</table>
+
+	<div class="footer">
+        &#169 OnlineBookStore <br>
+        All Rights Reserved
+    </div>
 
 	<script>
 		// Preloder script
