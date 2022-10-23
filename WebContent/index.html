@@ -80,6 +80,88 @@ a:link {
 .brown {
 	color: brown;
 }
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+header{
+    width: 100vw;
+    height: 60px;
+    border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+    font-family: 'Poppins';
+	background-color: #101010;
+}
+
+header .inner{
+    width: 1300px; /* This is the inner width of the content inside of your header (80%, etc) */
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+header .logo{
+    display: table;
+    height: 100%;
+    float: left;
+}
+
+header .logo div{
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header .logo img{
+    height: 50px;
+    margin-top: 5px; /* Optical alignment of the logo */
+}
+
+header nav{
+    /* float: right; */
+	margin-left: 10%;
+    height: 100%;
+}
+
+header nav li{
+    display: table;
+    height: 100%;
+    float: left;
+    margin-right: 30px;
+	padding-left: 30px;
+}
+
+header nav li:last-of-type{
+    margin-right: 0;
+}
+
+header nav span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header nav a{
+    color: #ffffff;
+}
+
+header nav .button{
+    background-color: #1ab26b; /* This HEX is the color of the button */
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+header nav .button:hover{
+    filter: brightness(1.05);
+}
+
 </style>
 
 <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
@@ -88,13 +170,39 @@ a:link {
 <link rel="manifest" href="./favicons/site.webmanifest">
 
 </head>
-
 <body onload="funload()">
-		<div id="topmid">
-		<h1>Welcome to Online Book Store</h1>
+	<header>
+        <div class="inner">
+            <div class="logo">
+                <div>
+                    <!-- The below line can be an image or a h1, either will work -->
+                    <img src="logo.png" alt="Google logo">
+                    <!-- <h1>My Logo</h1> -->
+                </div>
+            </div>
+
+            <nav>
+                <!-- Each of the below lines look complicated. There is a reason for this markup though!
+                <li> tag will be the container for the table.
+                <span> will be the part that centers the content inside it
+                <a> is the actual clickable part -->
+				<li><span><a href="index.html">Home</a></span></li>
+				<li><span><a href="ViewBooks.html">Available Books</a></span></li>
+                <li><span><a href="">About</a></span></li>
+                <li><span><a href="login.html">login</a></span></li>
+                <li><span><a href="UserRegister.html">Register</a></span></li>
+                <li><span><a href="" class="button">Contact</a></span></li>
+                <!-- On the line above, remove the class="button" if you don't want the final
+                element to be a button -->
+            </nav>
+        </div>
+    </header>
+	<br>
+	<div id="topmid">
+		<h1>Welcome to Online <br>Book Store</h1>
 	</div>
 
-	<div class="home">
+	<!-- <div class="home">
 		<a href="index.html">Home</a>
 	</div>
 
@@ -108,8 +216,8 @@ a:link {
 
 	<div class="home">
 		<a href="UserRegister.html">Register</a>
-	</div>
-	
+	</div> -->
+	<br><br><br>
 	<table class="tab" border="0px solid black">
 
 		<tr>
