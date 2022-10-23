@@ -164,8 +164,7 @@ header nav .button:hover{
 <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
 <link rel="manifest" href="./favicons/site.webmanifest">
 </head>
-
-<body>
+<body onload="funload()">
 	<header>
         <div class="inner">
             <div class="logo">
@@ -195,8 +194,6 @@ header nav .button:hover{
 	<div id="topmid">
 		<h1>Welcome to Online <br>Book Store</h1>
 	</div><br><br><br>
-
-
 	<table class="tab brown hd" bgcolor="black">
 		<tr>
 			<td>Login or Signup Below</td>
@@ -222,5 +219,13 @@ header nav .button:hover{
 		</tr>
 	</table>
 
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
 </body>
 </html>

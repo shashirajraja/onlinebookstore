@@ -209,8 +209,7 @@ header nav .button:hover{
 	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
 	<link rel="manifest" href="./favicons/site.webmanifest">
 </head>
-
-<body>
+<body onload="funload()">
 	<header>
         <div class="inner">
             <div class="logo">
@@ -220,14 +219,13 @@ header nav .button:hover{
                     <!-- <h1>My Logo</h1> -->
                 </div>
             </div>
-
             <nav>
                 <!-- Each of the below lines look complicated. There is a reason for this markup though!
                 <li> tag will be the container for the table.
                 <span> will be the part that centers the content inside it
                 <a> is the actual clickable part -->
-				<li><span><a href="index.html">Home</a></span></li>
-				<li><span><a href="ViewBooks.html">Available Books</a></span></li>
+				<li><span><a href="userlog">Home</a></span></li>
+				<li><span><a href="viewbook">Available Books</a></span></li>
                 <li><span><a href="">About</a></span></li>
                 <li><span><a href="login.html">login</a></span></li>
                 <li><span><a href="UserRegister.html">Register</a></span></li>
@@ -274,6 +272,15 @@ header nav .button:hover{
 		</tr>
 	</table>
 
+
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
 
 
 </body>
