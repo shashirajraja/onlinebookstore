@@ -4,8 +4,57 @@
 	<meta charset="ISO-8859-1">
 	<title>Book Store</title>
 	<style>
+		* COMPACT CAPTCHA YELLOW */ .capbox {
+			background: #ccc2a7;
+			background: linear-gradient(to right, #ccc2a7, #8f8874);
+			border: #5c574b 0px solid;
+			border-width: 2px 2px 2px 20px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			display: inline-block;
+			padding: 5px 8px 5px 8px;
+			border-radius: 4px 4px 4px 4px;
+		}
+
+		.capbox-inner {
+			font: bold 12px arial, sans-serif;
+			color: #000000;
+			background: rgba(255, 255, 255, 0.30);
+			/* SEMI TRANSPARENT BACKGROUND */
+			margin: 0px auto 0px auto;
+			padding: 3px 8px 5px 10px;
+			border-radius: 4px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		#CaptchaDiv {
+			color: #000000;
+			font: normal 25px Impact, Charcoal, arial, sans-serif;
+			font-style: italic;
+			text-align: center;
+			vertical-align: middle;
+			background-color: #FFFFFF;
+			user-select: none;
+			display: inline-block;
+			padding: 3px 14px 3px 8px;
+			margin-right: 4px;
+			border-radius: 4px;
+		}
+
+		#CaptchaInput {
+			border: black 2px solid;
+			margin: 3px 0px 1px 0px;
+			width: 105px;
+		}
+
 		* {
 			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
 		}
 
 		body {
@@ -106,6 +155,88 @@
 			border-width: 1px;
 			border-color: #078707;
 		}
+
+		header nav li :hover {
+			border-bottom: 3px white solid;
+			border-radius: 10px;
+			padding-bottom: 7px;
+			/* padding: 8px;
+	margin: 10px; */
+			color: white;
+		}
+
+		header {
+			width: 100vw;
+			height: 60px;
+			border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+			font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+			background-color: #101010;
+		}
+
+		header .inner {
+			width: 1300px;
+			/* This is the inner width of the content inside of your header (80%, etc) */
+			height: 100%;
+			display: block;
+			margin: 0 auto;
+		}
+
+		header .logo {
+			display: table;
+			height: 100%;
+			float: left;
+		}
+
+		header .logo div {
+			height: 100%;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		header .logo img {
+			height: 50px;
+			margin-top: 5px;
+			/* Optical alignment of the logo */
+		}
+
+		header nav {
+			/* float: right; */
+			margin-left: 10%;
+			height: 100%;
+		}
+
+		header nav li {
+			display: table;
+			height: 100%;
+			float: left;
+			margin-right: 30px;
+			padding-left: 30px;
+		}
+
+		header nav li:last-of-type {
+			margin-right: 0;
+		}
+
+		header nav span {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		header nav a {
+			color: #ffffff;
+		}
+
+		header nav .button {
+			background-color: #1ab26b;
+			/* This HEX is the color of the button */
+			color: #FFF;
+			padding: 10px 20px;
+			border-radius: 4px;
+		}
+
+		header nav .button:hover {
+			filter: brightness(1.05);
+		}
 	</style>
 	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
@@ -114,6 +245,33 @@
 </head>
 
 <body>
+	<header>
+		<div class="inner">
+			<div class="logo">
+				<div>
+					<!-- The below line can be an image or a h1, either will work -->
+					<img src="logo.png" alt="Google logo">
+					<!-- <h1>My Logo</h1> -->
+				</div>
+			</div>
+
+			<nav>
+				<!-- Each of the below lines look complicated. There is a reason for this markup though!
+                <li> tag will be the container for the table.
+                <span> will be the part that centers the content inside it
+                <a> is the actual clickable part -->
+				<li><span><a href="index.html">Home</a></span></li>
+				<li><span><a href="viewbook">Available Books</a></span></li>
+				<li><span><a href="">About</a></span></li>
+				<li><span><a href="login.html">Login</a></span></li>
+				<li><span><a href="UserRegister.html">Register</a></span></li>
+				<li><span><a href="" class="button">Contact</a></span></li>
+				<!-- On the line above, remove the class="button" if you don't want the final
+                element to be a button -->
+			</nav>
+		</div>
+	</header>
+
 	<div id="topmid">
 		<h1>Welcome to Online Book Store</h1>
 	</div>
@@ -149,7 +307,15 @@
 					<br />
 					<label for="Password">Password : </label><input type="password" name="password"
 						placeholder="Enter Password" id="Password"><br />
-					<br /> <input class="AdminLogin" type="submit" value=" Login as an Admin  " text-align="center">
+					<br />
+					<div class="capbox">
+						<div id="CaptchaDiv">46749</div>
+						<div class="capbox-inner">
+							<input type="hidden" id="txtCaptcha" value="46749"> <input type="text" name="CaptchaInput"
+								id="CaptchaInput" size="15" placeholder="Enter Captcha"><br>
+						</div>
+					</div><br>
+					<input class="AdminLogin" type="submit" value=" Login as an Admin  " text-align="center">
 				</form>
 			</td>
 
@@ -158,5 +324,16 @@
 	</div>
 
 </body>
+<script>
+	var a = Math.ceil(Math.random() * 9) + '';
+	var b = Math.ceil(Math.random() * 9) + '';
+	var c = Math.ceil(Math.random() * 9) + '';
+	var d = Math.ceil(Math.random() * 9) + '';
+	var e = Math.ceil(Math.random() * 9) + '';
+
+	var code = a + b + c + d + e;
+	document.getElementById("txtCaptcha").value = code;
+	document.getElementById("CaptchaDiv").innerHTML = code;
+</script>
 
 </html>
