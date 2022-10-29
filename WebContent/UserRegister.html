@@ -43,7 +43,7 @@
 			text-align: center;
 			font-size: 22px;
 			margin-bottom: 10px;
-			padding: 10px;
+			padding: 20px;
 		}
 
 		.home {
@@ -127,122 +127,139 @@
 			border-color: #078707;
 		}
 
-		*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-header nav li :hover{
-	border-bottom: 3px white solid;
-	border-radius: 10px;
-	padding-bottom: 7px;
-	/* padding: 8px;
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		header nav li :hover {
+			border-bottom: 3px white solid;
+			border-radius: 10px;
+			padding-bottom: 7px;
+			/* padding: 8px;
 	margin: 10px; */
-	color: white;
-}
+			color: white;
+		}
 
-header{
-    width: 100vw;
-    height: 60px;
-    border-bottom: solid 1px rgba(16, 16, 16, 0.1);
-    font-family: 'Poppins';
-	background-color: #101010;
-}
+		header {
+			width: 100vw;
+			height: 60px;
+			border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+			font-family: 'Poppins';
+			background-color: #101010;
+		}
 
-header .inner{
-    width: 1300px; /* This is the inner width of the content inside of your header (80%, etc) */
-    height: 100%;
-    display: block;
-    margin: 0 auto;
-}
+		header .inner {
+			width: 1300px;
+			/* This is the inner width of the content inside of your header (80%, etc) */
+			height: 100%;
+			display: block;
+			margin: 0 auto;
+		}
 
-header .logo{
-    display: table;
-    height: 100%;
-    float: left;
-}
+		header .logo {
+			display: table;
+			height: 100%;
+			float: left;
+		}
 
-header .logo div{
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-}
+		header .logo div {
+			height: 100%;
+			display: table-cell;
+			vertical-align: middle;
+		}
 
-header .logo img{
-    height: 50px;
-    margin-top: 5px; /* Optical alignment of the logo */
-}
+		header .logo img {
+			height: 50px;
+			margin-top: 5px;
+			/* Optical alignment of the logo */
+		}
 
-header nav{
-    /* float: right; */
-	margin-left: 10%;
-    height: 100%;
-}
+		header nav {
+			/* float: right; */
+			margin-left: 10%;
+			height: 100%;
+		}
 
-header nav li{
-    display: table;
-    height: 100%;
-    float: left;
-    margin-right: 30px;
-	padding-left: 30px;
-}
+		header nav li {
+			display: table;
+			height: 100%;
+			float: left;
+			margin-right: 30px;
+			padding-left: 30px;
+		}
 
-header nav li:last-of-type{
-    margin-right: 0;
-}
+		header nav li:last-of-type {
+			margin-right: 0;
+		}
 
-header nav span {
-    display: table-cell;
-    vertical-align: middle;
-}
+		header nav span {
+			display: table-cell;
+			vertical-align: middle;
+		}
 
-header nav a{
-    color: #ffffff;
-}
+		header nav a {
+			color: #ffffff;
+		}
 
-header nav .button{
-    background-color: #1ab26b; /* This HEX is the color of the button */
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 4px;
-}
+		header nav .button {
+			background-color: #1ab26b;
+			/* This HEX is the color of the button */
+			color: #FFF;
+			padding: 10px 20px;
+			border-radius: 4px;
+		}
 
-header nav .button:hover{
-    filter: brightness(1.05);
-}
+		header nav .button:hover {
+			filter: brightness(1.05);
+		}
+
+		/* for all input tags */
+		input {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+		}
+		.Form{
+			display: flex;
+			flex-direction: column;
+		}
 	</style>
 	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
 	<link rel="manifest" href="./favicons/site.webmanifest">
 </head>
+
 <body onload="funload()">
 	<header>
-        <div class="inner">
-            <div class="logo">
-                <div>
-                    <!-- The below line can be an image or a h1, either will work -->
-                    <img src="logo.png" alt="Google logo">
-                    <!-- <h1>My Logo</h1> -->
-                </div>
-            </div>
-            <nav>
-                <!-- Each of the below lines look complicated. There is a reason for this markup though!
+		<div class="inner">
+			<div class="logo">
+				<div>
+					<!-- The below line can be an image or a h1, either will work -->
+					<img src="logo.png" alt="Google logo">
+					<!-- <h1>My Logo</h1> -->
+				</div>
+			</div>
+			<nav>
+				<!-- Each of the below lines look complicated. There is a reason for this markup though!
                 <li> tag will be the container for the table.
                 <span> will be the part that centers the content inside it
                 <a> is the actual clickable part -->
 				<li><span><a href="userlog">Home</a></span></li>
 				<li><span><a href="viewbook">Available Books</a></span></li>
-                <li><span><a href="">About</a></span></li>
-                <li><span><a href="login.html">login</a></span></li>
-                <li><span><a href="UserRegister.html">Register</a></span></li>
-                <li><span><a href="" class="button">Contact</a></span></li>
-                <!-- On the line above, remove the class="button" if you don't want the final
+				<li><span><a href="">About</a></span></li>
+				<li><span><a href="login.html">login</a></span></li>
+				<li><span><a href="UserRegister.html">Register</a></span></li>
+				<li><span><a href="" class="button">Contact</a></span></li>
+				<!-- On the line above, remove the class="button" if you don't want the final
                 element to be a button -->
-            </nav>
-        </div>
-    </header>
+			</nav>
+		</div>
+	</header>
 	<div id="topmid">
 		<h1>Welcome to Online <br>Book Store</h1>
 	</div>
@@ -257,22 +274,30 @@ header nav .button:hover{
 
 		<tr>
 			<td>
-				<form action="userreg" method="post">
+				<form action="userreg" method="post" class="Form">
 					<label for="userName">Username : </label>
-					<input type="text" name="username" id="userName" placeholder="Enter your Username" required><br /> <br />
-					<label for="passWord">Password :&nbsp; </label><input type="password" name="password" id="passWord"
-						placeholder="Enter Password" required><br /> <br />
-					<label for="firstName">First Name : </label><input type="text" name="firstname" id="firstName"
-						placeholder="Enter your First Name" required><br /> <br />
-					<label for="lastName">Last Name : </label><input type="text" name="lastname" id="lastName"
-						placeholder="Enter your Last Name" required><br /> <br />
-					<label for="address">Address : </label><input type="text" name="address" id="address"
-						placeholder="Enter your Address" required><br /> <br />
-					<label for="phno">Phone No : </label><input type="text" name="phone" id="phno"
-						placeholder="Enter your Phone Number" required><br /> <br />
-					<label for="Email">Email : </label><input type="text" name="mailid" id="Email" placeholder="Enter your Email"><br /> <br />
+					<input type="text" name="username" id="userName" placeholder="Enter your Username" required>
+
+					<label for="passWord">Password :&nbsp; </label>
+					<input type="password" name="password" id="passWord" placeholder="Enter Password" required>
+
+					<label for="firstName">First Name : </label>
+					<input type="text" name="firstname" id="firstName" placeholder="Enter your First Name" required>
+
+					<label for="lastName">Last Name : </label>
+					<input type="text" name="lastname" id="lastName" placeholder="Enter your Last Name" required>
+
+					<label for="address">Address : </label>
+					<input type="text" name="address" id="address" placeholder="Enter your Address" required>
+
+					<label for="phno">Phone No : </label>
+					<input type="text" name="phone" id="phno" placeholder="Enter your Phone Number" required>
+
+					<label for="Email">Email : </label>
+					<input type="text" name="mailid" id="Email" placeholder="Enter your Email">
+
 					<input type="checkbox" class="register" required>
-					<label for="acceptance" class="finalacceptance">I ACCEPT ALL TERMS & CONDITIONS</label><br>
+					<label for="acceptance" class="finalacceptance">I ACCEPT ALL TERMS & CONDITIONS</label>
 					<input class="UserRegistration" type="submit" value="REGISTER ME ">
 				</form>
 			</td>
@@ -285,10 +310,10 @@ header nav .button:hover{
 		// Preloder script
 		var tmp = document.getElementById("loding");
 		function funload() {
-		  loding.style.display = "none";
+			loding.style.display = "none";
 		}
-	  </script>
-  
+	</script>
+
 
 
 </body>
