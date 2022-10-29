@@ -1,108 +1,124 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Book Store</title>
-	<style>
-	*{
-		box-sizing: border-box;
-	}	
-	body
-	{
-		background-image: url("Photo.jpg");
-	}
-	#topmid{
-		border:0px solid black;
-		color:#FFFFFF;
-		text-align: center;
-		font-weight: bold;
-		margin-top: 0px;
-		padding-left: 30%;
-		font-style: oblique;
-		font-size:38px;
-	}
-	a:hover{
-		color:red;
-	}
-	a:link{
-		color: green;
-		text-decoration: none;
-	}
-	.tab{
-		border:1px black solid;
-		background-color: #FFE5CC;
-		margin-left: 45%;
-		max-width:700px;
-		color:green;
-		font-weight: bold;
-		font-style:normal;
-		text-align:center;
-		font-size: 22px;
-		margin-bottom:10px;
-		padding:10px;
-		padding-top:2px;
-	}
-	.home{
-		border:1px black solid;
-		background-color: #ccffcc;
-		margin-left: 1%;
-		width:200px;
-		color:blue;
-		font-weight: bold;
-		font-style:italic;
-		text-align:center;
-		font-size: 25px;
-		margin-bottom:10px;
-		padding:10px;
-		float:left;
-		clear:both;
-	}
-	table{
-		border:2px solid black;
-		text-align: center;
-		padding:5px;
-		cellspacing:2px;
-		width:680px;
-	}
-	tr:hover {
-		background-color: #f5f5f5;
-		color:blue;
-	}
-	td{
-		padding:10px;
-		border:1px solid black;
-	}
-	th{
-		color:green;
-		font-size:20px;
-	}
-	.yel{
-	color:yellow;
-	}
-	.red{
-		color:red;
-	}
-	.green{
-		color:green;
-	}
-	.hd{
-		font-size:25px;
-	}
-	.brown{
-		color:brown;
-	}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="ViewBooks.css">
+    <title>Books Store</title>
 </head>
 <body>
-	<div id="topmid">
-		<h1>Welcome to Online Book Store</h1>
-	</div>
-	<div class="home">
-		<a href="index.html">Home</a>
-	</div>
-	
-	<div class="home">
-		<a href="index.html">Logout</a>
-	</div>
-	
+    <header>
+        <nav><p><a href="index.html">Home</a></p><ul><li><p>Book Store</p></li></ul></nav>
+    </header>
+    <section id="content">
+        <!-- content has been used as the parent for all the content -->
+        <!--filter section-->
+        <!-- checkbox-input class can be used to go through all the checkboxes -->
+        <section id="filter-area">
+            <h2 class="heading">Filter</h2>
+            <input type="checkbox" id="novel" value="novel" class="checkbox-input"> 
+            <label for="novel">Novel</label>
+            <input type="checkbox" id="sci-fi" value="sci-fi" class="checkbox-input"> 
+            <label for="sci-fi">Sci-fi</label>
+            <input type="checkbox" id="Romance" value="Romance" class="checkbox-input"> 
+            <label for="Romance">Romance</label>
+            <input type="checkbox" id="self-improvement" value="self-improvement" class="checkbox-input"> 
+            <label for="self-improvement">Self improvement</label>
+            <input type="checkbox" id="Philosophy" value="Philosophy" class="checkbox-input"> 
+            <label for="Philosophy">Philosophy</label>
+            <input type="checkbox" id="Generals" value="Generals" class="checkbox-input"> 
+            <label for="Generals">Generals</label>
+            <input type="checkbox" id="children" value="children" class="checkbox-input"> 
+            <label for="children">children</label>
+            <input type="checkbox" id="comic" value="comic" class="checkbox-input"> 
+            <label for="comic">comic</label>
+            <input type="checkbox" id="Manga" value="Manga" class="checkbox-input"> 
+            <label for="Manga">Manga</label>
+            <input type="checkbox" id="Algorithm-and-datastructure" value="Algorithm-and-datastructure" class="checkbox-input"> 
+            <label for="Algorithm-and-datastructure">Algorithm and datastructure</label>
+            <input type="checkbox" id="System-design" value="System-design" class="checkbox-input"> 
+            <label for="System-design">System Design</label>
+            <input type="checkbox" id="information-systems" value="information-systems" class="checkbox-input"> 
+            <label for="information-systems">information systems</label>
+            <input type="checkbox" id="Database" value="Database" class="checkbox-input"> 
+            <label for="Database">Database</label>
+            <input type="checkbox" id="music" value="music" class="checkbox-input"> 
+            <label for="music">music</label>
+            <input type="checkbox" id="graphic" value="graphic" class="checkbox-input"> 
+            <label for="graphic">graphic</label>
+            <input type="checkbox" id="math" value="math" class="checkbox-input"> 
+            <label for="math">math</label>
+            <input type="checkbox" id="differential-equations" value="differential-equations" class="checkbox-input"> 
+            <label for="differential-equations">differential equations</label>
+        </section>
+        <section id="border-1"></section>
+        <!--Books Area - the area where all the books will be displayed you can just select a book body and use js to manipulate and rander it-->
+        <section id="books-area">
+            <!--this section contains featured books-->
+            <h3 class="heading">Featured</h3>
+            <section id="featured-area">
+                <section class="book"><img src="img/House-of-the-dragon.jpg">
+                    <section class="card-body">
+                        <h3 class="label">Name</h3>
+                        <h4 class="name">House of the dragon</h4>
+                        <h3 class="label">Author</h3>
+                        <h5 class="author">George R.R. Martin</h5>
+                        <h4 class="label">Count</h4>
+                        <h5 class="count">5</h5>
+                    </section>
+                    </section>
+                    <section class="book"><img src="img/Atomic Habits.webp">
+                        <section class="card-body">
+                            <h3 class="label">Name</h3>
+                            <h4 class="name">Atomic Habit</h4>
+                            <h3 class="label">Author</h3>
+                            <h5 class="author">James Clear</h5>
+                            <h4 class="label">Count</h4>
+                            <h5 class="count">10</h5>
+                        </section>
+                    </section>
+                    <section class="book"><img src="img/introduction-to-algorithms.jpg">
+                        <section class="card-body">
+                            <h3 class="label">Name</h3>
+                            <h4 class="name">Introduction to algorithms</h4>
+                            <h3 class="label">Author</h3>
+                            <h5 class="author">Thomas H. Coremen</h5>
+                            <h4 class="label">Count</h4>
+                            <h5 class="count">25</h5>
+                        </section>
+                    </section>
+                    <section class="book"><img src="img/the-alchemist.jpg">
+                        <section class="card-body">
+                            <h3 class="label">Name</h3>
+                            <h4 class="name">The Alchemist</h4>
+                            <h3 class="label">Author</h3>
+                            <h5 class="author">Poulo Coelho</h5>
+                            <h4 class="label">Count</h4>
+                            <h5 class="count">30</h5>
+                        </section>
+                    </section>
+            </section>
+            <!-- this is the search bar -->
+            <section id="search-section">
+                <input type="text" id="searchbar" placeholder="search">
+                <button id="searchbutton"></button>
+            </section>
+            <!-- this is the area of search results you can just copy a body from featured section and paste it here if you want that hover effect -->
+            <h3 class="heading">Relevant to Search</h3>
+            <section id="searched-books-area">
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+                <section class="book"><img src="img/the_silent_patient.jpg"></section>
+            </section>
+        </section>
+    </section>  
+    <footer></footer>
 </body>
 </html>

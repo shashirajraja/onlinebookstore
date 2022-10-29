@@ -1,0 +1,252 @@
+*{
+    margin:0%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+}
+body{
+    background-color:white;
+}
+nav{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+nav p{
+    font-size: 3vw;
+    color:azure;
+    font-family: 'Anton', sans-serif;
+}
+header{
+    z-index:1;
+    top:0%;
+    width:100%;
+    height:10vh;
+    position:fixed;
+    background-color:#192133;
+}
+#content{
+    /* float:left; */
+    position:relative;
+    margin-top: 10vh;
+}
+#books-area{
+    float:right;
+    margin-right: 2vw;
+    width:68vw;
+    display:flex;
+    flex-direction: column;
+    /* margin-left:24vw; */
+    position:relative;
+}
+#filter-area{
+    border-radius: 4vh /2vw;
+    margin:3vw;
+    margin-top:1vw;
+    position:fixed;
+    padding:12px;
+    -webkit-box-shadow: 13px 45px 119px -60px rgba(0,0,0,0.75);
+    -moz-box-shadow: 13px 45px 119px -60px rgba(0,0,0,0.75);
+    box-shadow: 13px 45px 119px -60px rgba(0,0,0,0.75);
+    float:left;
+    width:20vw;
+    height:80vh;
+    background-color:white;
+    color:rgb(198, 77, 255);
+}
+#filter-area>.heading{
+    text-align: center;
+    padding:2vh;
+    text-shadow:13px 45px 119px -60px rgba(0,0,0,0.75);
+}
+#border-1{
+    float:left;
+    position:fixed;
+    border-radius: 4vh /2vw;
+    margin:2vw;
+    margin-top: 1vw;
+    margin-left: 25vw;
+
+    /* position:fixed; */
+    width:0.5vw;
+    height:80vh;
+    background-color:rgb(247, 148, 31);
+}
+#searched-books-area{
+    float:right;
+    border-radius: 4vh /2vw;
+    margin-right:5vw;
+    margin-top:1vh;
+    -webkit-box-shadow: 13px -3px 139px -43px black;
+-moz-box-shadow: 13px -3px 139px -43px black;
+box-shadow: 13px -3px 139px -43px black;
+    /* float:left; */
+    width:fit-content;
+    height:fit-content;
+    background-color: white;
+}
+#featured-area{
+    /* display: inline-block; */
+    position: relative;
+    margin-right:1vw;
+    margin-top:1vh;
+    -webkit-box-shadow: 13px -3px 139px -43px rgba(191,94,191,1);
+-moz-box-shadow: 13px -3px 139px -43px rgba(191,94,191,1);
+box-shadow: 13px -3px 139px -43px rgba(191,94,191,1);
+    border-radius: 4vh /2vw;
+    width:fit-content;
+}
+.book{
+    list-style-type: none;
+    float:left;
+    position:relative;
+    display:flex;
+    align-items: center;
+    border-radius:2%;
+    margin:1vw;
+    margin-top:1vw;
+    -webkit-box-shadow: 13px 45px 119px -60px black;
+    -moz-box-shadow: 13px 45px 119px -60px black;
+    box-shadow: 13px 45px 119px -60px black;
+    width:13.5vw;
+    height:40vh;
+    background-color: white;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.heading{
+    font-size:xx-large;
+    padding:4px;
+    font-weight: bolder;
+    color:rgb(153, 93, 181);
+    font-family: 'Anton', sans-serif;
+}
+#searchbar{
+    margin:4px; 
+    width:25vw;
+    font-size:1.2vw;
+    margin-left:2vw;
+    margin-bottom:0px;
+    border-radius:0px;
+    border-style:none;
+    outline:none;
+}
+#searchbutton{
+    border-radius:4vw;
+    position:relative;
+    top:0%;
+    height:2.5vw;
+    width:2.5vw;
+    background-color:rgb(247, 148, 31);
+    border:2px solid rgb(153, 93, 181);
+    float:right;
+}
+#search-section{
+    height:7vh;
+    position:relative;
+    padding:0.5vw;
+    width:60%;
+    margin:auto;
+    margin-top:3vh;
+    /* margin-block: 4vh; */
+    background-color:white;
+    border:3px solid rgb(153, 93, 181);
+
+    border-radius:10vw;
+    color:#192133;
+}
+#searchbutton:hover{
+    background-color:#192133;
+}
+img{
+    width:inherit;
+    height:inherit;
+    border-radius:0.5vw;
+    object-fit: cover;
+}
+.card-body {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    /* z-index: 2; */
+    background: linear-gradient(to bottom, violet, #192133 90%);
+    padding: 10px;
+    transition: 0.4s;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+  }
+  .book:hover .card-body {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  /* this .label is the class representing all the labels like name auther and count */
+.label{ 
+    color:aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top:4vh;
+}  
+/* this is the label tag used to define the checkboxes */
+label{
+    font-family: 'Anton', sans-serif;
+    font-size: large;
+}
+/* reduce font size if the height decreses */
+@media screen and (max-height:400px){
+    label{
+        font-size:2vh;
+    }
+    .label{
+        font-size:3vh;
+        padding:1vh;
+    }
+    h5,h4{
+        font-size:1.4vw;
+    }
+}
+/* hide the filter area if the size of that of a mobile screen */
+@media screen and (max-width:600px){
+    #filter-area{
+        display:none;
+    }
+    #border-1{
+       display:none;
+    }
+    #books-area{
+        width:93vw;
+    }
+    .book{
+        width:18vw;
+        height:30vw;
+    }
+    #searched-books-area{
+        position:relative;
+        float:none;
+        margin-right:12vw;
+    }
+    #searchbutton{
+        width:6vw;
+        height:6vw;
+    }
+    #searchbar{
+        width:42vw;
+        height:4.5vw;
+        font-size:small;
+    }
+    #search-section{
+        height:8vw;
+    }
+    label{
+        font-size:small;
+    }
+    .label{
+        font-size:small;
+        padding-top:1vh;
+    }
+    h5,h4{
+        font-size:1.6vw;
+    }
+}
