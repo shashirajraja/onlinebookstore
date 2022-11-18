@@ -38,7 +38,7 @@ pipeline {
 					sh "mvn test"
               	    }  
          	    }  
-        	}
+        	
 
        	    stage("Build Image") { 
 				when { 
@@ -54,11 +54,12 @@ pipeline {
            	    steps {  
 					sh "docker build -t onlinebookstore"
               	    }  
-         	    }  
+         	      
         	}
 	post {
        always { 
             cleanWs()
         }
+	}
 	}
 }
