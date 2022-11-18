@@ -1,7 +1,13 @@
 pipeline {  
     agent none  
         stages {  
-       	    stage("build") {  
+       	    stage("build") { 
+			agent {
+					docker {
+						label 'linux'
+						image 'maven:3-amazoncorretto-19'
+					} 
+				} 
 				when { 
 					branch "feature/.*"
 					}
