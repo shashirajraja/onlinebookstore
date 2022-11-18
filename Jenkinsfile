@@ -25,7 +25,7 @@ pipeline {
            	    steps {  
 					sh "mvn clean install"
               	    }  
-         	    }
+         	}
        	    stage("test") { 
 				when { 
 					anyOf{
@@ -36,10 +36,23 @@ pipeline {
 				}
            	    steps {  
 					sh "mvn test"
-					junit 'arget/test-reports/*.xml'
               	    }  
          	    }  
-        }
+        	}
+
+       	    stage("Build Image") { 
+				when { 
+					anyOf{
+						branch "master"
+						branch "feature/*"
+					}
+					
+				}
+           	    steps {  
+					sh "docker build -t onlinebookstore .
+              	    }  
+         	    }  
+        	}
 	post {
        always { 
             cleanWs()
