@@ -52,7 +52,7 @@ pipeline {
 					label 'linux'
 				}
            	    steps {  
-					sh "docker build -t onlinebookstore .
+					sh "docker build -t onlinebookstore"
               	    }  
          	    }  
         	}
