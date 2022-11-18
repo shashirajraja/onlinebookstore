@@ -3,7 +3,7 @@ pipeline {
         stages {  
        	    stage("build") {  
 				when { 
-					branch: "feature/\\d+",
+					branch "feature/\\d+",
 					}
            	    steps {  
 					sh "mvn clean build"
@@ -11,7 +11,7 @@ pipeline {
          	    }
        	    stage("test") {  
 				when { 
-					branch: "feature/\\d+",
+					branch "feature/\\d+",
 					}
            	    steps {  
 					sh "mvn test"
