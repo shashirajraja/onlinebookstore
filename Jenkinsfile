@@ -1,5 +1,12 @@
 pipeline {  
     agent none  
+
+	options {
+		disableConcurrentBuilds()
+		disableResume()
+		timestamps()
+		parallelsAlwaysFailFast()
+	}
         stages {  
        	    stage("build") { 
 			agent {
@@ -9,8 +16,12 @@ pipeline {
 					} 
 				} 
 				when { 
-					branch "feature/*"
+					anyOf{
+						branch "feature/*"
+						branch "master"
 					}
+					
+				}
            	    steps {  
 					sh "mvn clean install"
               	    }  
@@ -23,11 +34,19 @@ pipeline {
 					} 
 				}  
 				when { 
-					branch "feature/*"
+					anyOf{
+						branch "feature/*"
+						branch "master"
 					}
+					
+				}
            	    steps {  
 					sh "mvn test"
+					junit 'arget/test-reports/*.xml'
               	    }  
          	    }  
         }
+	post {
+		cleanup()
+	}
 }
