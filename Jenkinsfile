@@ -9,7 +9,7 @@ pipeline {
 					} 
 				} 
 				when { 
-					branch "feature/.*"
+					branch "feature/*"
 					}
            	    steps {  
 					sh "mvn clean build"
