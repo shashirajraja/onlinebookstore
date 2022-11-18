@@ -1,11 +1,23 @@
 pipeline {  
-    agent any  
+    agent none  
         stages {  
-       	    stage("git_checkout") {  
+       	    stage("build") {  
+				when { 
+					branch pattern: "feature/\\d+",
+					comparator: "REGEXP"
+					}
            	    steps {  
-              	    echo "cloning repository" 
-              	    echo "repo cloned successfully"  
+					sh "mvn clean build"
               	    }  
-         	    } 
+         	    }
+       	    stage("test") {  
+				when { 
+					branch pattern: "feature/\\d+",
+					comparator: "REGEXP"
+					}
+           	    steps {  
+					sh "mvn test"
+              	    }  
+         	    }  
         }
 }
