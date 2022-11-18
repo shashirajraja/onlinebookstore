@@ -48,6 +48,9 @@ pipeline {
 					}
 					
 				}
+				agent {
+					label 'linux'
+				}
            	    steps {  
 					sh "docker build -t onlinebookstore .
               	    }  
