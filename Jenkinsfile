@@ -5,7 +5,7 @@ pipeline {
 			agent {
 					docker {
 						label 'linux'
-						image 'maven:3-amazoncorretto-19'
+						image 'maven'
 					} 
 				} 
 				when { 
@@ -19,7 +19,7 @@ pipeline {
 				agent {
 					docker {
 						label 'linux'
-						image 'maven:3-amazoncorretto-19'
+						image 'maven'
 					} 
 				}  
 				when { 
