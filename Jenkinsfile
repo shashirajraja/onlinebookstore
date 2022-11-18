@@ -3,7 +3,7 @@ pipeline {
         stages {  
        	    stage("build") {  
 				when { 
-					branch pattern: "feature\/\\d+",
+					branch pattern: "feature/\\d+",
 					comparator: "REGEXP"
 					}
            	    steps {  
@@ -12,7 +12,7 @@ pipeline {
          	    }
        	    stage("test") {  
 				when { 
-					branch pattern: "feature\/\\d+",
+					branch pattern: "feature/\\d+",
 					comparator: "REGEXP"
 					}
            	    steps {  
