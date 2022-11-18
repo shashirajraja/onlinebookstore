@@ -1,5 +1,10 @@
 pipeline {  
-    agent none  
+	agent {
+			docker {
+				label 'linux'
+				image 'maven'
+			} 
+		} 
 
 	options {
 		disableConcurrentBuilds()
@@ -9,12 +14,7 @@ pipeline {
 	}
         stages {  
        	    stage("build") { 
-			agent {
-					docker {
-						label 'linux'
-						image 'maven'
-					} 
-				} 
+
 				when { 
 					anyOf{
 						branch "feature/*"
@@ -26,13 +26,7 @@ pipeline {
 					sh "mvn clean install"
               	    }  
          	    }
-       	    stage("test") {
-				agent {
-					docker {
-						label 'linux'
-						image 'maven'
-					} 
-				}  
+       	    stage("test") { 
 				when { 
 					anyOf{
 						branch "feature/*"
