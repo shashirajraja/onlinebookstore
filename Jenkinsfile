@@ -3,8 +3,7 @@ pipeline {
         stages {  
        	    stage("build") {  
 				when { 
-					branch pattern: "feature/\\d+",
-					comparator: "REGEXP"
+					branch: "feature/\\d+",
 					}
            	    steps {  
 					sh "mvn clean build"
@@ -12,8 +11,7 @@ pipeline {
          	    }
        	    stage("test") {  
 				when { 
-					branch pattern: "feature/\\d+",
-					comparator: "REGEXP"
+					branch: "feature/\\d+",
 					}
            	    steps {  
 					sh "mvn test"
