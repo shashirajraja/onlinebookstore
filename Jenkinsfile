@@ -1,9 +1,6 @@
 pipeline {  
 	agent {
-			docker {
-				label 'linux'
-				image 'maven'
-			} 
+		label "jenkins-slave"
 		} 
 
 	options {
@@ -23,39 +20,9 @@ pipeline {
 					
 				}
            	    steps {  
-					sh "mvn clean install"
+					echo "welcome"
               	    }  
          	}
-       	    stage("test") { 
-				when { 
-					anyOf{
-						branch "feature/*"
-						branch "master"
-					}
-					
-				}
-           	    steps {  
-					sh "mvn test"
-              	    }  
-         	    }  
         	
-
-       	    stage("Build Image") { 
-				when { 
-					anyOf{
-						branch "master"
-						branch "feature/*"
-					}
-					
-				}
-				agent {
-					label 'linux'
-				}
-           	    steps {  
-					sh "docker build -t onlinebookstore"
-              	    }  
-         	      
-        	}
-
 	}
 }
