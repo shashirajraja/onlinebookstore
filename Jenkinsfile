@@ -29,7 +29,7 @@ pipeline {
           sh 'mvn clean install'
         }
         container('busybox') {
-          sh 'ls'
+          sh 'ls -R target'
         }
       }
     }
