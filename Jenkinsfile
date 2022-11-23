@@ -4,7 +4,7 @@ pipeline {
 		} 
 
         stages {  
-			container('maven') { 
+			
 				stage("build") { 
 
 					when { 
@@ -18,7 +18,7 @@ pipeline {
 						echo "welcome"
 						}  
 				}
-			}
+			
         	
 	}
 }
