@@ -6,7 +6,6 @@ pipeline {
 	options {
 		disableConcurrentBuilds()
 		disableResume()
-		timestamps()
 		parallelsAlwaysFailFast()
 	}
         stages {  
