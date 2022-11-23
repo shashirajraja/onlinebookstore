@@ -26,10 +26,10 @@ pipeline {
     stage('Run maven') {
       steps {
         container('maven') {
-          sh 'mvn -version'
+          sh 'mvn clean install'
         }
         container('busybox') {
-          sh '/bin/busybox'
+          sh 'ls'
         }
       }
     }
