@@ -3,25 +3,22 @@ pipeline {
 		label "jenkins-slave"
 		} 
 
-	options {
-		disableConcurrentBuilds()
-		disableResume()
-		parallelsAlwaysFailFast()
-	}
         stages {  
-       	    stage("build") { 
+			container('maven') { 
+				stage("build") { 
 
-				when { 
-					anyOf{
-						branch "feature/*"
-						branch "master"
+					when { 
+						anyOf{
+							branch "feature/*"
+							branch "master"
+						}
+						
 					}
-					
+					steps {  
+						echo "welcome"
+						}  
 				}
-           	    steps {  
-					echo "welcome"
-              	    }  
-         	}
+			}
         	
 	}
 }
