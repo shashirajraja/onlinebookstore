@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    -name: tomcat deploy
-     run: curl -v -u admin:admin -T /home/ec2-user/_work/onlinebookstore/onlinebookstore/target/dependency/webapp-runner.jar 'ec2-34-201-71-186.compute-1.amazonaws.com:8080/manager/text/deploy/?path=/onlinebookjdtomcat'
+   # -name: tomcat deploy
+  #  run: curl -v -u admin:admin -T /home/ec2-user/_work/onlinebookstore/onlinebookstore/target/dependency/webapp-runner.jar 'ec2-34-201-71-186.compute-1.amazonaws.com:8080/manager/text/deploy/?path=/onlinebookjdtomcat'
   
