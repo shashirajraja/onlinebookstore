@@ -1,6 +1,3 @@
-
-
-
 name: Java CI with Maven
 
 on:
@@ -14,8 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: java-version
+      run: java -version
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    -name: tomcat deploy
-      run: curl -v -u admin:admin -T /home/ec2-user/_work/onlinebookstore/onlinebookstore/target/dependency/webapp-runner.jar 'http://34.201.71.186:8080/manager/html/deploy/?path=/onlinebookjdtomcat&update=true'
-  
