@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: java-version
-      run: java --version
+      run: java -version
       
       
       
