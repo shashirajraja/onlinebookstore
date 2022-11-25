@@ -15,5 +15,5 @@ jobs:
       run: java -version
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name:  deploy
-      run: curl -v -d -u admin:admin -T /home/ec2-user/_work/onlinebookstore/onlinebookstore/target/dependency/webapp-runner.jar -f '/manager/html/?path=/onlinebook123&update=true HTTP/1.1'
+    - name:  tomcat deploy
+      run: curl -v -d -u admin:admin -T /home/ec2-user/_work/onlinebookstore/onlinebookstore/target/dependency/webapp-runner.jar -f '/manager/html/?path=/onlinebook&update=true HTTP/1.1'
