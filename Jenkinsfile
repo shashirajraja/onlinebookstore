@@ -65,13 +65,15 @@ pipeline {
 		when {
 			anyOf {
 				branch 'master'
+				branch 'feature/*'
+				
 			}
 		}
 		steps {
 		container(name :'kaniko', shell: '/busybox/sh' ) {
 			sh '''
 				#!/busybox/sh
-				/kaniko/executor  --destination mohamedhani/onlinebookstore  
+				/kaniko/executor  --destination mohamedhani/onlinebookstore:BUILD_NUMBER
 
 				'''
 			}
