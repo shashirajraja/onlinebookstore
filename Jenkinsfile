@@ -16,18 +16,18 @@ pipeline {
             tty: true
           - name: kaniko
             image: gcr.io/kaniko-project/executor:debug
+            workingDir: /home/jenkins/agent
             command:
             - sleep
-			args:
-			- 99999
-			volumeMounts:
-			- name: docker-secret
-			  mountPath: /kaniko/.docker
-
-		  volumes:
-		  - name: docker-secret
-			secret:
-			  secretName: docker-secret
+            args:
+            - 99999
+            volumeMounts:
+            - name: docker-secret
+              mountPath: /kaniko/.docker
+          volumes:
+          - name: docker-secret
+            secret:
+              secretName: docker-secret
         '''
     }
   }
