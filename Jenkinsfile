@@ -14,10 +14,9 @@ pipeline {
             command:
             - cat
             tty: true
-
           - name: kaniko
             image: gcr.io/kaniko-project/executor:debug
-			workingDir: /home/jenkins/agent 
+			workingDir: /home/jenkins/agent
             command:
             - sleep
 			args:
