@@ -23,7 +23,7 @@ pipeline {
             - 99999
             volumeMounts:
             - name: docker-secret
-              mountPath: /kaniko/.docker
+              mountPath: /kaniko/.docker/
           volumes:
           - name: docker-secret
             secret:
@@ -73,7 +73,7 @@ pipeline {
 		container(name :'kaniko', shell: '/busybox/sh' ) {
 			sh '''
 				#!/busybox/sh
-				/kaniko/executor  --destination mohamedhani/onlinebookstore:BUILD_NUMBER
+				/kaniko/executor  --destination mohamedhani/onlinebookstore:$BUILD_NUMBER
 
 				'''
 			}
