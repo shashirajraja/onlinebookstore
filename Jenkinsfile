@@ -14,30 +14,70 @@ pipeline {
             command:
             - cat
             tty: true
-          - name: busybox
-            image: busybox
+
+          - name: kaniko
+            image: gcr.io/kaniko-project/executor:debug
+			workingDir: /home/jenkins/agent 
             command:
-            - cat
-            tty: true
+            - sleep
+			args:
+			- 99999
+			volumeMounts:
+			- name: docker-secret
+			  mountPath: /kaniko/.docker
+
+		  volumes:
+		  - name: docker-secret
+			secret:
+			  secretName: docker-secret
         '''
     }
   }
   stages {
 
     stage('Maven Build') {
-      steps {
-        container('maven') {
-          sh 'mvn clean install'
-        }
-      }
-    }
+		when {
+			anyOf {
+				branch 'master'
+				branch 'feature/*'
+			}
+		}
+		steps {
+		container('maven') {
+			sh 'mvn clean install'
+			}
+		}
+		}
 
     stage('Maven Test') {
-      steps {
-        container('maven') {
-          sh 'mvn clean test'
-        }
-      }
+		when {
+			anyOf {
+				branch 'master'
+				branch 'feature/*'
+			}
+		}
+		steps {
+		container('maven') {
+			sh 'mvn clean test'
+			}
+		}
+    }
+
+    stage('Docker Build') {
+		when {
+			anyOf {
+				branch 'master'
+			}
+		}
+		steps {
+		container(name :'kaniko', shell: '/busybox/sh' ) {
+			sh '''
+				#!/busybox/sh
+				/kaniko/executor  --destination mohamedhani/onlinebookstore  
+
+				'''
+			}
+		}
     }
 
   }
