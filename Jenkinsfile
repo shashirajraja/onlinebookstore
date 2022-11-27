@@ -1,37 +1,24 @@
-pipeline {
-  agent {
-    kubernetes {
-      yaml '''
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          labels:
-            some-label: some-label-value
-        spec:
-          containers:
-          - name: maven
-            image: maven:alpine
-            command:
-            - cat
-            tty: true
-          - name: busybox
-            image: busybox
-            command:
-            - cat
-            tty: true
-        '''
-    }
-  }
-  stages {
-    stage('Run maven') {
-      steps {
-        container('maven') {
-          sh 'mvn clean install'
-        }
-        container('busybox') {
-          sh 'ls -R target'
-        }
-      }
-    }
-  }
+pipeline {  
+	agent {
+		label "jenkins-slave"
+		} 
+
+        stages {  
+
+				stage("build") { 
+
+					when { 
+						anyOf{
+							branch "feature/*"
+							branch "master"
+						}
+
+					}
+					steps {  
+						echo "welcome"
+						}  
+				}
+
+
+	}
 }
