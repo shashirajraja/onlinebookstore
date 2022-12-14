@@ -37,20 +37,36 @@ pipeline {
                 }
             }
         }
-		stage('Static code analysis'){
+		stage('Uploader War/Jar in Nexus '){
             
             steps{
                 
                 script{
                     
-                    withSonarQubeEnv(credentialsId: 'sonar-api') {
-                        
-                        sh 'mvn clean package sonar:sonar'
+					nexusArtifactUploader artifacts:
+					 [
+						[
+							artifactId: 'maven-dependency-plugin',
+							 classifier: '',
+							  file: 'target/webapp-runner.jar',
+							   type: '.jar'
+						]
+					], 
+					credentialsId: 'nexuscredential',
+					groupId: 'onlinebookstore',
+					nexusUrl: '54.226.124.96:8081',
+					nexusVersion: 'nexus3',
+					protocol: 'http',
+					repository: 'demoapp-release',
+					version: '0.0.1'
                     }
                    }
                     
                 }
             }
-
-}
+            
+            
+                    
+                
+ }
 }
