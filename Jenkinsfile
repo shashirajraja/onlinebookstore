@@ -48,7 +48,7 @@ pipeline {
 						[
 							artifactId: 'maven-dependency-plugin',
 							 classifier: '',
-							  file: 'target/webapp-runner.jar',
+							  file: 'target/onlinebookstore.war',
 							   type: '.jar'
 						]
 					], 
