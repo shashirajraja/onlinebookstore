@@ -3,8 +3,7 @@ pipeline {
         stages {  
        	    stage("git_checkout") {  
            	    steps {  
-              	    echo "cloning repository" 
-              	    echo "repo cloned successfully"  
+              	    git 'https://github.com/ANILPHUGARE1/onlinebookstore.git'  
               	    }  
          	    } 
         }
