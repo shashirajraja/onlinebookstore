@@ -6,10 +6,10 @@ pipeline {
               	    git 'https://github.com/ANILPHUGARE1/onlinebookstore.git'  
               	    }  
          	    } 
-        }
-		stage('UNIT testing'){
+        
+		stage('UNIT testing') {
             
-            steps{
+        	steps{
                 
                 script{
                     
@@ -17,4 +17,6 @@ pipeline {
                 }
             }
         }
+
+}
 }
