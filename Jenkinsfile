@@ -47,9 +47,8 @@ pipeline {
 					[
 						[
 							artifactId: 'onlinebookstore', 
-							classifier: '', 
-							file: 'target/onlinebookstore.war', 
-							type: 'jar'
+							classifier: '', file: 'target/onlinebookstore.war', 
+							type: 'war'
 						]
 					], 
 					credentialsId: 'nexuscredential', 
