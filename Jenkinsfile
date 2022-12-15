@@ -42,22 +42,22 @@ pipeline {
             steps{
                 
                 script{
-                    
-					nexusArtifactUploader artifacts:
+                  nexusArtifactUploader artifacts: 
+				[
 					[
-						[
-							artifactId: 'onlinebookstore', 
-							classifier: '', file: 'target/onlinebookstore.war', 
-							type: 'war'
-						]
-					], 
-					credentialsId: 'nexuscredential', 
-					groupId: 'onlinebookstore', 
-					nexusUrl: '18.208.224.9:8081', 
-					nexusVersion: 'nexus3', 
-					protocol: 'http', 
-					repository: 'demoapp-release', 
-					version: '0.0.1-SNAPSHOT'
+						artifactId: 'onlinebookstore', 
+						classifier: '', file: 'target/onlinebookstore.war', 
+						type: 'war'
+					]
+				], 
+				credentialsId: 'Nexus_Credential', 
+				groupId: 'onlinebookstore', 
+				nexusUrl: '18.208.224.9:8081', 
+				nexusVersion: 'nexus3', 
+				protocol: 'http', 
+				repository: 'demoapp-release', 
+				version: '0.0.1'  
+					
                     }
                    
 			 }
