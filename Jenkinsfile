@@ -44,24 +44,24 @@ pipeline {
                 script{
                     
 					nexusArtifactUploader artifacts:
-					 [
+					[
 						[
-							artifactId: 'maven-dependency-plugin',
-							 classifier: '',
-							  file: 'target/onlinebookstore.war',
-							   type: '.jar'
+							artifactId: 'onlinebookstore', 
+							classifier: '', 
+							file: 'target/onlinebookstore.war', 
+							type: 'jar'
 						]
 					], 
-					credentialsId: 'nexuscredential',
-					groupId: 'onlinebookstore',
-					nexusUrl: '54.226.124.96:8081',
-					nexusVersion: 'nexus3',
-					protocol: 'http',
-					repository: 'demoapp-release',
-					version: '0.0.1'
+					credentialsId: 'nexuscredential', 
+					groupId: 'onlinebookstore', 
+					nexusUrl: '18.208.224.9:8081', 
+					nexusVersion: 'nexus3', 
+					protocol: 'http', 
+					repository: 'demoapp-release', 
+					version: '0.0.1-SNAPSHOT'
                     }
                    
-				   }
+			 }
                     
                 
         }
