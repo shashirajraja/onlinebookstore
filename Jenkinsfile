@@ -52,7 +52,7 @@ pipeline {
 				], 
 				credentialsId: 'Nexus_Credential', 
 				groupId: 'onlinebookstore', 
-				nexusUrl: '18.208.224.9:8081', 
+				nexusUrl: '184.72.136.247:8081', 
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
 				repository: 'demoapp-release', 
