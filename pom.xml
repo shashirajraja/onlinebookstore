@@ -51,6 +51,11 @@
 		</plugins>
 	</build>
 	<dependencies>
+	<dependency>
+  <groupId>onlinebookstore</groupId>
+  <artifactId>onlinebookstore</artifactId>
+  <version>${readPomVersion.version}</version>
+</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
