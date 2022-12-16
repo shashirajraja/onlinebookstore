@@ -51,19 +51,14 @@
 		</plugins>
 	</build>
 	<dependencies>
-	<dependency>
-  <groupId>onlinebookstore</groupId>
-  <artifactId>onlinebookstore</artifactId>
-  <version>${readPomVersion.version}</version>
-</dependency>
+	     
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.3.7</version>
 		</dependency>
-
-
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
