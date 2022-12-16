@@ -65,13 +65,12 @@ pipeline {
                 
         }
 		stage("Docker Image Build"){
+			agent any
 			steps{
-				script{
-			
-				sh "docker image build -t $Demoapplication:V1.$BUILD_ID ."
-				sh "docker image tag $Demoapplication:V1.$BUILD_ID anilphugare1/$Demoapplication:V1.$BUILD_ID"
-				sh "docker image tag $Demoapplication:V1.$BUILD_ID anilphugare1/$Demoapplication:V1.$latest"
-				}
+							
+				sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID .'
+				sh "docker image tag $JOB_NAME:v1.$BUILD_ID anilphugare1/$JOB_NAME:v1.$BUILD_ID"
+				sh "docker image tag $JOB_NAME:v1.$BUILD_ID anilphugare1/$JOB_NAME:v1.$latest"
 			}
 		}
 		stage("Push Image ON DockerHub"){
