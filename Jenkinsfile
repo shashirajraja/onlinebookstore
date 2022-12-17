@@ -44,7 +44,7 @@ pipeline{
                 }
             }
         }
-        stage('Maven build'){
+        stage('Maven package'){
             
             steps{
                 
