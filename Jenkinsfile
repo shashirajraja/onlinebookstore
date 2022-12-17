@@ -70,19 +70,15 @@ pipeline {
 			agent any
 			steps{
 							
-				sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID .'
-				sh "docker image tag $JOB_NAME:v1.$BUILD_ID anilphugare1/$JOB_NAME:v1.$BUILD_ID"
-				sh "docker image tag $JOB_NAME:v1.$BUILD_ID anilphugare1/$JOB_NAME:v1.$latest"
-			}
-		}
-		stage("Push Image ON DockerHub"){
-			steps{
 				script{
-					withCredentials([gitUsernamePassword(credentialsId: 'docker_hub_cred', gitToolName: 'git')]) 
-				}
+					sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID .'
+					sh "docker image tag $JOB_NAME:v1.$BUILD_ID anilphugare1/$JOB_NAME:v1.$BUILD_ID"
+					sh "docker image tag $JOB_NAME:v1.$BUILD_ID anilphugare1/$JOB_NAME:v1.$latest"
+	
+				}		
 			}
 		}
-			
+		
 			
 	                
 }
