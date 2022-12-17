@@ -37,35 +37,7 @@ pipeline {
                 }
             }
         }
-		stage('Uploader War/Jar in Nexus '){
-            
-            steps{
-                
-                script{
-			def readPomVersion = readMavenPom file: 'pom.xml'
-			def nexusRepo = readMavenPom.version.endsWith("SNAPSHOT") ? "demoapp-release" : "demoapp-release"
-                  	nexusArtifactUploader artifacts: 
-				[
-					[
-						artifactId: 'onlinebookstore', 
-						classifier: '', file: 'target/onlinebookstore.war', 
-						type: 'war'
-					]
-				], 
-				credentialsId: 'Nexus_Credential', 
-				groupId: 'onlinebookstore', 
-				nexusUrl: '184.72.136.247:8081', 
-				nexusVersion: 'nexus3', 
-				protocol: 'http', 
-				repository: 'demoapp-release', 
-				version: '${readPomVersion.version}'  
-					
-                    }
-                   
-			 }
-                    
-                
-        }
+		
 		stage("Docker Image Build"){
 			agent any
 			steps{
