@@ -78,9 +78,7 @@ pipeline {
 		stage("Push Image ON DockerHub"){
 			steps{
 				script{
-					withCredentials([gitUsernamePassword(credentialsId: 'docker_hub_cred', gitToolName: 'git')]) {
-    // some block
-}
+					withCredentials([gitUsernamePassword(credentialsId: 'docker_hub_cred', gitToolName: 'git')]) 
 				}
 			}
 		}
