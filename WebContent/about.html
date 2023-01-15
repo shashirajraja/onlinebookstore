@@ -1,0 +1,231 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Store</title>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("Photo.jpg");
+	font-family: 'Segoe UI','Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#topmid {
+	border: 0px solid black;
+	color: #ffffff;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 0px;
+	padding-left: 30%;
+	font-style: oblique;
+	font-size: 38px;
+	text-shadow: -2px 2px 2px #000000;
+}
+
+a:hover {
+	color: red;
+}
+
+a:link {
+	color: green;
+	text-decoration: none;
+}
+
+.tab {
+	border: 1px black solid;
+	background-color: #FFE5CC;
+	margin-left: 48%;
+	width: 450px;
+	color: green;
+	font-weight: bold;
+	font-style: normal;
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 20px;
+	box-shadow: -3px 2px 15px #000000;
+}
+
+.home {
+	border: 1px black solid;
+	background-color: #ccffcc;
+	margin-left: 1%;
+	width: 200px;
+	color: blue;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 10px;
+	padding: 10px;
+	float: left;
+	clear: both;
+}
+
+.yel {
+	color: yellow;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.hd {
+	font-size: 25px;
+}
+
+.brown {
+	color: brown;
+}
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+header nav li :hover{
+	border-bottom: 3px white solid;
+	border-radius: 10px;
+	padding-bottom: 7px;
+	/* padding: 8px;
+	margin: 10px; */
+	color: white;
+}
+
+header{
+    width: 100vw;
+    height: 60px;
+    border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+    font-family: 'Segoe UI','Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: #101010;
+}
+
+header .inner{
+    width: 1300px; /* This is the inner width of the content inside of your header (80%, etc) */
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+header .logo{
+    display: table;
+    height: 100%;
+    float: left;
+}
+
+header .logo div{
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header .logo img{
+    height: 50px;
+    margin-top: 5px; /* Optical alignment of the logo */
+}
+
+header nav{
+    /* float: right; */
+	margin-left: 10%;
+    height: 100%;
+}
+
+header nav li{
+    display: table;
+    height: 100%;
+    float: left;
+    margin-right: 30px;
+	padding-left: 30px;
+}
+
+header nav li:last-of-type{
+    margin-right: 0;
+}
+
+header nav span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header nav a{
+    color: #ffffff;
+}
+
+header nav .button{
+    background-color: #1ab26b; /* This HEX is the color of the button */
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+header nav .button:hover{
+    filter: brightness(1.05);
+}
+
+.holds-the-iframe {
+  background:url(loader.gif) center center no-repeat;
+}
+
+</style>
+
+<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+<link rel="manifest" href="./favicons/site.webmanifest">
+
+</head>
+<body onload="funload()">
+	<header>
+        <div class="inner">
+            <div class="logo">
+                <div>
+                    <!-- The below line can be an image or a h1, either will work -->
+                    <img src="logo.png" alt="Google logo">
+                    <!-- <h1>My Logo</h1> -->
+                </div>
+            </div>
+
+            <nav>
+                <!-- Each of the below lines look complicated. There is a reason for this markup though!
+                <li> tag will be the container for the table.
+                <span> will be the part that centers the content inside it
+                <a> is the actual clickable part -->
+				<li><span><a href="index.html">Home</a></span></li>
+				<li><span><a href="viewbook">Available Books</a></span></li>
+                <li><span><a href="">About</a></span></li>
+                <li><span><a href="login.html">Login</a></span></li>
+                <li><span><a href="UserRegister.html">Register</a></span></li>
+                <li><span><a href="" class="button">Contact</a></span></li>
+                <!-- On the line above, remove the class="button" if you don't want the final
+                element to be a button -->
+            </nav>
+        </div>
+    </header>
+	<br>
+	
+	<iframe src="https://flowcv.me/shashirajraja" class="holds-the-iframe" title="My Personal Website" width="100%" height="100%"></iframe>
+	
+	
+	<script>
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  </script>
+  
+
+</body>
+</html>
