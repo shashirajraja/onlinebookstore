@@ -123,6 +123,10 @@ Step 8: The default Username And Password For User Is "shashi" And "shashi"
 <hr>
 
 Note:- Considering that this is a Sample Project, we have used a Generic Servlet and left security out.
+#### Some Screenshots for the project:
+<img width="905" alt="image" src="https://user-images.githubusercontent.com/34605595/212561276-720e25c1-1e5f-42f0-9695-9bc955425fcb.png">
+<img width="948" alt="image" src="https://user-images.githubusercontent.com/34605595/212561349-03bf1925-d008-4fd6-8921-0e1839647ee9.png">
+<img width="950" alt="image" src="https://user-images.githubusercontent.com/34605595/212561497-3c7ffd40-30a5-4b1d-b936-89109069f29c.png">
 
 
 #### "Suggestions and project improvement ideas are welcomed!"
