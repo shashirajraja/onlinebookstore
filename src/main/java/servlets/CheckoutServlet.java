@@ -44,8 +44,6 @@ public class CheckoutServlet extends GenericServlet {
 				int bPrice = rs.getInt(BooksDBConstants.COLUMN_PRICE);
 				String bCode = rs.getString(BooksDBConstants.COLUMN_BARCODE);
 				String bName = rs.getString(BooksDBConstants.COLUMN_NAME);
-				String bAuthor = rs.getString(BooksDBConstants.COLUMN_AUTHOR);
-				int bQty = rs.getInt(BooksDBConstants.COLUMN_QUANTITY);
 				String qt = "qty_" + bCode;
 				int quantity = Integer.parseInt(req.getParameter(qt));
                 pw.println("<input type='hidden' name='"+qt+"' value='"+quantity+"'>");
