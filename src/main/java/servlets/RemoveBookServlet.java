@@ -22,14 +22,14 @@ public class RemoveBookServlet extends GenericServlet {
 			if (k == 1) {
 				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
 				rd.include(req, res);
-				pw.println("<div class=\"tab\">Book Removed Successfully</div>");
-				pw.println("<div class=\"tab\"><a href=\"RemoveBooks.html\">Remove more Books</a></div>");
+				pw.println("<table class=\"tab\"><tr><td>Book Removed Successfully</td></tr></table>");
+				pw.println("<table class=\"tab\"><tr><td><a href=\"RemoveBooks.html\">Remove more Books</a></td></tr></table>");
 
 			} else {
 				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
 				rd.include(req, res);
-				pw.println("<div class=\"tab\">Book Not Available In The Store</div>");
-				pw.println("<div class=\"tab\"><a href=\"RemoveBooks.html\">Remove more Books</a></div>");
+				pw.println("<table class=\"tab\"><tr><td>Book Not Available In The Store</td></tr></table>");
+				pw.println("<table class=\"tab\"><tr><td><a href=\"RemoveBooks.html\">Remove more Books</a></td></tr></table>");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -40,12 +40,12 @@ public class AddBookServlet extends GenericServlet{
 			{
 				RequestDispatcher rd = req.getRequestDispatcher("AddBook.html");
 				rd.include(req, res);
-				pw.println("<div class=\"tab\">Book Detail Updated Successfully!<br/>Add More Books</div>");
+				pw.println("<table class=\"tab\"><tr><td>Book Detail Updated Successfully!<br/>Add More Books</td></tr></table>");
 			}
 			else
 			{
 				RequestDispatcher rd = req.getRequestDispatcher("AddBook.html");
-				pw.println("<div class=\"tab\">Failed to Add Books! Fill up CareFully</div>");
+				pw.println("<table class=\"tab\"><tr><td>Failed to Add Books! Fill up CareFully</td></tr></table>");
 				rd.include(req, res);
 			}
 		}
