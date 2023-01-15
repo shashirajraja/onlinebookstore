@@ -71,5 +71,4 @@ public class ReceiptServlet extends GenericServlet {
 			e.printStackTrace();
 		}
 	}
-
 }

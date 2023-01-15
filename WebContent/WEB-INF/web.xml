@@ -64,6 +64,22 @@
     <servlet-name>ReceiptServlet</servlet-name>
     <url-pattern>/buys</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <servlet-class>servlets.CheckoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckoutServlet</servlet-name>
+    <url-pattern>/checkout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ProcessPaymentServlet</servlet-name>
+    <servlet-class>servlets.ProcessPaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessPaymentServlet</servlet-name>
+    <url-pattern>/pay</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>

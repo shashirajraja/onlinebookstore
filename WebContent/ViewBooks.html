@@ -1,219 +1,69 @@
 <html>
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Book Store</title>
-	<style>
-	*{
-		box-sizing: border-box;
-	}	
-	body
-	{
-		background-image: url("Photo.jpg");
-	}
-	#topmid{
-		border:0px solid black;
-		color:#FFFFFF;
-		text-align: center;
-		font-weight: bold;
-		margin-top: 0px;
-		padding-left: 30%;
-		font-style: oblique;
-		font-size:38px;
-	}
-	a:hover{
-		color:red;
-	}
-	a:link{
-		color: green;
-		text-decoration: none;
-	}
-	.tab{
-		border:1px black solid;
-		background-color: #FFE5CC;
-		color:green;
-		font-weight: bold;
-		font-style:normal;
-		text-align:center;
-		font-size: 22px;
-		margin-bottom:10px;
-		padding:10px;
-		padding-top:2px;
-	}
-	.home{
-		border:1px black solid;
-		background-color: #ccffcc;
-		margin-left: 1%;
-		width:200px;
-		color:blue;
-		font-weight: bold;
-		font-style:italic;
-		text-align:center;
-		font-size: 25px;
-		margin-bottom:10px;
-		padding:10px;
-		float:left;
-		clear:both;
-	}
-	table{
-		border:2px solid black;
-		text-align: center;
-		padding:5px;
-		cellspacing:2px;
-	}
-	tr:hover {
-		background-color: #f5f5f5;
-		color:blue;
-	}
-	td{
-		padding:10px;
-		border:1px solid black;
-	}
-	th{
-		color:green;
-		font-size:20px;
-	}
-	.yel{
-	color:yellow;
-	}
-	.red{
-		color:red;
-	}
-	.green{
-		color:green;
-	}
-	.hd{
-		font-size:25px;
-	}
-	.brown{
-		color:brown;
-	}
-
-	*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
-header nav li :hover{
-	border-bottom: 3px white solid;
-	border-radius: 10px;
-	padding-bottom: 7px;
-	/* padding: 8px;
-	margin: 10px; */
-	color: white;
+<meta charset="ISO-8859-1">
+<title>Book Store</title>
+<link rel="apple-touch-icon" sizes="180x180"
+	href="./favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="./favicons/favicon-16x16.png">
+<link rel="manifest" href="./favicons/site.webmanifest">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.ratings i {
+	color: orange;
 }
 
-header{
-    width: 100vw;
-    height: 60px;
-    border-bottom: solid 1px rgba(16, 16, 16, 0.1);
-    font-family: 'Poppins';
-	background-color: #101010;
+.user-ratings h6 {
+	margin-top: 2px;
 }
-
-header .inner{
-    width: 1300px; /* This is the inner width of the content inside of your header (80%, etc) */
-    height: 100%;
-    display: block;
-    margin: 0 auto;
-}
-
-header .logo{
-    display: table;
-    height: 100%;
-    float: left;
-}
-
-header .logo div{
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-header .logo img{
-    height: 50px;
-    margin-top: 5px; /* Optical alignment of the logo */
-}
-
-header nav{
-    /* float: right; */
-	margin-left: 10%;
-    height: 100%;
-}
-
-header nav li{
-    display: table;
-    height: 100%;
-    float: left;
-    margin-right: 30px;
-	padding-left: 30px;
-}
-
-header nav li:last-of-type{
-    margin-right: 0;
-}
-
-header nav span {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-header nav a{
-    color: #ffffff;
-}
-
-header nav .button{
-    background-color: #1ab26b; /* This HEX is the color of the button */
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 4px;
-}
-
-header nav .button:hover{
-    filter: brightness(1.05);
-}
-	</style>
-	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
-	<link rel="manifest" href="./favicons/site.webmanifest">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</style>
 </head>
 <body onload="funload()">
 	<header>
-        <div class="inner">
-            <div class="logo">
-                <div>
-                    <!-- The below line can be an image or a h1, either will work -->
-                    <img src="logo.png" alt="Google logo">
-                    <!-- <h1>My Logo</h1> -->
-                </div>
-            </div>
+		<nav class="navbar navbar-expand-sm bg-dark">
+			<a class="navbar-brand"> <!-- The below line can be an image or a h1, either will work -->
+				<img src="logo.png" alt="Google logo" width="60" height="30px">
+			</a>
 
-            <nav>
-                <!-- Each of the below lines look complicated. There is a reason for this markup though!
-                <li> tag will be the container for the table.
-                <span> will be the part that centers the content inside it
-                <a> is the actual clickable part -->
-				<li><span><a href="index.html">Home</a></span></li>
-				<li><span><a href="viewbook">Available Books</a></span></li>
-                <li><span><a href="about.html">About</a></span></li>
-                <li><span><a href="login.html">login</a></span></li>
-                <li><span><a href="UserRegister.html">Register</a></span></li>
-                <li><span><a href="" class="button">Contact</a></span></li>
-                <!-- On the line above, remove the class="button" if you don't want the final
-                element to be a button -->
-            </nav>
-        </div>
-    </header>
-	<br><br>
-	
+			<button style="background-color:white;" class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon" style="color:#fff; font-size:28px;"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><span><a class="nav-link"
+							href="viewbook">Home</a></span></li>
+					<li class="nav-item "><span><a class="nav-link active"
+							href="viewbook">Available Books</a></span></li>
+					<li class="nav-item "><span><a class="nav-link"
+							href="about.html">About Us</a></span></li>
+					<li class="nav-item "><span><a class="nav-link"
+							href="about.html">Contact Us</a></span></li>
+					<li class="nav-item "><span><a class="nav-link"
+							href="index.html">Logout</a></span></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<br>
+	<div id="topmid">
+		<h1>Welcome to Online Book Store</h1>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
 	<script>
 		// Preloder script
 		var tmp = document.getElementById("loding");
 		function funload() {
-		  loding.style.display = "none";
+			loding.style.display = "none";
 		}
-	  </script>
+	</script>
 </body>
 </html>

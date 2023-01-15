@@ -23,17 +23,20 @@ public class UserLoginServlet extends GenericServlet {
 			ps.setString(2, pWord);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-				rd.include(req, res);
-				pw.println("<div class=\"home hd brown\">Welcome ! " + uName + "</div><br/>");
-				pw.println("<div class=\"tab hd brown\">User Login Successful !</div><br/>");
-				pw.println("<div class=\"tab\"><a href=\"viewbook\">VIEW BOOKS</a></div>");
-				pw.println("<div class='tab'><a href=\"buybook\">BUY BOOKS</a></div>");
+				RequestDispatcher rd = req.getRequestDispatcher("viewbook");
+				rd.forward(req, res);
+                /*
+                 * pw.println("<div class=\"home hd brown\">Welcome ! " + uName +
+                 * "</div><br/>");
+                 * pw.println("<div class=\"tab hd brown\">User Login Successful !</div><br/>");
+                 * pw.println("<div class=\"tab\"><a href=\"viewbook\">VIEW BOOKS</a></div>");
+                 * pw.println("<div class='tab'><a href=\"buybook\">BUY BOOKS</a></div>");
+                 */
 			} else {
 
 				RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
 				rd.include(req, res);
-				pw.println("<div class=\"tab\">Incorrect UserName or PassWord</div>");
+				pw.println("<table class=\"tab\"><tr><td>Incorrect UserName or PassWord</td></tr></table>");
 			}
 
 		} catch (Exception e) {
