@@ -1,11 +1,68 @@
-pipeline {  
-    agent any  
-        stages {  
-       	    stage("git_checkout") {  
-           	    steps {  
-              	    echo "cloning repository" 
-              	    echo "repo cloned successfully"  
-              	    }  
-         	    } 
+pipeline{
+    
+    agent any 
+    
+    stages {
+        
+        stage('Git Checkout'){
+            
+            steps{
+                
+                script{
+                 git credentialsId: 'github', url: 'https://github.com/ANILPHUGARE1/onlinebookstore.git'   
+                    
+                }
+            }
         }
+        stage('UNIT testing'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Integration testing'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn verify -DskipUnitTests'
+                }
+            }
+        }
+        stage('Maven build'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn clean '
+                }
+            }
+        }
+        stage('Maven package'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn clean package'
+                }
+            }
+        }
+        stage('Docker Image Build'){
+            
+            steps{
+                
+                script{
+                    sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID . '
+                 
+                }
+            }
+        }
+    }
 }

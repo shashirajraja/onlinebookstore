@@ -1,0 +1,19 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted 
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: java-version
+      run: java -version
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+    - name:  tomcat deploy
+      run: curl -v -d -u admin:admin -T /home/ec2-user/_work/onlinebookstore/onlinebookstore/target/dependency/webapp-runner.jar -f '/manager/html/?path=/onlinebook&update=true HTTP/1.1'
