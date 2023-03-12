@@ -57,6 +57,14 @@
     <url-pattern>/viewbook</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>servlets.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>BuyBooksServlet</servlet-name>
     <servlet-class>servlets.BuyBooksServlet</servlet-class>
   </servlet>

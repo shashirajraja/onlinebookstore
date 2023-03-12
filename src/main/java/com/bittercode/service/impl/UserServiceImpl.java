@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private static final String registerUserQuery = "INSERT INTO " + UsersDBConstants.TABLE_USERS
             + "  VALUES(?,?,?,?,?,?,?,?)";
+    
     private static final String loginUserQuery = "SELECT * FROM " + UsersDBConstants.TABLE_USERS + " WHERE "
             + UsersDBConstants.COLUMN_USERNAME + "=? AND " + UsersDBConstants.COLUMN_PASSWORD + "=? AND "
             + UsersDBConstants.COLUMN_USERTYPE + "=?";

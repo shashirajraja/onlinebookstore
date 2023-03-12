@@ -2,22 +2,28 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bittercode.config.DBUtil;
 import com.bittercode.constant.BookStoreConstants;
-import com.bittercode.constant.db.BooksDBConstants;
+import com.bittercode.model.Book;
+import com.bittercode.model.Cart;
 import com.bittercode.model.UserRole;
+import com.bittercode.service.BookService;
+import com.bittercode.service.impl.BookServiceImpl;
 
 public class ProcessPaymentServlet extends HttpServlet {
+
+    BookService bookService = new BookServiceImpl();
+
+    @SuppressWarnings("unchecked")
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
@@ -28,40 +34,32 @@ public class ProcessPaymentServlet extends HttpServlet {
             return;
         }
         try {
-            Connection con = DBUtil.getConnection();
-            String bookIds = req.getParameter("selected");// comma seperated bookIds
-            System.out.println("BookIds: " + bookIds);
-            System.out.println("another:" + req.getAttribute("bookIds"));
-            if (bookIds == null)
-                bookIds = "1";
+
             RequestDispatcher rd = req.getRequestDispatcher("receipt.html");
             rd.include(req, res);
             pw.println("<div class=\"container\">\r\n"
                     + "        <div class=\"card-columns\">");
-            String query = "select * from " + BooksDBConstants.TABLE_BOOK + " where " +
-                    BooksDBConstants.COLUMN_BARCODE + " in (" + bookIds + ")";
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            double total = 0.0;
-            while (rs.next()) {
-                int bPrice = rs.getInt(BooksDBConstants.COLUMN_PRICE);
-                String bCode = rs.getString(BooksDBConstants.COLUMN_BARCODE);
-                String bName = rs.getString(BooksDBConstants.COLUMN_NAME);
-                String bAuthor = rs.getString(BooksDBConstants.COLUMN_AUTHOR);
-                int bQty = rs.getInt(BooksDBConstants.COLUMN_QUANTITY);
-                System.out.println("bName " + bPrice);
-                String qt = "qty_" + bCode;
-                int quantity = Integer.parseInt(req.getParameter(qt));
-                int amount = bPrice * quantity;
-                total = total + amount;
-                bQty = bQty - quantity;
-                PreparedStatement ps1 = con.prepareStatement("update " + BooksDBConstants.TABLE_BOOK + " set "
-                        + BooksDBConstants.COLUMN_QUANTITY + "=? where " + BooksDBConstants.COLUMN_BARCODE + "=?");
-                ps1.setInt(1, bQty);
-                ps1.setString(2, bCode);
-                ps1.executeUpdate();
-                pw.println(this.addBookToCard(bCode, bName, bAuthor, bPrice, bQty));
+            HttpSession session = req.getSession();
+            List<Cart> cartItems = null;
+            if (session.getAttribute("cartItems") != null)
+                cartItems = (List<Cart>) session.getAttribute("cartItems");
+            for (Cart cart : cartItems) {
+                Book book = cart.getBook();
+                double bPrice = book.getPrice();
+                String bCode = book.getBarcode();
+                String bName = book.getName();
+                String bAuthor = book.getAuthor();
+                int availableQty = book.getQuantity();
+                int qtToBuy = cart.getQuantity();
+                availableQty = availableQty - qtToBuy;
+                bookService.updateBookQtyById(bCode, availableQty);
+                pw.println(this.addBookToCard(bCode, bName, bAuthor, bPrice, availableQty));
+                session.removeAttribute("qty_" + bCode);
             }
+            session.removeAttribute("amountToPay");
+            session.removeAttribute("cartItems");
+            session.removeAttribute("items");
+            session.removeAttribute("selectedBookId");
             pw.println("</div>\r\n"
                     + "    </div>");
         } catch (Exception e) {
@@ -69,7 +67,7 @@ public class ProcessPaymentServlet extends HttpServlet {
         }
     }
 
-    public String addBookToCard(String bCode, String bName, String bAuthor, int bPrice, int bQty) {
+    public String addBookToCard(String bCode, String bName, String bAuthor, double bPrice, int bQty) {
         String button = "<a href=\"#\" class=\"btn btn-info\">Order Placed</a>\r\n";
         return "<div class=\"card\">\r\n"
                 + "                <div class=\"row card-body\">\r\n"
