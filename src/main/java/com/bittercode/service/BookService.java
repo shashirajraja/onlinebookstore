@@ -7,6 +7,8 @@ import com.bittercode.model.Book;
 public interface BookService {
 
     public List<Book> getAllBooks();
+    
+    public List<Book> getBooksByCommaSeperatedBookIds(String commaSeperatedBookIds);
 
     public String deleteBookById(String bookId) ;
     

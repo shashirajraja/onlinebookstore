@@ -109,4 +109,34 @@ public class BookServiceImpl implements BookService {
         return responseCode;
     }
 
+    @Override
+    public List<Book> getBooksByCommaSeperatedBookIds(String commaSeperatedBookIds) {
+        List<Book> books = null;
+
+        try {
+            Connection con = DBUtil.getConnection();
+            String getBooksByCommaSeperatedBookIdsQuery = "SELECT * FROM " + BooksDBConstants.TABLE_BOOK
+                    + " WHERE " +
+                    BooksDBConstants.COLUMN_BARCODE + " IN ( " + commaSeperatedBookIds + " )";
+            PreparedStatement ps = con.prepareStatement(getBooksByCommaSeperatedBookIdsQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String bCode = rs.getString(1);
+                String bName = rs.getString(2);
+                String bAuthor = rs.getString(3);
+                int bPrice = rs.getInt(4);
+                int bQty = rs.getInt(5);
+
+                Book book = new Book(bCode, bName, bAuthor, bPrice, bQty);
+                if (books == null)
+                    books = new ArrayList<Book>();
+                books.add(book);
+            }
+        } catch (SQLException e) {
+
+        }
+        return books;
+    }
+
 }
