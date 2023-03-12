@@ -1,4 +1,4 @@
-package constants.db;
+package com.bittercode.constant.db;
 
 public interface UsersDBConstants {
 

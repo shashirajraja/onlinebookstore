@@ -1,39 +1,54 @@
 package servlets;
 
-import java.sql.*;
-import javax.servlet.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-import config.DBConnection;
-import constants.db.BooksDBConstants;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import java.io.*;
+import com.bittercode.config.DBUtil;
+import com.bittercode.model.UserRole;
+import com.bittercode.service.BookService;
+import com.bittercode.service.impl.BookServiceImpl;
 
-public class RemoveBookServlet extends GenericServlet {
-	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
-		PrintWriter pw = res.getWriter();
-		res.setContentType("text/html");
-		String bkid = req.getParameter("barcode");
-		try {
-			Connection con = DBConnection.getCon();
-			PreparedStatement ps = con.prepareStatement(
-					"delete from " + BooksDBConstants.TABLE_BOOK + "  where " + BooksDBConstants.COLUMN_BARCODE + "=?");
-			ps.setString(1, bkid);
-			int k = ps.executeUpdate();
-			if (k == 1) {
-				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-				rd.include(req, res);
-				pw.println("<table class=\"tab\"><tr><td>Book Removed Successfully</td></tr></table>");
-				pw.println("<table class=\"tab\"><tr><td><a href=\"RemoveBooks.html\">Remove more Books</a></td></tr></table>");
+public class RemoveBookServlet extends HttpServlet {
 
-			} else {
-				RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-				rd.include(req, res);
-				pw.println("<table class=\"tab\"><tr><td>Book Not Available In The Store</td></tr></table>");
-				pw.println("<table class=\"tab\"><tr><td><a href=\"RemoveBooks.html\">Remove more Books</a></td></tr></table>");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    BookService bookService = new BookServiceImpl();
+
+    public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+        PrintWriter pw = res.getWriter();
+        res.setContentType("text/html");
+
+        if (!DBUtil.isLoggedIn(UserRole.SELLER, req.getSession())) {
+            RequestDispatcher rd = req.getRequestDispatcher("AdminLogin.html");
+            rd.include(req, res);
+            pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
+            return;
+        }
+
+        try {
+            String bkid = req.getParameter("barcode");
+            String responseCode = bookService.deleteBookById(bkid);
+            if ("SUCCESS".equalsIgnoreCase(responseCode)) {
+                RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+                rd.include(req, res);
+                pw.println("<table class=\"tab\"><tr><td>Book Removed Successfully</td></tr></table>");
+                pw.println(
+                        "<table class=\"tab\"><tr><td><a href=\"RemoveBooks.html\">Remove more Books</a></td></tr></table>");
+
+            } else {
+                RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+                rd.include(req, res);
+                pw.println("<table class=\"tab\"><tr><td>Book Not Available In The Store</td></tr></table>");
+                pw.println(
+                        "<table class=\"tab\"><tr><td><a href=\"RemoveBooks.html\">Remove more Books</a></td></tr></table>");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

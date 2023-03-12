@@ -3,17 +3,27 @@ package servlets;
 import java.sql.*;
 import java.io.*;
 import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import config.DBConnection;
-import constants.BookStoreConstants;
-import constants.db.BooksDBConstants;
+import com.bittercode.config.DBUtil;
+import com.bittercode.constant.BookStoreConstants;
+import com.bittercode.constant.db.BooksDBConstants;
+import com.bittercode.model.UserRole;
 
-public class CheckoutServlet extends GenericServlet {
-	public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
+public class CheckoutServlet extends HttpServlet {
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		PrintWriter pw = res.getWriter();
 		res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+		if (!DBUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
+            RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+            rd.include(req, res);
+            pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
+            return;
+        }
 		try {
-			Connection con = DBConnection.getCon();
+			Connection con = DBUtil.getConnection();
 			String bookIds = req.getParameter("selected");//comma seperated bookIds
 			if(bookIds == null) bookIds = "";
             RequestDispatcher rd = req.getRequestDispatcher("payment.html");
