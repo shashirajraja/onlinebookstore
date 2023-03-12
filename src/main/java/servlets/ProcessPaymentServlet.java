@@ -1,24 +1,39 @@
 package servlets;
 
-import java.io.*;
-import java.sql.*;
-import javax.servlet.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-import config.DBConnection;
-import constants.BookStoreConstants;
-import constants.db.BooksDBConstants;
-import constants.db.UsersDBConstants;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class ProcessPaymentServlet extends GenericServlet {
-    public void service(ServletRequest req, ServletResponse res) throws IOException, ServletException {
+import com.bittercode.config.DBUtil;
+import com.bittercode.constant.BookStoreConstants;
+import com.bittercode.constant.db.BooksDBConstants;
+import com.bittercode.model.UserRole;
+
+public class ProcessPaymentServlet extends HttpServlet {
+    public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+        if (!DBUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
+            RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+            rd.include(req, res);
+            pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
+            return;
+        }
         try {
-            Connection con = DBConnection.getCon();
+            Connection con = DBUtil.getConnection();
             String bookIds = req.getParameter("selected");// comma seperated bookIds
-            System.out.println("BookIds: "+bookIds );
-            System.out.println("another:"+ req.getAttribute("bookIds"));
-            if(bookIds == null) bookIds = "1";
+            System.out.println("BookIds: " + bookIds);
+            System.out.println("another:" + req.getAttribute("bookIds"));
+            if (bookIds == null)
+                bookIds = "1";
             RequestDispatcher rd = req.getRequestDispatcher("receipt.html");
             rd.include(req, res);
             pw.println("<div class=\"container\">\r\n"
@@ -53,7 +68,7 @@ public class ProcessPaymentServlet extends GenericServlet {
             e.printStackTrace();
         }
     }
-    
+
     public String addBookToCard(String bCode, String bName, String bAuthor, int bPrice, int bQty) {
         String button = "<a href=\"#\" class=\"btn btn-info\">Order Placed</a>\r\n";
         return "<div class=\"card\">\r\n"

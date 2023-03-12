@@ -1,4 +1,4 @@
-package config;
+package com.bittercode.config;
 
 import java.io.IOException;
 import java.io.InputStream;
