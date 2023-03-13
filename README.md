@@ -16,8 +16,8 @@ A user-friendly Online Bookstore project in which users can log in or register, 
 - Maintaining books selling history.
 - Adding and managing books.
 - User Friendly.
-- For Implementation of Generic Servlets in Java.
-- This is a Mini-project developed using Java, Jdbc, And Generic Servlets.
+- For Implementation of Http Servlets in Java.
+- This is a Mini-project developed using Java, Jdbc, And Servlets.
 
 <span style="color:blue">**Admin Have Following Access for this online store site:-**</span>
 - Add New Books.
@@ -122,11 +122,13 @@ Step 8: The default Username And Password For User Is "shashi" And "shashi"
 **Answer:** Please check you have installed the mysql correctly and have updated the correct db details in application.properties file. Also you can try doing maven clean install and force update the project and restart.
 <hr>
 
-Note:- Considering that this is a Sample Project, we have used a Generic Servlet and left security out.
+Note:- Considering this as a Sample Project, we have not much considered of web security.
 #### Some Screenshots for the project:
-<img width="905" alt="image" src="https://user-images.githubusercontent.com/34605595/212561276-720e25c1-1e5f-42f0-9695-9bc955425fcb.png">
-<img width="948" alt="image" src="https://user-images.githubusercontent.com/34605595/212561349-03bf1925-d008-4fd6-8921-0e1839647ee9.png">
-<img width="950" alt="image" src="https://user-images.githubusercontent.com/34605595/212561497-3c7ffd40-30a5-4b1d-b936-89109069f29c.png">
+<img width="941" alt="image" src="https://user-images.githubusercontent.com/34605595/224769637-37c34d4b-26e7-4d49-b990-4c09b260ec31.png">
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/34605595/224769990-f440f74d-41b2-4629-ba1c-a87267f225d9.png">
+<img width="930" alt="image" src="https://user-images.githubusercontent.com/34605595/224770145-5902054f-5943-44ac-b02f-92097c8a6972.png">
+<img width="934" alt="image" src="https://user-images.githubusercontent.com/34605595/224770257-e18a3810-0457-4b78-bf46-cf82746708ee.png">
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/34605595/224770392-5a5478d2-98cc-44ee-8689-132b6b16af80.png">
 
 
 #### "Suggestions and project improvement ideas are welcomed!"
