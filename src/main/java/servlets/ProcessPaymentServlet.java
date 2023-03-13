@@ -38,7 +38,7 @@ public class ProcessPaymentServlet extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
             rd.include(req, res);
             StoreUtil.setActiveTab(pw, "cart");
-
+            pw.println("<div id='topmid' style='background-color:grey'>Your Orders</div>");
             pw.println("<div class=\"container\">\r\n"
                     + "        <div class=\"card-columns\">");
             HttpSession session = req.getSession();
