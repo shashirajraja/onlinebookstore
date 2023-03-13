@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bittercode.config.DBUtil;
 import com.bittercode.constant.BookStoreConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.Cart;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.BookService;
 import com.bittercode.service.impl.BookServiceImpl;
+import com.bittercode.util.StoreUtil;
 
 public class CartServlet extends HttpServlet {
 
@@ -27,7 +27,7 @@ public class CartServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
-        if (!DBUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
+        if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
@@ -35,15 +35,18 @@ public class CartServlet extends HttpServlet {
         }
         try {
             String bookIds = "";
+            StoreUtil.updateCartItems(req);
             HttpSession session = req.getSession();
             if (session.getAttribute("items") != null)
-                bookIds = (String) req.getSession().getAttribute("items");// comma seperated bookIds
+                bookIds = (String) session.getAttribute("items");// comma seperated bookIds
 
-            RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
+            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
             rd.include(req, res);
+            StoreUtil.setActiveTab(pw, "cart");
             List<Book> books = bookService.getBooksByCommaSeperatedBookIds(bookIds);
             List<Cart> cartItems = new ArrayList<Cart>();
 
+            pw.println("<div id='topmid' style='background-color:grey'>Shopping Cart</div>");
             pw.println("<table class=\"table table-hover\" style='background-color:white'>\r\n"
                     + "  <thead>\r\n"
                     + "    <tr style='background-color:black; color:white;'>\r\n"
@@ -101,7 +104,10 @@ public class CartServlet extends HttpServlet {
                 + "      <td>" + book.getName() + "</td>\r\n"
                 + "      <td>" + book.getAuthor() + "</td>\r\n"
                 + "      <td><span>&#8377;</span> " + book.getPrice() + "</td>\r\n"
-                + "      <td>" + cart.getQuantity() + "</td>\r\n"
+                + "      <td><form method='post' action='cart'><button type='submit' name='removeFromCart' class=\"glyphicon glyphicon-minus btn btn-danger\"></button> "
+                + "<input type='hidden' name='selectedBookId' value='"+book.getBarcode()+"'/>"
+                + cart.getQuantity() 
+                + " <button type='submit' name='addToCart' class=\"glyphicon glyphicon-plus btn btn-success\"></button></form></td>\r\n"
                 + "      <td><span>&#8377;</span> " + (book.getPrice() * cart.getQuantity()) + "</td>\r\n"
                 + "    </tr>\r\n";
     }

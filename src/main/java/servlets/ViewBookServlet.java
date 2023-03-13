@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bittercode.config.DBUtil;
 import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.BookService;
 import com.bittercode.service.impl.BookServiceImpl;
+import com.bittercode.util.StoreUtil;
 
 public class ViewBookServlet extends HttpServlet {
     BookService bookService = new BookServiceImpl();
@@ -23,7 +23,7 @@ public class ViewBookServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType("text/html");
-        if (!DBUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
+        if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
@@ -32,45 +32,18 @@ public class ViewBookServlet extends HttpServlet {
         try {
 
             List<Book> books = bookService.getAllBooks();
-            RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
+            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
             rd.include(req, res);
-
+            StoreUtil.setActiveTab(pw, "books");
+            pw.println("<div id='topmid' style='background-color:grey'>Available Books"
+                    + "<form action=\"cart\" method=\"post\" style='float:right; margin-right:20px'>"
+                    + "<input type='submit' class=\"btn btn-primary\" name='cart' value='Proceed'/></form>"
+                    + "</div>");
             pw.println("<div class=\"container\">\r\n"
                     + "        <div class=\"card-columns\">");
 
-            String selectedBookId = req.getParameter("selectedBookId");
+            StoreUtil.updateCartItems(req);
             HttpSession session = req.getSession();
-            if (selectedBookId != null) { // add item to the cart
-                String items = (String) session.getAttribute("items");
-                if (req.getParameter("addToCart") != null) { // add to cart
-                    if (items == null)
-                        items = selectedBookId;
-                    else
-                        items = items + "," + selectedBookId;
-                    session.setAttribute("items", items);
-
-                    int itemQty = 0;
-                    if (session.getAttribute("qty_" + selectedBookId) != null)
-                        itemQty = (int) session.getAttribute("qty_" + selectedBookId);
-                    itemQty += 1;
-
-                    session.setAttribute("qty_" + selectedBookId, itemQty);
-                } else { // remove from the cart
-                    int itemQty = 0;
-                    if (session.getAttribute("qty_" + selectedBookId) != null)
-                        itemQty = (int) session.getAttribute("qty_" + selectedBookId);
-                    if (itemQty > 1) {
-                        itemQty--;
-                        session.setAttribute("qty_" + selectedBookId, itemQty);
-                    } else {
-                        session.removeAttribute("qty_" + selectedBookId);
-                        items.replace(selectedBookId + ",", "");
-                        items.replace(selectedBookId, "");
-                        session.setAttribute("items", items);
-                    }
-                }
-            }
-
             for (Book book : books) {
                 pw.println(this.addBookToCard(session, book.getBarcode(), book.getName(), book.getAuthor(),
                         book.getPrice(),
@@ -78,9 +51,9 @@ public class ViewBookServlet extends HttpServlet {
 
             }
 
-            pw.println("</div>\r\n"
-                    + "<form action=\"cart\" method=\"post\">"
-                    + "<input type='submit' class=\"btn btn-primary\" name='addToCart' value='View Cart'/></form>"
+            pw.println("</div>"
+                    + "<div style='float:auto'><form action=\"cart\" method=\"post\">"
+                            + "<input type='submit' class=\"btn btn-success\" name='cart' value='Proceed to Checkout'/></form>"
                     + "    </div>");
 
         } catch (Exception e) {
@@ -99,10 +72,13 @@ public class ViewBookServlet extends HttpServlet {
             button = "<form action=\"viewbook\" method=\"post\">"
                     + "<input type='hidden' name = 'selectedBookId' value = " + bCode + ">"
                     + "<input type='hidden' name='qty_" + bCode + "' value='1'/>"
-                    + "<input type='submit'"
-                    + (cartItemQty == 0 ? "class=\"btn btn-primary\" name='addToCart' value='Add To Cart'"
-                            : "class=\"btn btn-warning\" name='removeFromCart' value='Remove From Cart'")
-                    + "/></form>";
+                    + ""
+                    + (cartItemQty == 0 ? "<input type='submit' class=\"btn btn-primary\" name='addToCart' value='Add To Cart'/></form>"
+                            :"<form method='post' action='cart'><button type='submit' name='removeFromCart' class=\"glyphicon glyphicon-minus btn btn-danger\"></button> "
+                                    + "<input type='hidden' name='selectedBookId' value='"+bCode+"'/>"
+                                    + cartItemQty 
+                                    + " <button type='submit' name='addToCart' class=\"glyphicon glyphicon-plus btn btn-success\"></button></form>" )
+                    + "";
         }
         return "<div class=\"card\">\r\n"
                 + "                <div class=\"row card-body\">\r\n"

@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bittercode.config.DBUtil;
 import com.bittercode.constant.BookStoreConstants;
 import com.bittercode.constant.db.BooksDBConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.BookService;
 import com.bittercode.service.impl.BookServiceImpl;
+import com.bittercode.util.StoreUtil;
 
 public class AddBookServlet extends HttpServlet {
     BookService bookService = new BookServiceImpl();
@@ -25,7 +25,7 @@ public class AddBookServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
 
-        if (!DBUtil.isLoggedIn(UserRole.SELLER, req.getSession())) {
+        if (!StoreUtil.isLoggedIn(UserRole.SELLER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("AdminLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
