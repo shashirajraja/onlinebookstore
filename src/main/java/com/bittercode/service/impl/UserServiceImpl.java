@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpSession;
 
-import com.bittercode.config.DBUtil;
 import com.bittercode.constant.db.UsersDBConstants;
 import com.bittercode.model.User;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.UserService;
+import com.bittercode.util.DBUtil;
 
 public class UserServiceImpl implements UserService {
 

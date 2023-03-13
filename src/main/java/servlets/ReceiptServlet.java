@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bittercode.config.DBUtil;
 import com.bittercode.constant.BookStoreConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.BookService;
 import com.bittercode.service.impl.BookServiceImpl;
+import com.bittercode.util.StoreUtil;
 
 public class ReceiptServlet extends HttpServlet {
     BookService bookService = new BookServiceImpl();
@@ -23,7 +23,7 @@ public class ReceiptServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
-        if (!DBUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
+        if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
@@ -32,8 +32,9 @@ public class ReceiptServlet extends HttpServlet {
         try {
             List<Book> books = bookService.getAllBooks();
             int i = 0;
-            RequestDispatcher rd = req.getRequestDispatcher("ViewBooks.html");
+            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
             rd.include(req, res);
+            StoreUtil.setActiveTab(pw, "cart");
             pw.println("<div class=\"tab\">Your order status is as below</div>");
             pw.println(
                     "<div class=\"tab\">\r\n" + "		<table>\r\n" + "			<tr>\r\n" + "				\r\n"

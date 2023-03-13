@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bittercode.constant.BookStoreConstants;
 import com.bittercode.service.UserService;
 import com.bittercode.service.impl.UserServiceImpl;
+import com.bittercode.util.StoreUtil;
 
 public class LogoutServlet extends HttpServlet {
 
@@ -27,6 +28,7 @@ public class LogoutServlet extends HttpServlet {
             System.out.println(req.getSession().getAttribute("SELLER"));
             RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
             rd.include(req, res);
+//            StoreUtil.setActiveTab(pw, "logout");
             if (logout) {
                 pw.println("<table class=\"tab\"><tr><td>Successfully logged out!</td></tr></table>");
             }

@@ -1,12 +1,8 @@
-package com.bittercode.config;
+package com.bittercode.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import javax.servlet.http.HttpSession;
-
-import com.bittercode.model.UserRole;
 
 public class DBUtil {
 
@@ -41,8 +37,4 @@ public class DBUtil {
         return connection;
     }
 
-    public static boolean isLoggedIn(UserRole role, HttpSession session) {
-
-        return session.getAttribute(role.toString()) != null;
-    }
 }

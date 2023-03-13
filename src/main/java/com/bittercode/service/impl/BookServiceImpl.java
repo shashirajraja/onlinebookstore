@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bittercode.config.DBUtil;
 import com.bittercode.constant.db.BooksDBConstants;
 import com.bittercode.model.Book;
 import com.bittercode.service.BookService;
+import com.bittercode.util.DBUtil;
 
 public class BookServiceImpl implements BookService {
 
@@ -27,7 +27,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAllBooks() {
-        List<Book> books = null;
+        List<Book> books = new ArrayList<Book>();
 
         try {
             Connection con = DBUtil.getConnection();
@@ -42,8 +42,6 @@ public class BookServiceImpl implements BookService {
                 int bQty = rs.getInt(5);
 
                 Book book = new Book(bCode, bName, bAuthor, bPrice, bQty);
-                if (books == null)
-                    books = new ArrayList<Book>();
                 books.add(book);
             }
         } catch (SQLException e) {
@@ -111,7 +109,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getBooksByCommaSeperatedBookIds(String commaSeperatedBookIds) {
-        List<Book> books = null;
+        List<Book> books = new ArrayList<Book>();
 
         try {
             Connection con = DBUtil.getConnection();
@@ -128,9 +126,7 @@ public class BookServiceImpl implements BookService {
                 int bPrice = rs.getInt(4);
                 int bQty = rs.getInt(5);
 
-                Book book = new Book(bCode, bName, bAuthor, bPrice, bQty);
-                if (books == null)
-                    books = new ArrayList<Book>();
+                Book book = new Book(bCode, bName, bAuthor, bPrice, bQty); 
                 books.add(book);
             }
         } catch (SQLException e) {
