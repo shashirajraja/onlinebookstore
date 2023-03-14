@@ -27,6 +27,8 @@ public class CartServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
+
+        // Check if Customer is logged In
         if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
             RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
             rd.include(req, res);
@@ -34,18 +36,24 @@ public class CartServlet extends HttpServlet {
             return;
         }
         try {
-            String bookIds = "";
+            // Add/Remove Item from the cart if requested
+            // store the comma separated bookIds of cart in the session
             StoreUtil.updateCartItems(req);
+
             HttpSession session = req.getSession();
+            String bookIds = "";
             if (session.getAttribute("items") != null)
-                bookIds = (String) session.getAttribute("items");// comma seperated bookIds
+                bookIds = (String) session.getAttribute("items");// read comma separated bookIds from session
 
             RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
             rd.include(req, res);
+
+            // Set the active tab as cart
             StoreUtil.setActiveTab(pw, "cart");
+
+            // Read the books from the database with the respective bookIds
             List<Book> books = bookService.getBooksByCommaSeperatedBookIds(bookIds);
             List<Cart> cartItems = new ArrayList<Cart>();
-
             pw.println("<div id='topmid' style='background-color:grey'>Shopping Cart</div>");
             pw.println("<table class=\"table table-hover\" style='background-color:white'>\r\n"
                     + "  <thead>\r\n"
@@ -72,6 +80,8 @@ public class CartServlet extends HttpServlet {
                 amountToPay += (qty * book.getPrice());
                 pw.println(getRowData(cart));
             }
+
+            // set cartItems and amountToPay in the session
             session.setAttribute("cartItems", cartItems);
             session.setAttribute("amountToPay", amountToPay);
 
@@ -105,8 +115,8 @@ public class CartServlet extends HttpServlet {
                 + "      <td>" + book.getAuthor() + "</td>\r\n"
                 + "      <td><span>&#8377;</span> " + book.getPrice() + "</td>\r\n"
                 + "      <td><form method='post' action='cart'><button type='submit' name='removeFromCart' class=\"glyphicon glyphicon-minus btn btn-danger\"></button> "
-                + "<input type='hidden' name='selectedBookId' value='"+book.getBarcode()+"'/>"
-                + cart.getQuantity() 
+                + "<input type='hidden' name='selectedBookId' value='" + book.getBarcode() + "'/>"
+                + cart.getQuantity()
                 + " <button type='submit' name='addToCart' class=\"glyphicon glyphicon-plus btn btn-success\"></button></form></td>\r\n"
                 + "      <td><span>&#8377;</span> " + (book.getPrice() * cart.getQuantity()) + "</td>\r\n"
                 + "    </tr>\r\n";
