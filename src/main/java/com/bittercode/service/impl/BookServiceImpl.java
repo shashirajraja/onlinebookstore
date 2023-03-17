@@ -15,6 +15,8 @@ import com.bittercode.util.DBUtil;
 public class BookServiceImpl implements BookService {
 
     private static final String getAllBooksQuery = "SELECT * FROM " + BooksDBConstants.TABLE_BOOK;
+    private static final String getBookByIdQuery = "SELECT * FROM " + BooksDBConstants.TABLE_BOOK
+            + " WHERE BARCODE = ?";
 
     private static final String deleteBookByIdQuery = "DELETE FROM " + BooksDBConstants.TABLE_BOOK + "  WHERE "
             + BooksDBConstants.COLUMN_BARCODE + "=?";
@@ -24,6 +26,39 @@ public class BookServiceImpl implements BookService {
     private static final String updateBookQtyByIdQuery = "UPDATE " + BooksDBConstants.TABLE_BOOK + " SET "
             + BooksDBConstants.COLUMN_QUANTITY + "=? WHERE " + BooksDBConstants.COLUMN_BARCODE
             + "=?";
+
+    private static final String updateBookByIdQuery = "UPDATE " + BooksDBConstants.TABLE_BOOK + " SET "
+            + BooksDBConstants.COLUMN_NAME + "=? , "
+            + BooksDBConstants.COLUMN_AUTHOR + "=?, "
+            + BooksDBConstants.COLUMN_PRICE + "=?, "
+            + BooksDBConstants.COLUMN_QUANTITY + "=? "
+            + "  WHERE " + BooksDBConstants.COLUMN_BARCODE
+            + "=?";
+
+    @Override
+    public Book getBookById(String bookId) {
+        Book book = null;
+
+        try {
+            Connection con = DBUtil.getConnection();
+            PreparedStatement ps = con.prepareStatement(getBookByIdQuery);
+            ps.setString(1, bookId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String bCode = rs.getString(1);
+                String bName = rs.getString(2);
+                String bAuthor = rs.getString(3);
+                int bPrice = rs.getInt(4);
+                int bQty = rs.getInt(5);
+
+                book = new Book(bCode, bName, bAuthor, bPrice, bQty);
+            }
+        } catch (SQLException e) {
+
+        }
+        return book;
+    }
 
     @Override
     public List<Book> getAllBooks() {
@@ -126,13 +161,33 @@ public class BookServiceImpl implements BookService {
                 int bPrice = rs.getInt(4);
                 int bQty = rs.getInt(5);
 
-                Book book = new Book(bCode, bName, bAuthor, bPrice, bQty); 
+                Book book = new Book(bCode, bName, bAuthor, bPrice, bQty);
                 books.add(book);
             }
         } catch (SQLException e) {
 
         }
         return books;
+    }
+
+    @Override
+    public String updateBook(Book book) {
+        String responseCode = "FAILED";
+        try {
+            Connection con = DBUtil.getConnection();
+            PreparedStatement ps = con.prepareStatement(updateBookByIdQuery);
+            ps.setString(1, book.getName());
+            ps.setString(2, book.getAuthor());
+            ps.setDouble(3, book.getPrice());
+            ps.setInt(4, book.getQuantity());
+            ps.setString(5, book.getBarcode());
+            ps.executeUpdate();
+            responseCode = "SUCCESS";
+        } catch (Exception e) {
+            responseCode += " : " + e.getMessage();
+            e.printStackTrace();
+        }
+        return responseCode;
     }
 
 }

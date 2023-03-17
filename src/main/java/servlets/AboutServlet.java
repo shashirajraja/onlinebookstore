@@ -17,18 +17,25 @@ public class AboutServlet extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         PrintWriter pw = res.getWriter();
         res.setContentType("text/html");
-        if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
-            RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+        if (StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerHome.html");
+            rd.include(req, res);
+            StoreUtil.setActiveTab(pw, "about");
+            pw.println("<iframe src=\"https://flowcv.me/shashirajraja\" class=\"holds-the-iframe\"\r\n"
+                    + "        title=\"My Personal Website\" width=\"100%\" height=\"100%\"></iframe>");
+
+        } else if (StoreUtil.isLoggedIn(UserRole.SELLER, req.getSession())) {
+            RequestDispatcher rd = req.getRequestDispatcher("SellerHome.html");
+            rd.include(req, res);
+            StoreUtil.setActiveTab(pw, "about");
+            pw.println("<iframe src=\"https://flowcv.me/shashirajraja\" class=\"holds-the-iframe\"\r\n"
+                    + "        title=\"My Personal Website\" width=\"100%\" height=\"100%\"></iframe>");
+
+        } else {
+            RequestDispatcher rd = req.getRequestDispatcher("login.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
-            return;
         }
-
-        RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-        rd.include(req, res);
-        StoreUtil.setActiveTab(pw, "about");
-        pw.println("<iframe src=\"https://flowcv.me/shashirajraja\" class=\"holds-the-iframe\"\r\n"
-                + "        title=\"My Personal Website\" width=\"100%\" height=\"100%\"></iframe>");
 
     }
 

@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <servlet>
-    <servlet-name>AdminLoginServlet</servlet-name>
-    <servlet-class>servlets.AdminLoginServlet</servlet-class>
+    <servlet-name>SellerLoginServlet</servlet-name>
+    <servlet-class>servlets.SellerLoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-name>SellerLoginServlet</servlet-name>
     <url-pattern>/adminlog</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>UserLoginServlet</servlet-name>
-    <servlet-class>servlets.UserLoginServlet</servlet-class>
+    <servlet-name>StoreBookServlet</servlet-name>
+    <servlet-class>servlets.StoreBookServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-name>StoreBookServlet</servlet-name>
+    <url-pattern>/storebooks</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <servlet-class>servlets.UpdateBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <url-pattern>/updatebook</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CustomerLoginServlet</servlet-name>
+    <servlet-class>servlets.CustomerLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerLoginServlet</servlet-name>
     <url-pattern>/userlog</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -33,11 +49,11 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>UserRegisterServlet</servlet-name>
-    <servlet-class>servlets.UserRegisterServlet</servlet-class>
+    <servlet-name>CustomerRegisterServlet</servlet-name>
+    <servlet-class>servlets.CustomerRegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UserRegisterServlet</servlet-name>
+    <servlet-name>CustomerRegisterServlet</servlet-name>
     <url-pattern>/userreg</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -46,7 +62,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RemoveBookServlet</servlet-name>
-    <url-pattern>/remove</url-pattern>
+    <url-pattern>/removebook</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddBookServlet</servlet-name>

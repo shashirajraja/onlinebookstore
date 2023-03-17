@@ -30,7 +30,7 @@ public class CartServlet extends HttpServlet {
 
         // Check if Customer is logged In
         if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
-            RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
             return;
@@ -45,7 +45,7 @@ public class CartServlet extends HttpServlet {
             if (session.getAttribute("items") != null)
                 bookIds = (String) session.getAttribute("items");// read comma separated bookIds from session
 
-            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerHome.html");
             rd.include(req, res);
 
             // Set the active tab as cart
