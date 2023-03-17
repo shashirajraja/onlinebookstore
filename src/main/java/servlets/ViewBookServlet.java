@@ -28,7 +28,7 @@ public class ViewBookServlet extends HttpServlet {
 
         // Check if the customer is logged in, or else return to login page
         if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
-            RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
             return;
@@ -39,7 +39,7 @@ public class ViewBookServlet extends HttpServlet {
             List<Book> books = bookService.getAllBooks();
 
             // Default Page to load data into
-            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerHome.html");
             rd.include(req, res);
 
             // Set Available Books tab as active

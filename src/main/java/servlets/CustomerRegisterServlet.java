@@ -16,7 +16,7 @@ import com.bittercode.model.UserRole;
 import com.bittercode.service.UserService;
 import com.bittercode.service.impl.UserServiceImpl;
 
-public class UserRegisterServlet extends HttpServlet {
+public class CustomerRegisterServlet extends HttpServlet {
 
     UserService userService = new UserServiceImpl();
 
@@ -41,11 +41,11 @@ public class UserRegisterServlet extends HttpServlet {
             String respCode = userService.register(UserRole.CUSTOMER, user);
             System.out.println(respCode);
             if ("SUCCESS".equalsIgnoreCase(respCode)) {
-                RequestDispatcher rd = req.getRequestDispatcher("login.html");
+                RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
                 rd.include(req, res);
                 pw.println("<table class=\"tab\"><tr><td>User Registered Successfully</td></tr></table>");
             } else {
-                RequestDispatcher rd = req.getRequestDispatcher("UserRegister.html");
+                RequestDispatcher rd = req.getRequestDispatcher("CustomerRegister.html");
                 rd.include(req, res);
                 pw.println("<table class=\"tab\"><tr><td>" + respCode + "</td></tr></table>");
                 pw.println("Sorry for interruption! Try again");

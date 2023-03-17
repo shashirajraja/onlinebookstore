@@ -24,7 +24,7 @@ public class ReceiptServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         res.setContentType(BookStoreConstants.CONTENT_TYPE_TEXT_HTML);
         if (!StoreUtil.isLoggedIn(UserRole.CUSTOMER, req.getSession())) {
-            RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
             rd.include(req, res);
             pw.println("<table class=\"tab\"><tr><td>Please Login First to Continue!!</td></tr></table>");
             return;
@@ -32,7 +32,7 @@ public class ReceiptServlet extends HttpServlet {
         try {
             List<Book> books = bookService.getAllBooks();
             int i = 0;
-            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+            RequestDispatcher rd = req.getRequestDispatcher("CustomerHome.html");
             rd.include(req, res);
             StoreUtil.setActiveTab(pw, "cart");
             pw.println("<div class=\"tab\">Your order status is as below</div>");
