@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
 
 import com.bittercode.constant.db.UsersDBConstants;
+import com.bittercode.model.StoreException;
 import com.bittercode.model.User;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.UserService;
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
             + UsersDBConstants.COLUMN_USERTYPE + "=?";
 
     @Override
-    public User login(UserRole role, String email, String password, HttpSession session) {
+    public User login(UserRole role, String email, String password, HttpSession session) throws StoreException {
         Connection con = DBUtil.getConnection();
         PreparedStatement ps;
         User user = null;
@@ -44,7 +45,10 @@ public class UserServiceImpl implements UserService {
                 session.setAttribute(role.toString(), user.getEmailId());
             }
         } catch (SQLException e) {
-
+//          if (connection == null)
+//          throw new RuntimeException(
+//                  "Unable to Connect to DB, Please Check your db creadentials in application.properties");
+//      return connection;
             e.printStackTrace();
         }
         return user;
@@ -66,10 +70,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String register(UserRole role, User user) {
+    public String register(UserRole role, User user) throws StoreException{
         String response = "FAILED";
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(registerUserQuery);
             ps.setString(1, user.getEmailId());
             ps.setString(2, user.getPassword());
