@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.bittercode.constant.db.BooksDBConstants;
 import com.bittercode.model.Book;
+import com.bittercode.model.StoreException;
 import com.bittercode.service.BookService;
 import com.bittercode.util.DBUtil;
 
@@ -36,11 +37,10 @@ public class BookServiceImpl implements BookService {
             + "=?";
 
     @Override
-    public Book getBookById(String bookId) {
+    public Book getBookById(String bookId) throws StoreException {
         Book book = null;
-
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(getBookByIdQuery);
             ps.setString(1, bookId);
             ResultSet rs = ps.executeQuery();
@@ -61,11 +61,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getAllBooks() {
+    public List<Book> getAllBooks() throws StoreException {
         List<Book> books = new ArrayList<Book>();
-
+        Connection con = DBUtil.getConnection();
+        
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(getAllBooksQuery);
             ResultSet rs = ps.executeQuery();
 
@@ -86,10 +86,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String deleteBookById(String bookId) {
+    public String deleteBookById(String bookId) throws StoreException{
         String response = "FAILED";
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(deleteBookByIdQuery);
             ps.setString(1, bookId);
             int k = ps.executeUpdate();
@@ -104,10 +104,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String addBook(Book book) {
+    public String addBook(Book book) throws StoreException{
         String responseCode = "FAILED";
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(addBookQuery);
             ps.setString(1, book.getBarcode());
             ps.setString(2, book.getName());
@@ -126,10 +126,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String updateBookQtyById(String bookId, int quantity) {
+    public String updateBookQtyById(String bookId, int quantity) throws StoreException{
         String responseCode = "FAILED";
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(updateBookQtyByIdQuery);
             ps.setInt(1, quantity);
             ps.setString(2, bookId);
@@ -143,11 +143,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getBooksByCommaSeperatedBookIds(String commaSeperatedBookIds) {
+    public List<Book> getBooksByCommaSeperatedBookIds(String commaSeperatedBookIds) throws StoreException {
         List<Book> books = new ArrayList<Book>();
-
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             String getBooksByCommaSeperatedBookIdsQuery = "SELECT * FROM " + BooksDBConstants.TABLE_BOOK
                     + " WHERE " +
                     BooksDBConstants.COLUMN_BARCODE + " IN ( " + commaSeperatedBookIds + " )";
@@ -171,10 +170,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String updateBook(Book book) {
+    public String updateBook(Book book) throws StoreException {
         String responseCode = "FAILED";
+        Connection con = DBUtil.getConnection();
         try {
-            Connection con = DBUtil.getConnection();
             PreparedStatement ps = con.prepareStatement(updateBookByIdQuery);
             ps.setString(1, book.getName());
             ps.setString(2, book.getAuthor());

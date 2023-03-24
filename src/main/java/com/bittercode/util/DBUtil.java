@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.bittercode.constant.ErrorCodes;
+import com.bittercode.model.StoreException;
+
 public class DBUtil {
 
     private static Connection connection;
@@ -33,7 +36,12 @@ public class DBUtil {
 
     }// End of static block
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws StoreException {
+
+        if (connection == null) {
+            throw new StoreException(ErrorCodes.DATABASE_CONNECTION_FAILURE);
+        }
+
         return connection;
     }
 
