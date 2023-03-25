@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpSession;
 
+import com.bittercode.constant.ResponseCode;
 import com.bittercode.constant.db.UsersDBConstants;
 import com.bittercode.model.StoreException;
 import com.bittercode.model.User;
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     private static final String registerUserQuery = "INSERT INTO " + UsersDBConstants.TABLE_USERS
             + "  VALUES(?,?,?,?,?,?,?,?)";
-    
+
     private static final String loginUserQuery = "SELECT * FROM " + UsersDBConstants.TABLE_USERS + " WHERE "
             + UsersDBConstants.COLUMN_USERNAME + "=? AND " + UsersDBConstants.COLUMN_PASSWORD + "=? AND "
             + UsersDBConstants.COLUMN_USERTYPE + "=?";
@@ -45,10 +46,6 @@ public class UserServiceImpl implements UserService {
                 session.setAttribute(role.toString(), user.getEmailId());
             }
         } catch (SQLException e) {
-//          if (connection == null)
-//          throw new RuntimeException(
-//                  "Unable to Connect to DB, Please Check your db creadentials in application.properties");
-//      return connection;
             e.printStackTrace();
         }
         return user;
@@ -70,8 +67,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String register(UserRole role, User user) throws StoreException{
-        String response = "FAILED";
+    public String register(UserRole role, User user) throws StoreException {
+        String responseMessage = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(registerUserQuery);
@@ -86,15 +83,16 @@ public class UserServiceImpl implements UserService {
             ps.setInt(8, userType);
             int k = ps.executeUpdate();
             if (k == 1) {
-                response = "SUCCESS";
+                responseMessage = ResponseCode.SUCCESS.name();
+                ;
             }
         } catch (Exception e) {
-            response += " : " + e.getMessage();
-            if (response.contains("Duplicate"))
-                response = "User already registered with this email !!";
+            responseMessage += " : " + e.getMessage();
+            if (responseMessage.contains("Duplicate"))
+                responseMessage = "User already registered with this email !!";
             e.printStackTrace();
         }
-        return response;
+        return responseMessage;
     }
 
 }

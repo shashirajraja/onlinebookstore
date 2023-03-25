@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bittercode.constant.ResponseCode;
 import com.bittercode.model.UserRole;
 import com.bittercode.service.BookService;
 import com.bittercode.service.impl.BookServiceImpl;
@@ -34,14 +35,14 @@ public class RemoveBookServlet extends HttpServlet {
             rd.include(req, res);
             StoreUtil.setActiveTab(pw, "removebook");
             pw.println("<div class='container'>");
-            if(bookId == null || bookId.isBlank()) {
-                //render the remove book form;
+            if (bookId == null || bookId.isBlank()) {
+                // render the remove book form;
                 showRemoveBookForm(pw);
                 return;
-            } //else continue
-            
+            } // else continue
+
             String responseCode = bookService.deleteBookById(bookId);
-            if ("SUCCESS".equalsIgnoreCase(responseCode)) {
+            if (ResponseCode.SUCCESS.name().equalsIgnoreCase(responseCode)) {
                 pw.println("<table class=\"tab my-5\"><tr><td>Book Removed Successfully</td></tr></table>");
                 pw.println(
                         "<table class=\"tab\"><tr><td><a href=\"removebook\">Remove more Books</a></td></tr></table>");
@@ -57,7 +58,7 @@ public class RemoveBookServlet extends HttpServlet {
             pw.println("<table class=\"tab\"><tr><td>Failed to Remove Books! Try Again</td></tr></table>");
         }
     }
-    
+
     private static void showRemoveBookForm(PrintWriter pw) {
         String form = "<form action=\"removebook\" method=\"post\" class='my-5'>\r\n"
                 + "        <table class=\"tab\">\r\n"

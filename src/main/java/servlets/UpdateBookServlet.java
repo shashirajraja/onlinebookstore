@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.constant.BookStoreConstants;
+import com.bittercode.constant.ResponseCode;
 import com.bittercode.constant.db.BooksDBConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.UserRole;
@@ -46,7 +47,7 @@ public class UpdateBookServlet extends HttpServlet {
 
                 Book book = new Book(bCode, bName, bAuthor, bPrice, bQty);
                 String message = bookService.updateBook(book);
-                if ("SUCCESS".equalsIgnoreCase(message)) {
+                if (ResponseCode.SUCCESS.name().equalsIgnoreCase(message)) {
                     pw.println(
                             "<table class=\"tab\"><tr><td>Book Detail Updated Successfully!</td></tr></table>");
                 } else {

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bittercode.constant.BookStoreConstants;
+import com.bittercode.constant.ResponseCode;
 import com.bittercode.constant.db.UsersDBConstants;
 import com.bittercode.model.User;
 import com.bittercode.model.UserRole;
@@ -40,7 +41,7 @@ public class CustomerRegisterServlet extends HttpServlet {
         try {
             String respCode = userService.register(UserRole.CUSTOMER, user);
             System.out.println(respCode);
-            if ("SUCCESS".equalsIgnoreCase(respCode)) {
+            if (ResponseCode.SUCCESS.name().equalsIgnoreCase(respCode)) {
                 RequestDispatcher rd = req.getRequestDispatcher("CustomerLogin.html");
                 rd.include(req, res);
                 pw.println("<table class=\"tab\"><tr><td>User Registered Successfully</td></tr></table>");

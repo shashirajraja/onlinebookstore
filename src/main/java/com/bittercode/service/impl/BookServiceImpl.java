@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bittercode.constant.ResponseCode;
 import com.bittercode.constant.db.BooksDBConstants;
 import com.bittercode.model.Book;
 import com.bittercode.model.StoreException;
@@ -17,7 +18,7 @@ public class BookServiceImpl implements BookService {
 
     private static final String getAllBooksQuery = "SELECT * FROM " + BooksDBConstants.TABLE_BOOK;
     private static final String getBookByIdQuery = "SELECT * FROM " + BooksDBConstants.TABLE_BOOK
-            + " WHERE BARCODE = ?";
+            + " WHERE " + BooksDBConstants.COLUMN_BARCODE + " = ?";
 
     private static final String deleteBookByIdQuery = "DELETE FROM " + BooksDBConstants.TABLE_BOOK + "  WHERE "
             + BooksDBConstants.COLUMN_BARCODE + "=?";
@@ -64,7 +65,7 @@ public class BookServiceImpl implements BookService {
     public List<Book> getAllBooks() throws StoreException {
         List<Book> books = new ArrayList<Book>();
         Connection con = DBUtil.getConnection();
-        
+
         try {
             PreparedStatement ps = con.prepareStatement(getAllBooksQuery);
             ResultSet rs = ps.executeQuery();
@@ -86,15 +87,15 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String deleteBookById(String bookId) throws StoreException{
-        String response = "FAILED";
+    public String deleteBookById(String bookId) throws StoreException {
+        String response = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(deleteBookByIdQuery);
             ps.setString(1, bookId);
             int k = ps.executeUpdate();
             if (k == 1) {
-                response = "SUCCESS";
+                response = ResponseCode.SUCCESS.name();
             }
         } catch (Exception e) {
             response += " : " + e.getMessage();
@@ -104,8 +105,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String addBook(Book book) throws StoreException{
-        String responseCode = "FAILED";
+    public String addBook(Book book) throws StoreException {
+        String responseCode = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(addBookQuery);
@@ -116,7 +117,7 @@ public class BookServiceImpl implements BookService {
             ps.setInt(5, book.getQuantity());
             int k = ps.executeUpdate();
             if (k == 1) {
-                responseCode = "SUCCESS";
+                responseCode = ResponseCode.SUCCESS.name();
             }
         } catch (Exception e) {
             responseCode += " : " + e.getMessage();
@@ -126,15 +127,15 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public String updateBookQtyById(String bookId, int quantity) throws StoreException{
-        String responseCode = "FAILED";
+    public String updateBookQtyById(String bookId, int quantity) throws StoreException {
+        String responseCode = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(updateBookQtyByIdQuery);
             ps.setInt(1, quantity);
             ps.setString(2, bookId);
             ps.executeUpdate();
-            responseCode = "SUCCESS";
+            responseCode = ResponseCode.SUCCESS.name();
         } catch (Exception e) {
             responseCode += " : " + e.getMessage();
             e.printStackTrace();
@@ -171,7 +172,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public String updateBook(Book book) throws StoreException {
-        String responseCode = "FAILED";
+        String responseCode = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(updateBookByIdQuery);
@@ -181,7 +182,7 @@ public class BookServiceImpl implements BookService {
             ps.setInt(4, book.getQuantity());
             ps.setString(5, book.getBarcode());
             ps.executeUpdate();
-            responseCode = "SUCCESS";
+            responseCode = ResponseCode.SUCCESS.name();
         } catch (Exception e) {
             responseCode += " : " + e.getMessage();
             e.printStackTrace();

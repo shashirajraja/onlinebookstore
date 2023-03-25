@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bittercode.constant.ErrorCodes;
+import com.bittercode.constant.ResponseCode;
 import com.bittercode.model.StoreException;
 import com.bittercode.model.UserRole;
 import com.bittercode.util.StoreUtil;
@@ -26,10 +26,12 @@ public class ErrorHandlerServlet extends HttpServlet {
         Integer statusCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
         String servletName = (String) req.getAttribute("javax.servlet.error.servlet_name");
         String requestUri = (String) req.getAttribute("javax.servlet.error.request_uri");
-        String errorMessage = ErrorCodes.INTERNAL_SERVER_ERROR.getMessage();
-        String errorCode = ErrorCodes.INTERNAL_SERVER_ERROR.name();
+        String errorMessage = ResponseCode.INTERNAL_SERVER_ERROR.getMessage();
+        String errorCode = ResponseCode.INTERNAL_SERVER_ERROR.name();
 
-        Optional<ErrorCodes> errorCodes = ErrorCodes.getMessageByStatusCode(statusCode);
+        if (statusCode == null)
+            statusCode = 0;
+        Optional<ResponseCode> errorCodes = ResponseCode.getMessageByStatusCode(statusCode);
         if (errorCodes.isPresent()) {
             errorMessage = errorCodes.get().getMessage();
             errorCode = errorCodes.get().name();
