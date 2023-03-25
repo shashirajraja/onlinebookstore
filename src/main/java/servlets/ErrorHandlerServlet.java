@@ -29,6 +29,8 @@ public class ErrorHandlerServlet extends HttpServlet {
         String errorMessage = ResponseCode.INTERNAL_SERVER_ERROR.getMessage();
         String errorCode = ResponseCode.INTERNAL_SERVER_ERROR.name();
 
+        if (statusCode == null)
+            statusCode = 0;
         Optional<ResponseCode> errorCodes = ResponseCode.getMessageByStatusCode(statusCode);
         if (errorCodes.isPresent()) {
             errorMessage = errorCodes.get().getMessage();

@@ -42,7 +42,7 @@ public class StoreUtil {
             // Items will contain comma separated bookIds that needs to be added in the cart
             String items = (String) session.getAttribute("items");
             if (req.getParameter("addToCart") != null) { // add to cart
-                if (items == null)
+                if (items == null || items.length() == 0)
                     items = selectedBookId;
                 else if (!items.contains(selectedBookId))
                     items = items + "," + selectedBookId; // if items already contains bookId, don't add it
