@@ -3,8 +3,10 @@ package com.bittercode.constant;
 import java.util.Arrays;
 import java.util.Optional;
 
-public enum ErrorCodes {
+public enum ResponseCode {
 
+    SUCCESS(200, "OK"),
+    FAILURE(422, "Unprocessible Entity, Failed to Process"),
     PAGE_NOT_FOUND(404, "The Page You are Searching For is Not available"),
     ACCESS_DENIED(403, "Please Login First to continue"),
     BAD_REQUEST(400, "Bad Request, Please Try Again"),
@@ -18,7 +20,7 @@ public enum ErrorCodes {
     private final String message;
     private final int code;
 
-    ErrorCodes(int code, String message) {
+    ResponseCode(int code, String message) {
         this.message = message;
         this.code = code;
     }
@@ -32,8 +34,8 @@ public enum ErrorCodes {
     }
 
     // Reverse lookup methods
-    public static Optional<ErrorCodes> getMessageByStatusCode(int statusCode) {
-        return Arrays.stream(ErrorCodes.values())
+    public static Optional<ResponseCode> getMessageByStatusCode(int statusCode) {
+        return Arrays.stream(ResponseCode.values())
                 .filter(error -> error.getCode() == statusCode)
                 .findFirst();
     }

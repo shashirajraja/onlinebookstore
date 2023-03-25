@@ -2,7 +2,7 @@ package com.bittercode.model;
 
 import java.io.IOException;
 
-import com.bittercode.constant.ErrorCodes;
+import com.bittercode.constant.ResponseCode;
 
 public class StoreException extends IOException {
 
@@ -17,7 +17,7 @@ public class StoreException extends IOException {
         this.errorMessage = errorMessage;
     }
 
-    public StoreException(ErrorCodes errorCodes) {
+    public StoreException(ResponseCode errorCodes) {
         super(errorCodes.getMessage());
         this.statusCode = errorCodes.getCode();
         this.errorMessage = errorCodes.getMessage();
