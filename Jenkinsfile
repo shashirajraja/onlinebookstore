@@ -7,5 +7,10 @@ pipeline {
               	    echo "repo cloned successfully"  
               	    }  
          	    } 
+             stage("build") {  
+           	    steps {  
+              	    echo "executing maven goal"  
+              	    }  
+         	    } 
         }
 }
