@@ -26,6 +26,8 @@ insert into  books values('9780132350884','Clean Code: A Handbook of Agile Softw
 
 insert into  books values('9780132181273','Domain-Driven Design','Eric Evans',560,28);
 
+insert into  books values('9780132181785', 'Let us C', 'Yashavant Kanetkar', 329, 15);
+
 insert into  books values('9781951204006','A Programmers Guide to Computer Science','William Springer',188,4);
 
 insert into  books values('9780316204552','The Soul of a New Machine','Tracy Kidder',293,30);
