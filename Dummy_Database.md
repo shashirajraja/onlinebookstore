@@ -9,6 +9,7 @@ create table if not exists books(barcode varchar(100) primary key, name varchar(
 
 create table if not exists users(username varchar(100) primary key,password varchar(100), firstname varchar(100),lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int);
 
+insert into  books values('9780134190500', 'Data Structures Through C', 'G.S. Baluja', 525, 20);
 
 insert into  books values('9780134190563','The Go Programming Language','Alan A. A. Donovan and Brian W. Kernighan',400,8);
 
