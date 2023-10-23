@@ -13,9 +13,9 @@ body {
 	text-align: center;
 	font-weight: bold;
 	margin: auto;
-	font-style: oblique;
+	font-style: inherit;
 	font-size: 25px;
-	text-shadow: 2px 2px #ff0000;
+	text-shadow: 2px 2px #252ba0;
 }
 
 .tab {
@@ -26,14 +26,14 @@ body {
 }
 
 .tab tr {
-	border: 1px black hidden;
+	border: 1px black solid;
 	border-radius: 10px;
-	background-color: #FFE5CC;
+	backdrop-filter: blur(50px);
 	font-size: 22px;
 	float:left;
 	padding-left:17%;
 	padding-bottom:5px;
-	padding-top:2px;
+	padding-top:3px;
 	margin-bottom:10px;
 	width:100%;
 }
