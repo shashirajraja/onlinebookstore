@@ -21,4 +21,6 @@ public interface BookService {
     
     public String updateBook(Book book) throws StoreException;
 
+    String addReturn(String bookName, String email, String reason) throws StoreException;
+
 }

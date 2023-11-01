@@ -122,6 +122,22 @@
 		<servlet-name>ProcessPaymentServlet</servlet-name>
 		<url-pattern>/pay</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>ReturnBookServlet</servlet-name>
+		<servlet-class>servlets.ReturnBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReturnBookServlet</servlet-name>
+		<url-pattern>/return</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SubmitReturnBook</servlet-name>
+		<servlet-class>servlets.SubmitReturnBook</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SubmitReturnBook</servlet-name>
+		<url-pattern>/submitReturn</url-pattern>
+	</servlet-mapping>
 
 	<!-- Error Handlers -->
 	<servlet>
