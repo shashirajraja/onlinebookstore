@@ -127,6 +127,24 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public String addReturn(String bookName, String email, String reason) throws StoreException {
+        String responseCode = ResponseCode.FAILURE.name();
+        Connection con = DBUtil.getConnection();
+        try {
+            String addReturnQuery = "INSERT INTO returnbook VALUES('" + bookName + "','" + email + "','" + reason + "')";
+            PreparedStatement ps = con.prepareStatement(addReturnQuery);
+            int k = ps.executeUpdate();
+            if (k == 1) {
+                responseCode = ResponseCode.SUCCESS.name();
+            }
+        } catch (Exception e) {
+            responseCode += " : " + e.getMessage();
+            e.printStackTrace();
+        }
+        return responseCode;
+    }
+
+    @Override
     public String updateBookQtyById(String bookId, int quantity) throws StoreException {
         String responseCode = ResponseCode.FAILURE.name();
         Connection con = DBUtil.getConnection();

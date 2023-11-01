@@ -77,6 +77,8 @@ create table if not exists books(barcode varchar(100) primary key, name varchar(
 create table if not exists users(username varchar(100) primary key,password varchar(100), firstname varchar(100),
     lastname varchar(100),address text, phone varchar(100),mailid varchar(100),usertype int);
 
+create table if not exists returnBook(book_name varchar(1000), email varchar(100), reason varchar(10000));
+
 insert into books values('9780134190563','The Go Programming Language','Alan A. A. Donovan and Brian W. Kernighan',400,8);
 insert into books values('9780133053036','C++ Primer','Stanley Lippman and Josée Lajoie and Barbara Moo',976,13);
 insert into books values('9781718500457','The Rust Programming Language','Steve Klabnik and Carol Nichols',560,12);
