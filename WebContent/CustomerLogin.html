@@ -1,0 +1,200 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Store</title>
+<link rel="apple-touch-icon" sizes="180x180"
+	href="./favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="./favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="./favicons/favicon-16x16.png">
+<link rel="manifest" href="./favicons/site.webmanifest">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* COMPACT CAPTCHA YELLOW */
+.capbox {
+	background: #ccc2a7;
+	background: linear-gradient(to right, #ccc2a7, #8f8874);
+	border: #5c574b 0px solid;
+	border-width: 2px 2px 2px 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: inline-block;
+	padding: 5px 8px 5px 8px;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.capbox-inner {
+	font: bold 12px arial, sans-serif;
+	color: #000000;
+	background: rgba(255, 255, 255, 0.30);
+	/* SEMI TRANSPARENT BACKGROUND */
+	margin: 0px auto 0px auto;
+	padding: 3px 8px 5px 10px;
+	border-radius: 4px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#CaptchaDiv {
+	color: #000000;
+	font: normal 25px Impact, Charcoal, arial, sans-serif;
+	font-style: italic;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #FFFFFF;
+	user-select: none;
+	display: inline-block;
+	padding: 3px 14px 3px 8px;
+	margin-right: 4px;
+	border-radius: 4px;
+}
+
+#CaptchaInput {
+	border: black 2px solid;
+	margin: 3px 0px 1px 0px;
+	width: 105px;
+}
+
+input {
+	padding: 2px 2px;
+	margin: 2px 0;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+</style>
+</head>
+<body onload="funload()">
+	<header>
+		<nav class="navbar navbar-expand-sm bg-dark">
+			<a class="navbar-brand"> <!-- The below line can be an image or a h1, either will work -->
+				<img src="logo.png" alt="Google logo" width="60" height="30px">
+			</a>
+
+			<button style="background-color: white;" class="navbar-toggler"
+				type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><span><a class="nav-link"
+							href="index.html">Home</a></span></li>
+					<li class="nav-item "><span><a class="nav-link active"
+							href="login.html">Login</a></span></li>
+					<li class="nav-item "><span><a class="nav-link"
+							href="CustomerRegister.html">Register</a></span></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div id="topmid">
+		<h1>Welcome to Online Book Store</h1>
+	</div>
+
+	<form action="userlog" method="post" onsubmit="checkform()"
+		id="theform">
+		<table class="tab" style="width: 40%">
+			<tr style="color: brown; padding-left: 35%">
+				<td>Customer LOGIN</td>
+			</tr>
+			<tr>
+				<td><a href="SellerLogin.html"
+					style="color: blue; font-size: medium;">Are you Seller?, Click
+						Here to Login as Admin</a></td>
+			</tr>
+			<tr>
+				<td><label for="userName">Username : </label> <input
+					type="text" name="username" id="userName"
+					placeholder="Enter your Username"><br /> <br /> <label
+					for="Password">Password : </label> <input type="password"
+					name="password" placeholder="Enter Password" id="Password"><br />
+					<br />
+
+					<div class="capbox">
+						<div id="CaptchaDiv">46749</div>
+						<div class="capbox-inner">
+							<input type="hidden" id="txtCaptcha" value="46749"> <input
+								type="text" name="CaptchaInput" id="CaptchaInput" size="15"
+								placeholder="Enter Captcha"><br>
+						</div>
+					</div> <br />
+				<br /> <input class="btn btn-success" type="submit"
+					value=" Login as an User  "></td>
+			</tr>
+		</table>
+	</form>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+
+
+		// Preloder script
+		var tmp = document.getElementById("loding");
+		function funload() {
+		  loding.style.display = "none";
+		}
+	  
+  
+
+		// Captcha Script
+
+		function checkform() {
+			var theform = document.getElementById("theform");
+			var why = "";
+
+			if (theform.CaptchaInput.value == "") {
+				why += "- Please Enter CAPTCHA Code.\n";
+			}
+			if (theform.CaptchaInput.value != "") {
+				if (ValidCaptcha(theform.CaptchaInput.value) == false) {
+					why += "- The CAPTCHA Code Does Not Match.\n";
+				}
+			}
+			if (why != "") {
+				alert(why);
+				event.preventDefault();
+				return false;
+			}
+			return true;
+		}
+
+		var a = Math.ceil(Math.random() * 9) + '';
+		var b = Math.ceil(Math.random() * 9) + '';
+		var c = Math.ceil(Math.random() * 9) + '';
+		var d = Math.ceil(Math.random() * 9) + '';
+		var e = Math.ceil(Math.random() * 9) + '';
+
+		var code = a + b + c + d + e;
+		document.getElementById("txtCaptcha").value = code;
+		document.getElementById("CaptchaDiv").innerHTML = code;
+
+		// Validate input against the generated number
+		function ValidCaptcha() {
+			var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+			var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+			if (str1 == str2) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		// Remove the spaces from the entered and generated code
+		function removeSpaces(string) {
+			return string.split(' ').join('');
+		}
+	</script>
+</body>
+</html>
