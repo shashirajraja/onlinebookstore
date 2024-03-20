@@ -9,4 +9,4 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-      time: "Thursday at 12:09"
+      time: "Thursday at 12:14"
