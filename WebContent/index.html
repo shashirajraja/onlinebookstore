@@ -15,13 +15,14 @@
 </head>
 <body onload="funload()">
 	<header>
-		<nav class="navbar navbar-expand-sm bg-dark">
+		<nav class="navbar navbar-expand-sm bg-primary">
 				<a class="navbar-brand">
 					<!-- The below line can be an image or a h1, either will work -->
-					<img src="logo.png" alt="Google logo" width="60" height="30px">
+					<img src="logo.png" alt="Google logo" style="    height: 35px;
+					scale: 1.32;">
 				</a>
 				
-				<button style="background-color:white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				    <span class="navbar-toggler-icon" ></span>
 				 </button>
 
@@ -35,13 +36,62 @@
 			</nav>
 	</header>
 	<br>
-	<div id="topmid"><h1>Welcome to Online <br>Book Store</h1></div>
-	<br>
-	<table class="tab">
+	<!-- <div id="topmid"><h1>Welcome to Online Book Store</h1></div> -->
+	<!-- <br> -->
+	<!-- <table class="tab">
 		<tr>
 			<td><a href="index.html" id="happy">Happy Learning!!<br>Welcome to our book store!</a></td>
 		</tr>
-	</table>
+	</table> -->
+	<!-- <div class="form-box">
+		<form class="form">
+			<span class="title">Sign up</span>
+			<span class="subtitle">Create a free account with your email.</span>
+			<div class="form-container">
+			  <input type="text" class="input" placeholder="Full Name">
+					<input type="email" class="input" placeholder="Email">
+					<input type="password" class="input" placeholder="Password">
+			</div>
+			<button>Sign up</button>
+		</form>
+		<div class="form-section">
+		  <p>Have an account? <a href="">Log in</a> </p>
+		</div>
+		</div> -->
+	<!-- <div class="container">
+		<form action="userlog" method="post" onsubmit="checkform()"
+		id="theform">
+		<table class="tab" style="width: 40%">
+			<tr style="color: brown; padding-left: 35%">
+				<td>Customer LOGIN</td>
+			</tr>
+			<tr>
+				<td><a href="SellerLogin.html"
+					style="color: blue; font-size: medium;">Are you Seller?, Click
+						Here to Login as Admin</a></td>
+			</tr>
+			<tr>
+				<td><label for="userName">Username : </label> <input
+					type="text" name="username" id="userName"
+					placeholder="Enter your Username"><br /> <br /> <label
+					for="Password">Password : </label> <input type="password"
+					name="password" placeholder="Enter Password" id="Password"><br />
+					<br />
+
+					<div class="capbox">
+						<div id="CaptchaDiv">46749</div>
+						<div class="capbox-inner">
+							<input type="hidden" id="txtCaptcha" value="46749"> <input
+								type="text" name="CaptchaInput" id="CaptchaInput" size="15"
+								placeholder="Enter Captcha"><br>
+						</div>
+					</div> <br />
+				<br /> <input class="btn btn-success" type="submit"
+					value=" Login as an User  "></td>
+			</tr>
+		</table>
+	</form>
+	</div> -->
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" ></script>
