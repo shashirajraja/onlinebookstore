@@ -47,9 +47,16 @@
 				<configuration>
 					<warSourceDirectory>WebContent</warSourceDirectory>
 				</configuration>
-			</plugin>
+		</plugin>
+		<plugin>
+         <groupId>org.sonarsource.scanner.maven</groupId>
+         <artifactId>sonar-maven-plugin</artifactId>
+         <version>3.9.1.2184</version> <!-- Or the latest stable version -->
+        </plugin>
+
 		</plugins>
 	</build>
+	
 	<dependencies>
 
 		<dependency>
@@ -62,7 +69,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.28</version>
+			<version>8.0.33</version>
 		</dependency>
 
 
@@ -72,4 +79,13 @@
 			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
+
+<distributionManagement>
+	 <snapshotRepository>
+	      <id>nexus</id>
+	      <name>oninebookstore Snapshot Nexus Repository </name>
+	      <url>http://3.111.245.164:8081/repository/maven-snapshots/</url>
+	    </snapshotRepository>
+</distributionManagement>
+	
 </project>

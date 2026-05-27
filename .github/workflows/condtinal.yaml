@@ -1,0 +1,12 @@
+name: outputworkflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  conditionalstatement:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print conditional statement
+        if: github.actor == 'hari' || github.actor == 'srinivasulu762'
+        run: echo "it is trgieer either by ravi or srinivasulu762"

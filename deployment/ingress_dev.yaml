@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-onlinestore
+  namespace: dev-swt
+spec:
+  rules:
+  - host: a70aa548f5e6642a68b1b01b082b1311-1998060443.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /onlinebookstore
+        pathType: Prefix
+        backend:
+          service:
+            name: onlinebookstore
+            port:
+              number: 80

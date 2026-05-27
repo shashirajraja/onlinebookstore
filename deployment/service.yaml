@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  onlinebookstore
+  namespace: dev-swt
+spec:
+  type: ClusterIP
+  selector:
+    name: onlinestore
+  ports:
+  - name: http
+    port:  80
+    targetPort:  8080

@@ -1,0 +1,28 @@
+name: buiildanddeploy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+     - opened
+     - synchronize
+jobs:
+   build:
+     runs-on: ubuntu-22.04-arm
+     if: github.event_name == 'pull_request'
+     steps:
+      - name: deploytobuild
+        run: echo "print build job is depoyed
+   deploy:
+      runs-on: ubuntu-22.04-arm
+      if: github.event_name == 'push' && github.ref_name == 'master'
+      steps:
+        - name: deploy the job
+          run: echo "print deploy job"
+  
+
+
+     
+      

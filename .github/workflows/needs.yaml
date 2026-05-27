@@ -1,0 +1,35 @@
+name: needworkflow
+
+on:
+ workflow_dispatch:
+ 
+jobs:
+  need_jobpipline:
+   runs-on: ubuntu-24.08
+   steps:
+    - run: echo "print first job"
+    - run: echo "one or more job run based on this job"
+  second_job:
+   runs-on: ubuntu-24.0
+   needs: 
+   - need_jobpipline
+   steps:
+    - run: echo "rnn the second jon"
+  thrid_job:
+    runs-on: ubuntu-24.0
+    needs:
+     - need_jobpipline
+     - second_job
+     steps:
+      - run: echo "print first and second based on thrid"
+      
+  
+    
+    
+      
+   
+  
+  
+  
+
+   

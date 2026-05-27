@@ -1,0 +1,77 @@
+
+
+name: partose pipeline
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Select branch to run workflow on'
+        required: true
+        default: 'master'
+        type: choice
+        options:
+          - master
+          - develop
+          - feature/*
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'test'
+        type: choice
+        options:
+          - test
+          - dev
+          - prod
+jobs:
+  gitleaksscan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        with:
+          args: detect --source . --verbose --redact --exit-code 1
+
+  build_onlinebookstore:
+    needs: gitleaksscan
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/master') ||
+      (github.event_name == 'workflow_dispatch' &&
+       github.event.inputs.branch == 'master' &&
+       github.event.inputs.environment == 'test')
+    environment: test
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build project
+        run: mvn install -DskipTests
+
+      - name: Build and Push Docker image
+        run: |
+          docker build -t srinivasulukokkinti/onlinebookstore:latest .
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u srinivasulukokkinti --password-stdin
+          docker push srinivasulukokkinti/onlinebookstore:latest
+          docker logout

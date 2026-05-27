@@ -1,0 +1,11 @@
+name: call rsuavle workflow
+on:
+ push:
+   branches:
+     - master
+jobs:
+  call-gretting:
+    uses: ./.github/workflows/reuse.yaml
+    with:
+      name: "srinu"
+    

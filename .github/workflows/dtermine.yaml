@@ -1,0 +1,30 @@
+name: buiildanddeploy
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - feature/**
+jobs:
+  staticcodeanlaysis:
+      runs-on: ubuntu-24.04
+      if: startsWith(github.ref_name,'feature') && github.event_name == 'push'
+      steps:
+        - name: staticcidenalus
+          run: print static code analysi
+  devjob:
+     runs-on: ubuntu-22.04
+     if: github.ref_name == 'dev' && github.event_name == 'push'
+     steps:
+       - name:
+        run: echo "devjobrunning'
+  producrtijib:
+    runs-on: ubuntu-22.04
+    if: github.ref_name == 'master' && github.event_name == 'push'
+    steps:
+       - name: masterjobdepu
+        run: echo "masterjobrunning'
+          
+   
+      

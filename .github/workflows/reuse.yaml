@@ -1,0 +1,21 @@
+name: resuseworkflow
+on:
+ workflow_call:
+  inputs:
+    name:
+     description: this is workflow
+     type: string
+     required: true
+     
+      
+     
+jobs:
+  resuavlaeflow:
+    runs-on: ubuntu-24.04
+    steps:
+     - name: this is resuableflow
+       run: echo "welcome ${{ inputs.name }} welcome to reusalve work flow"
+       
+   
+ 
+ 

@@ -28,11 +28,11 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>CustomerLoginServlet</servlet-name>
-		<servlet-class>servlets.CustomerLoginServlet</servlet-class>
+		<servlet-class>servlets.OnlineBookStoreServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CustomerLoginServlet</servlet-name>
-		<url-pattern>/userlog</url-pattern>
+		<url-pattern>/onlinebookstore/*</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>AboutServlet</servlet-name>

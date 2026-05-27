@@ -1,0 +1,29 @@
+node{
+   properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '2')), pipelineTriggers([cron('* * * * *')])])
+
+def mavenHome = tool name: "maven3.8.5"
+stage("code checkout")
+{
+
+git credentialsId: '832eaf48-5107-4fdd-977f-158858eaa6b5', url: 'https://github.com/srinivasulu762/onlinebookstore.git'
+}
+stage("build package")
+{
+sh "$mavenHome/bin/mvn clean package"
+}
+stage("qulity anlayis")
+{
+sh "$mavenHome/bin/mvn sonar:sonar"
+}
+stage("deploy artficat in nexus")
+{
+sh "$mavenHome/bin/mvn deploy"
+}
+stage("deploying application in tomcat")
+{
+sshagent(['f479cd6f-22a0-4f48-838f-223b339d3a36']) {
+    sh "scp -o StrictHostKeyChecking=no target/onlinebookstore.war ec2-user@3.26.192.44:/opt/tomcat/webapps/"
+
+}
+}
+}

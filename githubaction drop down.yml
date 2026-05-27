@@ -1,0 +1,27 @@
+name: CI Workflow
+
+on:
+  branch:
+    push:
+      branches:
+      - develop
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Select branch to run workflow on'
+        required: true
+        default: 'main'
+        type: choice
+        options:
+        - main
+        - develop
+        - feature/awesome-feature
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout selected branch
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.branch }}
