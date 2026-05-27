@@ -22,7 +22,7 @@ jobs:
      - second_job
      steps:
       - run: print(print job1 and job2)
-        shell: python.
+        shell: python
       
   
     
