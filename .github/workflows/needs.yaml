@@ -21,8 +21,7 @@ jobs:
      - need_jobpipline
      - second_job
      steps:
-      - run: print(print job1 and job2)
-        shell: python
+      - run: echo "print first and second based on thrid"
       
   
     
