@@ -1,0 +1,110 @@
+name: Java CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+env:
+  JAVA_VERSION: 8
+  MAVEN_OPTS: -Xmx1024m
+  ARTIFACT_NAME: onlinebookstore
+  WAR_FILE: ${{ env.ARTIFACT_NAME }}.war
+
+jobs:
+  build:
+    name: Build and Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Cache Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build WAR artifact
+        run: |
+          mvn -B clean package -DskipTests
+
+      - name: Upload WAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: war-artifact
+          path: target/${{ env.WAR_FILE }}
+
+  verify:
+    name: Dummy Verification
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Placeholder stage
+        run: |
+          echo "Dummy stage: add real static analysis, unit tests, or acceptance tests here"
+          echo "Built artifact: target/${{ env.WAR_FILE }}"
+
+      - name: Skipping real verification for now
+        run: |
+          echo "Skipping verification stage for now. This is a placeholder step."
+          echo "dummy_code=print('placeholder')" > dummy-code.txt
+          cat dummy-code.txt
+
+  deploy:
+    name: Deploy to Remote Tomcat
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Download WAR artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: war-artifact
+          path: ./artifact
+
+      - name: Copy WAR to remote server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          source: ./artifact/${{ env.WAR_FILE }}
+          target: /tmp
+
+      - name: Deploy WAR on remote Tomcat and smoke test
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script: |
+            REMOTE_TOMCAT_HOME=/opt/tomcat8
+            sudo $REMOTE_TOMCAT_HOME/bin/shutdown.sh || true
+            sudo rm -f $REMOTE_TOMCAT_HOME/webapps/${{ env.ARTIFACT_NAME }}.war
+            sudo rm -rf $REMOTE_TOMCAT_HOME/webapps/${{ env.ARTIFACT_NAME }}
+            sudo mv /tmp/${{ env.WAR_FILE }} $REMOTE_TOMCAT_HOME/webapps/
+            sudo $REMOTE_TOMCAT_HOME/bin/startup.sh
+            sleep 5
+            curl -I http://localhost:8080/${{ env.ARTIFACT_NAME }}/
+
+      - name: Deployment completed
+        run: echo "Deployment to remote Tomcat completed."
+
+# Notes:
+# - This workflow builds the WAR using the pom.xml artifactId/finalName.
+# - The deploy job is optional and requires GitHub Secrets: SSH_HOST, SSH_USER, SSH_KEY, and optionally SSH_PORT.
+# - If you do not have a remote Tomcat server, skip or remove the deploy job.
+# - For AWS CodeDeploy or other targets, reuse appspec.yaml and scripts/ as needed.
