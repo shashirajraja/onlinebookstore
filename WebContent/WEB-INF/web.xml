@@ -38,9 +38,17 @@
 		<servlet-name>AboutServlet</servlet-name>
 		<servlet-class>servlets.AboutServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DebugUsersServlet</servlet-name>
+		<servlet-class>servlets.DebugUsersServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>AboutServlet</servlet-name>
 		<url-pattern>/about</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DebugUsersServlet</servlet-name>
+		<url-pattern>/debug/users</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>
