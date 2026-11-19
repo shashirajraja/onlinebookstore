@@ -1,3 +1,59 @@
+## Como executar (versão refatorada)
+
+> Seção adicionada no projeto de Evolução de Software (UCSal). O conteúdo original do README continua abaixo, sem alterações.
+
+### Pré-requisitos
+
+- JDK 8 ou superior
+- Maven 3
+- Docker Desktop (ou Docker Engine com o plugin `docker compose`)
+
+### 1. Subir o banco de dados (MySQL 8)
+
+```bash
+docker compose up -d
+```
+
+O `docker-compose.yml` cria o banco `onlinebookstore` em `localhost:3306` com usuário `root` e senha `root`, os mesmos valores de `src/main/resources/application.properties`. Na primeira subida, o script `setup/mysql/init.sql` cria as tabelas e insere os livros e usuários de teste.
+
+Para apagar os dados e recriar o banco do zero:
+
+```bash
+docker compose down -v
+docker compose up -d
+```
+
+> O arquivo `setup/CreateDatastore.sql` usa sintaxe PostgreSQL e não funciona no MySQL. Ele foi mantido apenas como registro do sistema legado.
+
+### 2. Compilar e executar a aplicação
+
+```bash
+mvn package
+java -jar target/dependency/webapp-runner.jar target/onlinebookstore.war
+```
+
+Acesse http://localhost:8080.
+
+### 3. Usuários de teste
+
+| Perfil | Usuário | Senha |
+|---|---|---|
+| Cliente | `shashi` | `shashi` |
+| Cliente | `demo` | `demo` |
+| Vendedor | `Admin` | `Admin` |
+
+### Arquitetura da camada de visão (em migração)
+
+No sistema legado, os servlets montam o HTML com `PrintWriter.println(...)` depois de incluir um `.html` que já termina em `</html>`, o que gera páginas inválidas. A refatoração separa as responsabilidades:
+
+- o **servlet só coordena**: lê a requisição, chama os serviços, define atributos com `request.setAttribute(...)` e faz `forward` para a JSP;
+- a **JSP só exibe**: as páginas ficam em `WebContent/WEB-INF/views/` e reutilizam fragmentos comuns (cabeçalho e menus) de `WebContent/WEB-INF/views/fragments/`;
+- os caminhos das JSPs ficam centralizados em `com.bittercode.constant.Views`.
+
+A migração é incremental: as páginas ainda não migradas continuam funcionando no modelo antigo.
+
+---
+
 # <a href="https://youtu.be/mLFPodZO8Iw" target="_blank"> OnlineBookStore </a> 
 - A Java Web Developement Project
 - **Youtube VIDEO** for step by step Local Setup Guide : https://youtu.be/mLFPodZO8Iw

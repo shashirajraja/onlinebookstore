@@ -1,0 +1,26 @@
+# Sobe o banco MySQL usado pela aplicacao com um unico comando:
+#   docker compose up -d
+#
+# Os valores batem com src/main/resources/application.properties
+# (localhost:3306, banco onlinebookstore, usuario root/root),
+# entao nao e preciso alterar nada no codigo Java.
+#
+# O script setup/mysql/init.sql roda automaticamente apenas na
+# PRIMEIRA vez (volume vazio). Para recriar o banco do zero:
+#   docker compose down -v && docker compose up -d
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: onlinebookstore-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: onlinebookstore
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./setup/mysql:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
